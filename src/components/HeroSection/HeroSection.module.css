@@ -1,0 +1,23 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 302px;
+  padding-left: 20px;
+  margin-bottom: -24px;
+  background: url(../../images/banner.svg) no-repeat;
+  background-size: cover;
+  color: #f1f0eb;
+  cursor: default;
+}
+
+.headText {
+  font-size: 48px;
+  margin: 2px 0 27px;
+}
+
+.subText {
+  font-size: 24px;
+  font-weight: 500;
+}

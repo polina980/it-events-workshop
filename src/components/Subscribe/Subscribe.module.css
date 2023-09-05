@@ -1,0 +1,115 @@
+.subscribeSection {
+  position: relative;
+  width: 1040px;
+  height: 420px;
+  margin: 24px 0 0 192px;
+  background: #f9f9f9;
+  cursor: default;
+  z-index: -1;
+}
+
+.formText {
+  position: absolute;
+  top: 57px;
+  left: 385px;
+  width: 578px;
+}
+
+.headText {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.8px;
+  padding-bottom: 14px;
+  color: #242424;
+}
+
+.subtext {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  color: #797979;
+  padding-bottom: 15px;
+}
+
+.subscibeForm {
+  display: flex;
+  position: absolute;
+  top: 230px;
+  left: 385px;
+  gap: 12px;
+}
+
+.imgBackground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.man {
+  position: absolute;
+  left: 7px;
+  bottom: 23px;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  left: 128px;
+}
+
+.subscribeInput {
+  width: 354px;
+  height: 51px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid #9e9e9e;
+}
+
+.subscribeInput::placeholder {
+  color: #797979;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.checkboxContainer {
+  display: flex;
+  position: absolute;
+  top: 296px;
+  left: 385px;
+  align-items: start;
+  gap: 7px;
+  font-size: 14px;
+  line-height: 18.2px;
+  max-width: 377px;
+  color: #797979;
+}
+
+.policyLink {
+  color: #797979;
+}
+
+.alreadyButton {
+  position: absolute;
+  top: 352px;
+  left: 389px;
+  color: #797979;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 3.5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

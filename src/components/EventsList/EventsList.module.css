@@ -1,0 +1,28 @@
+.section {
+  width: 100%;
+  max-width: 1232px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 62px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38.4px;
+}
+
+.list {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  height: fit-content;
+  list-style-type: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+}

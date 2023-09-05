@@ -1,0 +1,29 @@
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #674eae;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #443375;
+}
+
+.submitBtn:active {
+  background-color: #291b51;
+}
+
+.submitBtn:disabled {
+  color: #c9ccd8;
+  background-color: white;
+  border: 1px solid #c9ccd8;
+}

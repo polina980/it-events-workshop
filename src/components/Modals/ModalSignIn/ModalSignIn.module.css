@@ -1,0 +1,229 @@
+.modalContainer {
+  max-width: 484px;
+  width: 100%;
+  padding: 60px 70px 90px 70px;
+  cursor: default;
+}
+
+.formTitle {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+.titleContainer {
+  padding-top: 48px;
+  padding-bottom: 8px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.figure {
+  background: url(../../../images/enter_acc.svg) no-repeat center;
+  width: 24px;
+  height: 24px;
+  margin-top: 3px;
+}
+
+.formSubtext {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.linksContainerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 36px;
+}
+
+.registerBtn {
+  text-decoration: none;
+  color: #674eae;
+  font-weight: 500px;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.registerBtn:hover {
+  color: #443375;
+}
+
+.registerBtn:active {
+  color: #291b51;
+}
+
+.noAccount {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.btnForgot {
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16.2px;
+  color: #2688eb;
+}
+
+.btnForgot:hover {
+  text-decoration-line: underline;
+}
+
+.fieldsetContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  min-height: 100px;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16.2px;
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 4px;
+}
+
+.inputContainer {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.03);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  border: none;
+  width: 100%;
+  line-height: 24px;
+}
+
+.input:hover {
+  box-shadow: 0 1px 4px 0 rgba(36, 63, 97, 0.1);
+}
+
+.input:focus {
+  background-color: #fefefe;
+}
+
+.input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.inputError {
+  outline: 1px solid #e62214;
+}
+
+.inputFigure {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  background: url(../../../images/hidden_password.svg) no-repeat center;
+}
+
+.visible {
+  background: url(../../../images/visible_password.svg) no-repeat center;
+}
+
+.span {
+  color: #e62214;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 4px;
+}
+
+.spanError {
+  color: #e62214;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* padding-top: 4px; */
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.checkboxText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16.2px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.errorContainer {
+  padding: 0 0 32px 0;
+  display: flex;
+  align-items: start;
+  gap: 11px;
+}
+
+.serverErrorFigure {
+  background: url(../../../images/error.svg) no-repeat center;
+  width: 30px;
+  height: 20px;
+}
+
+.serverError {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #e62214;
+}
+
+.paddingNoError {
+  padding-bottom: 40px;
+}
+
+.paddingError {
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .modalContainer {
+    padding: 30px 20px 40px 20px;
+  }
+}

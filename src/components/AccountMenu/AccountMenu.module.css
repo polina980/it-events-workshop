@@ -1,0 +1,75 @@
+.accountMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: fit-content;
+}
+
+.userLogo {
+  display: flex;
+  margin: 24px 0 0;
+  gap: 16px;
+}
+
+.accountTabs {
+  width: 295px;
+  height: 328px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: start;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 40px 100px 40px 32px;
+  position: relative;
+}
+
+.activeAccountTab {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 24px;
+  font-weight: 700;
+}
+
+.accountTab {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 24px;
+  text-decoration: none;
+}
+
+.accountTabContent {
+  width: 823px;
+}
+
+.titleUser {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.subtitleUser {
+  color: #525252;
+  padding-bottom: 84px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.titleEvents {
+  font-size: 48px;
+  font-weight: 700px;
+  line-height: 110px;
+  color: rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  margin: -28px 0 -15px;
+}
+
+.subtitleEvents {
+  width: 296px;
+  margin-bottom: 38px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.6);
+}

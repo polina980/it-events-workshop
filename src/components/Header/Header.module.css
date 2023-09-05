@@ -1,0 +1,45 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.borderContainer {
+  width: 100vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.linksContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 103px 0 104px;
+  height: 113px;
+}
+
+.navigationBar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navLink {
+  width: 98px;
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: none;
+  color: #181818;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.searchFieldContainer {
+  margin: 10px 0 0 103px;
+}
