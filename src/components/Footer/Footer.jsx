@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Logo from '../Logo/Logo';
+import Logo from '../../UI-kit/Logo/Logo';
 import GitHubLogo from '../../images/SocialNetworks/GitHub.svg';
 import MessengerLogo from '../../images/SocialNetworks/Messenger.svg';
 import VkLogo from '../../images/SocialNetworks/VK.svg';

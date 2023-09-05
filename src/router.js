@@ -14,7 +14,7 @@ const router = createBrowserRouter(
         path="events/:id"
         element={<page.EventPage />}
         loader={page.eventLoader}
-        errorElement={<page.EventErrorPage />}
+        // errorElement={<page.NotFoundPage />}
       />
     
       <Route path="favorites" element={<page.FavoritesPage />} />

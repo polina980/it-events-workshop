@@ -2,17 +2,6 @@
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-  }
-
-  .borderContainer {
-    width: 100vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
   .linksContainer {
     display: flex;
     align-items: center;
@@ -37,9 +26,5 @@
         gap: 5px;
       }
     }
-  }
-
-  .searchFieldContainer {
-    margin: 10px 0 0 103px;
   }
 }

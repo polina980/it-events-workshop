@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
-import TagButton from '../TagButton/TagButton';
+import TagButton from '../../UI-kit/TagButton/TagButton';
 import { apiEvents } from '../../utils/api';
 
 const TagsSection = ({ handleChange }) => {

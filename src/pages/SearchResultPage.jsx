@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import Pagination from '../components/Pagination/Pagination';
 import LeftFilterBar from './../components/LeftFilterBar/LeftFilterBar';
 import CardList from '../components/CardList/CardList';
-import PageTitle from '../components/PageTitle/PageTitle';
+import PageTitle from '../UI-kit/PageTitle/PageTitle';
 import TopFilersBar from '../components/TopFilersBar/TopFilersBar';
 import { useFilterdList } from '../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../utils/context/SearchFilterContext';
@@ -64,16 +63,6 @@ const SearchResultPage = () => {
                 )}
               />
             )}
-          {totalPages > 1 && (
-            <div className={styles.navigationContainer}>
-              <Pagination
-                page={currentPage}
-                totalPages={totalPages}
-                handleShowMore={handleShowMore}
-                handleShowLess={handleShowLess}
-              />
-            </div>
-          )}
         </div>
       </div>
     </section>

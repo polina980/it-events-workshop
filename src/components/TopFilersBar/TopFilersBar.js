@@ -1,6 +1,6 @@
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import styles from './styles.module.scss';
-import Cross from './../../images/Actions/Close_gray.svg';
+import Cross from './../../images/Actions/close_gray.svg';
 
 const TopFilersBar = ({ style }) => {
   const { values, setValues } = useFiltersContext();

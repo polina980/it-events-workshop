@@ -5,8 +5,8 @@ import { useFiltersContext } from '../utils/context/SearchFilterContext';
 import CardList from '../components/CardList/CardList';
 import LeftFilerBar from '../components/LeftFilterBar/LeftFilterBar';
 import TopFilersBar from '../components/TopFilersBar/TopFilersBar';
-import ScrollToTopButton from '../components/ScrollToTopButton/ScrollToTopButton';
-import Loader from '../components/Loader/Loader';
+import ScrollToTopButton from '../UI-kit/ScrollToTopButton/ScrollToTopButton';
+import Loader from '../UI-kit/Loader/Loader';
 
 const MainPage = () => {
   const { resetFilters } = useFiltersContext();

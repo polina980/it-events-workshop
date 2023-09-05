@@ -82,7 +82,6 @@ const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
         <p className={styles.city}>
           {event.city !== '' && event.city !== ' ' ? event.city : 'Online'}
         </p>
-        {/* <p>{event.city === ' ' ? 'Нет данных' : event.city}</p> */}
       </div>
     </m.li>
   );
