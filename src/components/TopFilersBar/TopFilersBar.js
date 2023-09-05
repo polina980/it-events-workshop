@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import styles from './TopFilersBar.module.css';
+import styles from './styles.module.scss';
 import Cross from './../../images/Actions/Close_gray.svg';
 
 const TopFilersBar = ({ style }) => {

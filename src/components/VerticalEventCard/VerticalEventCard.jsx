@@ -1,4 +1,4 @@
-import styles from './VerticalEventCard.module.css';
+import styles from './styles.module.scss';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {

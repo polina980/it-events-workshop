@@ -1,4 +1,4 @@
-import styles from './CardList.module.css';
+import styles from './styles.module.scss';
 import Card from '../Card/Card';
 
 const CardList = ({ title, events }) => {

@@ -19,9 +19,6 @@ const router = createBrowserRouter(
     
       <Route path="favorites" element={<page.FavoritesPage />} />
       <Route path="results" element={<page.SearchResultPage />} />
-      <Route path="privacy" element={<page.PrivacyPolicyPage />} />
-      <Route path="cookies" element={<page.CookiePage />} />
-      <Route path="about" element={<page.About />} />
       <Route path="*" element={<page.NotFoundPage />} />
     </Route>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './HorizontalEventList.module.css';
+import styles from './styles.module.scss';
 import VerticalEventCard from '../VerticalEventCard/VerticalEventCard';
 import ShowAllButton from '../ShowAllButton/ShowAllButton';
 import Pagination from '../Pagination/Pagination';

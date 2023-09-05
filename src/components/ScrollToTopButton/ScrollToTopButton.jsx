@@ -1,4 +1,4 @@
-import styles from './ScrollToTopButton.module.css';
+import styles from './styles.module.scss';
 import useScrollToTop from '../../utils/hooks/useScrollToTop';
 
 const ScrollToTopButton = () => {

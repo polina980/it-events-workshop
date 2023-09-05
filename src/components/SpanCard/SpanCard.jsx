@@ -1,4 +1,4 @@
-import styles from './SpanCard.module.css';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 
 const SpanCard = () => {

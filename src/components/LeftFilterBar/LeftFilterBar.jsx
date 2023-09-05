@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion as m } from 'framer-motion';
-import styles from './LeftFilterBar.module.css';
+import styles from './styles.module.scss';
 import TagsSection from './../TagsSection/TagsSection';
-
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
@@ -32,8 +31,6 @@ const LeftFilerBar = () => {
     findValues,
     setFindValues,
   });
-
-  // console.log(dataLists)
 
   const handleSearchClick = () => {
     handleSearch(searchQuery);

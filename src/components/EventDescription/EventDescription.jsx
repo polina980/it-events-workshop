@@ -1,4 +1,4 @@
-import styles from './EventDescription.module.css';
+import styles from './styles.module.scss';
 import { useState } from 'react';
 import DescriptionTabs from '../DescriptionTabs/DescriptionTabs';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';

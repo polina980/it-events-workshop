@@ -1,4 +1,4 @@
-import styles from './FilterBar.module.css';
+import styles from './styles.module.scss';
 
 const FilterBar = ({ onFilter }) => {
   const handleFilterClick = (option) => {

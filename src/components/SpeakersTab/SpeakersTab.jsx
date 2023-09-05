@@ -1,4 +1,4 @@
-import styles from './SpeakersTab.module.css';
+import styles from './styles.module.scss';
 import { speakersData } from './../../utils/constants/tabs';
 
 const SpeakersTab = () => {

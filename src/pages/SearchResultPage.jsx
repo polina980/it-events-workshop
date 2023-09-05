@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
-import styles from './Pages.module.css';
+import { useState } from 'react';
+import styles from './styles.module.scss';
 import Pagination from '../components/Pagination/Pagination';
 import LeftFilterBar from './../components/LeftFilterBar/LeftFilterBar';
 import CardList from '../components/CardList/CardList';
@@ -52,7 +52,7 @@ const SearchResultPage = () => {
             subtitle="Но нам есть, что предложить"
           />
         )}
-        <div className={styles.searchResultListContainer}>
+        <div>
           <CardList events={getPageItems()} />
           {popularEvents.length > itemsPerPage &&
             filteredList.length <= itemsPerPage && (

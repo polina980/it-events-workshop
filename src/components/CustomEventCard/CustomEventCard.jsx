@@ -47,15 +47,6 @@ const CustomEventCard = ({ event, onCardClick }) => {
                 </li>
               )}
             </ul>
-
-            {/* <ul className={styles.tagsList}>
-              {event.tags.slice(0, 3).map((tag) => (
-                <li key={tag.slug} className={styles.tag}>
-                  <span className={styles.span}>#</span>
-                  {tag.name}
-                </li>
-              ))}
-            </ul> */}
           </div>
         </div>
         <img

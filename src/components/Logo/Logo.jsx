@@ -1,4 +1,4 @@
-import styles from './Logo.module.css';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 
 const Logo = ({ logoSize, onClick }) => {

@@ -1,4 +1,4 @@
-import styles from './Pages.module.css';
+import styles from './styles.module.scss';
 import { useEffect } from 'react';
 import { useEventsContext } from '../utils/context/EventsContext';
 import { useFiltersContext } from '../utils/context/SearchFilterContext';
