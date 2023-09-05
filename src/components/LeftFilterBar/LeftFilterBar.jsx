@@ -5,8 +5,7 @@ import TagsSection from './../TagsSection/TagsSection';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import TagButton from '../TagButton/TagButton';
-import { useLocation } from 'react-router-dom';
+import TagButton from '../../UI-kit/TagButton/TagButton';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import SearchField from '../SearchField/SearchField';
 
@@ -15,7 +14,6 @@ const LeftFilerBar = () => {
   const [showAllTopics, setShowAllTopics] = useState(false);
   const [showTopic, setShowTopic] = useState(false);
   const { dataLists } = useInitialFilter();
-  const location = useLocation();
   const { values, setValues, findValues, setFindValues } = useFiltersContext();
   const { handleSearch, searchQuery } = useEventsContext();
 

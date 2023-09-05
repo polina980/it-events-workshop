@@ -1,12 +1,12 @@
-import styles from './styles.module.scss';
 import { useState, useEffect } from 'react';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
-import PageTitle from '../components/PageTitle/PageTitle';
-import CardList from '../components/CardList/CardList';
-import { useEventsContext } from '../utils/context/EventsContext';
-import FilterBar from '../components/FilterBar/FilterBar';
 import { parsePrice } from '../utils/helperFunctions';
-import Loader from '../components/Loader/Loader';
+import { useEventsContext } from '../utils/context/EventsContext';
+import PageTitle from '../UI-kit/PageTitle/PageTitle';
+import CardList from '../components/CardList/CardList';
+import FilterBar from '../components/FilterBar/FilterBar';
+import Loader from '../UI-kit/Loader/Loader';
 
 const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);

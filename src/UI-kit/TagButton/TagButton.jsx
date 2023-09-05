@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Cross from './../../images/Actions/Close.svg';
+import Cross from './../../images/Actions/close.svg';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 
 const TagButton = ({ value, handleChange, disabled }) => {
