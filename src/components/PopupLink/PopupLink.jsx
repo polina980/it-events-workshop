@@ -1,4 +1,4 @@
-import styles from './PopupLink.module.css';
+import styles from './styles.module.scss';
 
 const PopupLink = ({ top, right }) => {
   return (

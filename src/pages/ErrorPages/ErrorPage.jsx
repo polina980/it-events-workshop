@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ErrorPage.module.css';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import PrimaryButton from '../../components/PrimaryButton/PrimaryButton';
 

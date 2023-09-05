@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Pagination.module.css';
+import styles from './styles.module.scss';
 
 const Pagination = ({ page, totalPages, handleShowMore, handleShowLess }) => {
   const isFirstPage = page === 1;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './EventCheckbox.module.css';
+import styles from './styles.module.scss';
 
 const EventCheckbox = ({ event, checked, onCheckboxChange }) => {
   const [isChecked, setIsChecked] = useState(checked);

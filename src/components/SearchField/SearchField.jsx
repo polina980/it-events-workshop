@@ -1,11 +1,10 @@
-import styles from './SearchField.module.css';
-import { useState, useEffect } from 'react';
+import styles from './styles.module.scss';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ReactComponent as SearchIcon } from '../../images/Actions/loupe-purple.svg';
 import { useEventsContext } from '../../utils/context/EventsContext';
 
-const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
-  // Устанавливаем значение в поисковую строку из Пропса
+const SearchField = ({ smallInput }) => {
+  // Устанавливаем значение в поисковую строку из пропса
   const { handleSearch, searchQuery, setSearchQuery } = useEventsContext();
   const location = useLocation();
   const isResultsPage = location.pathname === '/results';
@@ -15,8 +14,7 @@ const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
       : 'Разработка';
 
 
-  // Чтобы чертова поисковая строка была заполнена результатом только на странице results
-  // - Рома, не ругавси
+  // Чтобы поисковая строка была заполнена результатом только на странице results
   useEffect(() => {
     if (isResultsPage) {
       setSearchQuery(searchQuery);
@@ -37,12 +35,6 @@ const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
   };
 
   return (
-    // <form
-    //   className={styles.form}
-    //   onSubmit={handleSubmit}
-    //   style={smallForm || radiusForm}
-    // >
-    <>
       <input
         className={styles.input}
         placeholder={placeholder}
@@ -51,8 +43,6 @@ const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
         type="text"
         style={smallInput}
       />
-    </>
-    // </form>
   );
 };
 

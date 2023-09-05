@@ -1,4 +1,4 @@
-import styles from './TagButton.module.css';
+import styles from './styles.module.scss';
 import Cross from './../../images/Actions/Close.svg';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 

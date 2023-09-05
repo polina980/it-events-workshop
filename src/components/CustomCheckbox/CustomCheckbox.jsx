@@ -1,4 +1,4 @@
-import styles from './CustomCheckbox.module.css';
+import styles from './styles.module.scss';
 
 const CustomCheckbox = ({
   id,

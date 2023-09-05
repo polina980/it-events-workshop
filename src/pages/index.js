@@ -4,9 +4,6 @@ import FavoritesPage from './FavoritesPage';
 import NotFoundPage from './ErrorPages/NotFoundPage';
 import EventErrorPage from './ErrorPages/EventErrorPage';
 import SearchResultPage from './SearchResultPage';
-import PrivacyPolicyPage from './PolicyPage';
-import About from './About';
-import CookiePage from './CookiePage';
 
 
 export {
@@ -17,8 +14,4 @@ export {
   FavoritesPage,
   NotFoundPage,
   SearchResultPage,
-  PrivacyPolicyPage,
-  About,
-  CookiePage,
- 
 };

@@ -1,4 +1,4 @@
-import styles from './Pages.module.css';
+import styles from './styles.module.scss';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTitle from '../components/PageTitle/PageTitle';
@@ -83,7 +83,6 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
             size="48px"
           />
           <FilterBar onFilter={handleFilter} />
-          <div className={styles.divider} />
           {noEvents && (
             <div className={styles.noFavoritesContainer}>
               <h3 className={styles.noFavoritesText}>Список пуст</h3>

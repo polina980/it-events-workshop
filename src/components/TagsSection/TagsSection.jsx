@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from './TagsSection.module.css';
+import styles from './styles.module.scss';
 import TagButton from '../TagButton/TagButton';
 import { apiEvents } from '../../utils/api';
 

@@ -1,6 +1,6 @@
-import styles from './Loader.module.css';
+import styles from './styles.module.scss';
 import { Circles } from 'react-loader-spinner';
-import ModalOverlay from '../Modals/ModalOverlay/ModalOverlay';
+import Overlay from './Overlay/Overlay';
 
 const overlay = {
   backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -9,7 +9,7 @@ const overlay = {
 const Loader = () => {
   return (
     <>
-      <ModalOverlay style={overlay} />
+      <Overlay style={overlay} />
       <div className={styles.loaderContainer}>
         <Circles
           height="80"

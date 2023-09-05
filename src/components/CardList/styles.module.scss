@@ -1,0 +1,31 @@
+.section {
+  width: 100%;
+  max-width: 1232px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 80px;
+  cursor: default;
+
+  .titleContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 32px;
+
+    .title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 48px;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    height: fit-content;
+    list-style-type: none;
+  }
+}
