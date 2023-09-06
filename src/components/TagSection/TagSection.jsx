@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import TagButton from '../../UI-kit/TagButton/TagButton';
 import { apiEvents } from '../../utils/api';
 
-const TagsSection = ({ handleChange }) => {
+export const TagSection = ({ handleChange }) => {
   const [tags, setTags] = useState([]);
   const [showAllTags, setShowAllTags] = useState(false);
 
@@ -50,5 +50,3 @@ const TagsSection = ({ handleChange }) => {
     </>
   );
 };
-
-export default TagsSection;

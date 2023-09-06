@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-const FilterBar = ({ onFilter }) => {
+export const FilterBar = ({ onFilter }) => {
   const handleFilterClick = (option) => {
     if (onFilter) {
       onFilter(option);
@@ -48,5 +48,3 @@ const FilterBar = ({ onFilter }) => {
     </>
   );
 };
-
-export default FilterBar;

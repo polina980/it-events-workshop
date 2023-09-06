@@ -7,10 +7,10 @@ import {
   handleCopyLink,
 } from '../../utils/helperFunctions';
 import { motion as m } from 'framer-motion';
-import PopupLink from '../PopupLink/PopupLink';
+import { PopupLink } from '../PopupLink/PopupLink';
 import defaultImage from '../../images/default-image.png';
 
-const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
+export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
   const [showNotification, setShowNotification] = useState(false);
   const location = useLocation();
 
@@ -49,8 +49,8 @@ const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
               event.image_small
                 ? event.image_small
                 : event.image
-                ? event.image
-                : defaultImage
+                  ? event.image
+                  : defaultImage
             }
             alt="event_picture"
             className={styles.image}
@@ -59,9 +59,8 @@ const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
           />
         </Link>
         <button
-          className={`${
-            event.isLiked ? styles.likeButtonActive : styles.likeButton
-          }`}
+          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
+            }`}
           type="button"
           onClick={handleLikeClick}
         ></button>
@@ -86,5 +85,3 @@ const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
     </m.li>
   );
 };
-
-export default VerticalEventCard;

@@ -23,3 +23,9 @@
     }
   }
 }
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .scrollContainer {
+    width: 100%;
+  }
+}

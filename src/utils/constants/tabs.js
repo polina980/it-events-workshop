@@ -1,4 +1,4 @@
-import SpeakersTab from '../../components/SpeakersTab/SpeakersTab';
+import { SpeakersTab } from '../../components/SpeakersTab/SpeakersTab';
 import Avatar from './../../images/avatar.jpeg';
 import Avatar2 from './../../images/avatar-2.jpg';
 import Avatar3 from './../../images/avatar-3.jpg';

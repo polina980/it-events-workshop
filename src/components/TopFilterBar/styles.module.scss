@@ -3,7 +3,7 @@
   width: 920px;
   gap: 20px;
   flex-wrap: wrap;
-  margin: 51px 0 32px;
+  margin: 0 0 50px;
 }
 
 .countContainer {
@@ -46,5 +46,11 @@
 
   &:hover {
     color: #443375;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .container {
+    width: 100%;
   }
 }

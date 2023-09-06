@@ -1,14 +1,15 @@
 import styles from './styles.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useEventsContext } from '../utils/context/EventsContext';
 import { useFiltersContext } from '../utils/context/SearchFilterContext';
-import CardList from '../components/CardList/CardList';
+import { CardList } from '../components/CardList/CardList';
 import LeftFilerBar from '../components/LeftFilterBar/LeftFilterBar';
-import TopFilersBar from '../components/TopFilersBar/TopFilersBar';
+import { TopFilterBar } from '../components/TopFilterBar/TopFilterBar';
 import ScrollToTopButton from '../UI-kit/ScrollToTopButton/ScrollToTopButton';
 import Loader from '../UI-kit/Loader/Loader';
+import { ReactComponent as Menu } from '../images/menu.svg';
 
-const MainPage = () => {
+export const MainPage = () => {
   const { resetFilters } = useFiltersContext();
   const { isLoading, upcomingEvents, handleCardClick, toggleFavorite } =
     useEventsContext();
@@ -17,26 +18,37 @@ const MainPage = () => {
     resetFilters();
   }, []);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   if (isLoading) {
     return <Loader />;
   }
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     upcomingEvents.length && (
-      <div className={styles.mainPageWrapper}>
-        <LeftFilerBar />
-        <div className={styles.mainPageListWrapper}>
-          <TopFilersBar />
+      <div className={styles.mainPage}>
+        {window.innerWidth < 768 ? (
+          <button onClick={toggleMenu} className={styles.menuButton}>
+            <Menu />
+          </button>
+        ) : <LeftFilerBar />}
+        {isMenuOpen && (
+          <LeftFilerBar />
+        )}
+        {!isMenuOpen && <div>
+          <TopFilterBar />
           <CardList
             events={upcomingEvents}
             onCardClick={handleCardClick}
             onLikeClick={toggleFavorite}
           />
-        </div>
-        <ScrollToTopButton />
+          {/* <ScrollToTopButton /> */}
+        </div>}
       </div>
     )
   );
 };
-
-export default MainPage;

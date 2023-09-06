@@ -116,3 +116,17 @@
     z-index: 5;
   }
 }
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .card {
+    width: 160px;
+
+    .imageContainer {
+
+      .image {
+        width: 160px;
+        height: 130px;
+      }
+    }
+  }
+}

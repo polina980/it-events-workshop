@@ -3,7 +3,7 @@
   gap: 24px;
   display: grid;
   grid-template-columns: 296px 1fr;
-  
+
   .imageContainer {
     position: relative;
     border-radius: 8px;
@@ -149,4 +149,16 @@
   line-height: 24px;
   color: #797979;
   cursor: pointer;
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+
+    .imageContainer {
+      height: 130px;
+    }
+  }
 }

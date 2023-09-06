@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { motion as m } from 'framer-motion';
 import styles from './styles.module.scss';
-import TagsSection from './../TagsSection/TagsSection';
+import { TagSection } from './../TagSection/TagSection';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import TagButton from '../../UI-kit/TagButton/TagButton';
 import { useEventsContext } from '../../utils/context/EventsContext';
-import SearchField from '../SearchField/SearchField';
+import { SearchField } from '../SearchField/SearchField';
 
 const LeftFilerBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
@@ -249,7 +249,7 @@ const LeftFilerBar = () => {
           <span className={styles.popularTags}>Популярные теги</span>
         </li>
       </ul>
-      <TagsSection handleChange={handleButtonChange} />
+      <TagSection handleChange={handleButtonChange} />
       <button
         onClick={handleSearchClick}
         className={styles.buttonSearch}

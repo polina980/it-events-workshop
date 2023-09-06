@@ -1,20 +1,45 @@
 .eventContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  min-height: calc(100vh - 113px - 152px - 62px);
   margin: 40px 104px 0;
 
-  .eventImage {
-    width: 608px;
-    height: 390px;
-    object-fit: cover;
-    border-radius: 11px;
+  .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .aside {
+    width: 48%;
+
+    .eventImage {
+      width: 100%;
+      max-height: 390px;
+      object-fit: cover;
+      border-radius: 11px;
+    }
   }
 
   .horizontalList {
     width: 100%;
-    min-width: 900px;
+    min-width: 920px;
     margin-bottom: 67px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .eventContainer {
+    margin: 0 auto;
+
+    .aside {
+      width: 100%;
+      margin-bottom: 20px;
+
+      .eventImage {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
