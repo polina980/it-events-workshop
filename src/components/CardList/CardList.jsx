@@ -1,9 +1,9 @@
 import styles from './styles.module.scss';
-import Card from '../Card/Card';
+import { Card } from '../Card/Card';
 
-const CardList = ({ title, events }) => {
+export const CardList = ({ title, events }) => {
   return (
-    <section className={`${styles.section}`}>
+    <section className={styles.section}>
       {title && (
         <div className={styles.titleContainer}>
           <h2 className={styles.title}>{title}</h2>
@@ -17,5 +17,3 @@ const CardList = ({ title, events }) => {
     </section>
   );
 };
-
-export default CardList;

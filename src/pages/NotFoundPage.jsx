@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import PrimaryButton from '../UI-kit/PrimaryButton/PrimaryButton';
 
-const NotFoundPage = () => {
+export const NotFoundPage = () => {
   return (
     <section className={styles.notFound}>
       <div className={styles.notInfo}>
@@ -14,5 +14,3 @@ const NotFoundPage = () => {
     </section>
   );
 };
-
-export default NotFoundPage;

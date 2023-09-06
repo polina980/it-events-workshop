@@ -2,7 +2,7 @@ import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import styles from './styles.module.scss';
 import Cross from './../../images/Actions/close_gray.svg';
 
-const TopFilersBar = ({ style }) => {
+export const TopFilterBar = () => {
   const { values, setValues } = useFiltersContext();
   const arr = Object.entries(values);
 
@@ -44,7 +44,7 @@ const TopFilersBar = ({ style }) => {
   }
 
   return (
-    <div className={styles.container} style={style}>
+    <div className={styles.container}>
       <div className={styles.countContainer}>Фильтры: {filterCount.length}</div>
       {arr.map((item, index) => {
         const name = item[0];
@@ -76,5 +76,3 @@ const TopFilersBar = ({ style }) => {
     </div>
   );
 };
-
-export default TopFilersBar;

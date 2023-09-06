@@ -12,7 +12,7 @@ import { ReactComponent as CalendarImage } from '../../images/EventInfo/calendar
 import { ReactComponent as TimeImage } from '../../images/EventInfo/time.svg';
 import { useEventsContext } from '../../utils/context/EventsContext';
 
-const Card = ({ event, style }) => {
+export const Card = ({ event, style }) => {
   const [imageError, setImageError] = useState(false);
   const { handleCardClick, toggleFavorite } = useEventsContext();
 
@@ -68,9 +68,8 @@ const Card = ({ event, style }) => {
           )}
         </Link>
         <button
-          className={`${
-            event.isLiked ? styles.likeButtonActive : styles.likeButton
-          }`}
+          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
+            }`}
           type="button"
           onClick={() => toggleFavorite(event)}
         ></button>
@@ -93,5 +92,3 @@ const Card = ({ event, style }) => {
     </li>
   );
 };
-
-export default Card;

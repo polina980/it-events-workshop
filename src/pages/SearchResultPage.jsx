@@ -1,33 +1,20 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
 import LeftFilterBar from './../components/LeftFilterBar/LeftFilterBar';
-import CardList from '../components/CardList/CardList';
+import { CardList } from '../components/CardList/CardList';
 import PageTitle from '../UI-kit/PageTitle/PageTitle';
-import TopFilersBar from '../components/TopFilersBar/TopFilersBar';
+import { TopFilterBar } from '../components/TopFilterBar/TopFilterBar';
 import { useFilterdList } from '../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../utils/context/SearchFilterContext';
 import { useEventsContext } from '../utils/context/EventsContext';
 
-const SearchResultPage = () => {
+export const SearchResultPage = () => {
   const { values } = useFiltersContext();
   const { popularEvents, searchResult } = useEventsContext();
   const { filteredList } = useFilterdList({ values, searchResult });
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
-  const totalPages = Math.ceil(filteredList.length / itemsPerPage);
   const isNothingFind = !filteredList || filteredList.length === 0;
-
-  const handleShowMore = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const handleShowLess = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
 
   const getPageItems = () => {
     console.log(filteredList, 'filteredList');
@@ -36,15 +23,11 @@ const SearchResultPage = () => {
     return filteredList.slice(startIndex, endIndex);
   };
 
-  const filterBar = {
-    margin: '32px 0',
-  };
-
   return (
-    <section className={styles.searchResultPageWrapper}>
+    <section className={styles.mainPage}>
       <LeftFilterBar />
       <div>
-        <TopFilersBar style={filterBar} />
+        <TopFilterBar />
         {isNothingFind && (
           <PageTitle
             title="Ничего не нашлось"
@@ -68,5 +51,3 @@ const SearchResultPage = () => {
     </section>
   );
 };
-
-export default SearchResultPage;

@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
-import VerticalEventCard from '../VerticalEventCard/VerticalEventCard';
+import { VerticalEventCard } from '../VerticalEventCard/VerticalEventCard';
 
-const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) => {
+export const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) => {
   return (
     <section className={styles.section}>
       {title && (
@@ -23,5 +23,3 @@ const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) => {
     </section>
   );
 };
-
-export default HorizontalEventList;

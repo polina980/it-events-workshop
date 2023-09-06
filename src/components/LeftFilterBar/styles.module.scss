@@ -1,12 +1,7 @@
 .filterForm {
-  position: sticky;
-  height: calc(100vh - 74px);
-  top: 54px;
-  margin-bottom: 684px;
   width: 215px;
   cursor: default;
   overflow-x: scroll;
-  z-index: 100;
   /* Для Firefox */
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -75,11 +70,9 @@
   flex-direction: column;
   position: relative;
   width: fit-content;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) -185%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) -185%,
+      #ffffff 100%);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
     0px 0px 1px rgba(36, 63, 97, 0.16);
@@ -95,11 +88,9 @@
   height: 20px;
   bottom: 10px;
   left: 5px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) -185%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) -185%,
+      #ffffff 100%);
   z-index: -1;
 }
 
@@ -195,7 +186,7 @@
   border-color: #674eae;
 }
 
-.checkboxButton:checked + .checkboxLabel:before {
+.checkboxButton:checked+.checkboxLabel:before {
   background: url('./../../images/Actions/check.svg') no-repeat;
   background-position: center;
   background-color: #674eae;
@@ -242,12 +233,12 @@
   display: none;
 }
 
-.radioButton input[type='radio']:checked + span:before {
+.radioButton input[type='radio']:checked+span:before {
   background-color: #674eae;
   border-color: #674eae;
 }
 
-.radioButton input[type='radio']:checked + span:after {
+.radioButton input[type='radio']:checked+span:after {
   display: block;
 }
 
@@ -260,7 +251,7 @@
   height: 34.39px;
 }
 
-.radioButton input[type='radio']:checked ~ .pickdate {
+.radioButton input[type='radio']:checked~.pickdate {
   display: flex;
   align-items: flex-start;
   margin-left: 10px;
@@ -268,7 +259,7 @@
   color: #797979;
 }
 
-.radioButton input[type='radio']:checked ~ .radioText {
+.radioButton input[type='radio']:checked~.radioText {
   display: none;
 }
 

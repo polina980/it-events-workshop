@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 import EventDescription from '../EventDescription/EventDescription';
-import HorizontalEventsList from '../HorizontalEventList/HorizontalEventList';
+import { HorizontalEventList } from '../HorizontalEventList/HorizontalEventList';
 import defaultImage from '../../images/default-image.png';
 import { useEventsContext } from '../../utils/context/EventsContext';
 
@@ -14,13 +14,13 @@ const Event = ({ selectedEvent }) => {
 
   return (
     <div className={styles.eventContainer}>
-      <>
+      <div className={styles.main}>
         <EventDescription
           selectedEvent={selectedEvent}
           favoriteEvents={favoriteEvents}
           onLikeClick={toggleFavorite}
         />
-        <aside>
+        <aside className={styles.aside}>
           <img
             className={styles.eventImage}
             src={selectedEvent.image}
@@ -28,15 +28,13 @@ const Event = ({ selectedEvent }) => {
             onError={handleImageError}
           />
         </aside>
-        <div className={styles.horizontalList}>
-          <HorizontalEventsList
-            title="Смотрите также"
-            list={recommendedEvents}
-            onCardClick={handleCardClick}
-            onLikeClick={toggleFavorite}
-          />
-        </div>
-      </>
+      </div>
+      <HorizontalEventList
+        title="Смотрите также"
+        list={recommendedEvents}
+        onCardClick={handleCardClick}
+        onLikeClick={toggleFavorite}
+      />
     </div>
   );
 };
