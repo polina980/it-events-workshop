@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from './DescriptionTabs.module.css';
+import styles from './styles.module.scss';
 import { tabs } from './../../utils/constants/tabs';
 
-const DescriptionTabs = ({ selectedEvent }) => {
+export const DescriptionTabs = ({ selectedEvent }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index) => {
@@ -43,5 +43,3 @@ const DescriptionTabs = ({ selectedEvent }) => {
     </>
   );
 };
-
-export default DescriptionTabs;

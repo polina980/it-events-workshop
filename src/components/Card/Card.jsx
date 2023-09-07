@@ -1,5 +1,5 @@
-import styles from './Card.module.css';
 import { useState } from 'react';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import {
   parseEventDate,
@@ -12,8 +12,7 @@ import { ReactComponent as CalendarImage } from '../../images/EventInfo/calendar
 import { ReactComponent as TimeImage } from '../../images/EventInfo/time.svg';
 import { useEventsContext } from '../../utils/context/EventsContext';
 
-const Card = ({ event, style }) => {
-  
+export const Card = ({ event, style }) => {
   const [imageError, setImageError] = useState(false);
   const { handleCardClick, toggleFavorite } = useEventsContext();
 
@@ -69,14 +68,12 @@ const Card = ({ event, style }) => {
           )}
         </Link>
         <button
-          className={`${
-            event.isLiked ? styles.likeButtonActive : styles.likeButton
-          }`}
+          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
+            }`}
           type="button"
           onClick={() => toggleFavorite(event)}
         ></button>
       </div>
-
       <div className={`${styles.descriptionContainer}`}>
         <div className={styles.titleContainer}>
           <h3 className={styles.title} style={style}>
@@ -95,5 +92,3 @@ const Card = ({ event, style }) => {
     </li>
   );
 };
-
-export default Card;

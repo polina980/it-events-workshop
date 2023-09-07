@@ -1,24 +1,14 @@
-import MainPage from './MainPage';
+import { MainPage } from './MainPage';
 import { EventPage, eventLoader } from './EventPage';
-import FavoritesPage from './FavoritesPage';
-import NotFoundPage from './ErrorPages/NotFoundPage';
-import EventErrorPage from './ErrorPages/EventErrorPage';
-import SearchResultPage from './SearchResultPage';
-import PrivacyPolicyPage from './PolicyPage';
-import About from './About';
-import CookiePage from './CookiePage';
-
+import { SearchResultPage } from './SearchResultPage';
+import { FavoritesPage } from './FavoritesPage';
+import { NotFoundPage } from './NotFoundPage';
 
 export {
   MainPage,
   EventPage,
-  EventErrorPage,
   eventLoader,
+  SearchResultPage,
   FavoritesPage,
   NotFoundPage,
-  SearchResultPage,
-  PrivacyPolicyPage,
-  About,
-  CookiePage,
- 
 };

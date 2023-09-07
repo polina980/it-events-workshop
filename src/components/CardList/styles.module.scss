@@ -1,0 +1,42 @@
+.section {
+  width: 920px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 80px;
+  cursor: default;
+
+  .titleContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 32px;
+
+    .title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 48px;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: fit-content;
+    list-style-type: none;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .section {
+    width: 100%;
+
+    .list {
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 28px 8px;
+    }
+  }
+}

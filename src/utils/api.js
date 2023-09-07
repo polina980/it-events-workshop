@@ -47,13 +47,6 @@ class Api {
         statusText: res.statusText,
       });
     }
-    // return Promise.reject(`Ошибка: ${res.status}`);
-    // if(res.status === 404) {
-    //   throw new Response('', {status: res.status, statusText: res.statusText})
-    // }
-    // if (!res.ok) {
-    //   return new Error (`Ошибка: ${res.status}`);
-    // }
     return res.json();
   }
 
@@ -84,14 +77,6 @@ class Api {
       this._handleResponse
     );
   }
-
-  // async function getSelectedEvent(id) {
-  //   const res = await fetch(`http://80.87.107.15/api/v1/events/${id}`)
-  //   if(!res.ok) {
-  //     throw new Response('', {status: res.status, statusText: res.statusText})
-  //   }
-  //   return res.json()
-  // }
 
   getUserEvents() {
     const options = {

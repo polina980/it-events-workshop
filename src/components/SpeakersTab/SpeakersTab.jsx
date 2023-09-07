@@ -1,7 +1,7 @@
-import styles from './SpeakersTab.module.css';
+import styles from './styles.module.scss';
 import { speakersData } from './../../utils/constants/tabs';
 
-const SpeakersTab = () => {
+export const SpeakersTab = () => {
   return (
     <>
       <h1 className={styles.speakersTitle}>Доклады</h1>
@@ -21,5 +21,3 @@ const SpeakersTab = () => {
     </>
   );
 };
-
-export default SpeakersTab;

@@ -1,14 +1,14 @@
-import styles from './Pages.module.css';
 import { useState, useEffect } from 'react';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
-import PageTitle from '../components/PageTitle/PageTitle';
-import CardList from '../components/CardList/CardList';
-import { useEventsContext } from '../utils/context/EventsContext';
-import FilterBar from '../components/FilterBar/FilterBar';
 import { parsePrice } from '../utils/helperFunctions';
-import Loader from '../components/Loader/Loader';
+import { useEventsContext } from '../utils/context/EventsContext';
+import PageTitle from '../UI-kit/PageTitle/PageTitle';
+import { CardList } from '../components/CardList/CardList';
+import { FilterBar } from '../components/FilterBar/FilterBar';
+import Loader from '../UI-kit/Loader/Loader';
 
-const FavoritesPage = ({ onCardClick, onLikeClick }) => {
+export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [sortByName, setSortByName] = useState(true);
   const [sortByPrice, setSortByPrice] = useState(true);
@@ -83,7 +83,6 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
             size="48px"
           />
           <FilterBar onFilter={handleFilter} />
-          <div className={styles.divider} />
           {noEvents && (
             <div className={styles.noFavoritesContainer}>
               <h3 className={styles.noFavoritesText}>Список пуст</h3>
@@ -110,5 +109,3 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
     </section>
   );
 };
-
-export default FavoritesPage;

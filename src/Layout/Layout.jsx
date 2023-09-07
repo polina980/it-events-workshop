@@ -1,34 +1,20 @@
-import styles from './Layout.module.css';
+import styles from './styles.module.scss';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import ModalSignIn from '../components/Modals/ModalSignIn/ModalSignIn';
-import ModalSignUp from '../components/Modals/ModalSingUp/ModalSignUp';
-import { AuthProvider } from '../utils/context/AuthContext';
+import { Header } from '../components/Header/Header';
+import { Footer } from '../components/Footer/Footer';
 import { EventsProvider } from '../utils/context/EventsContext';
 import { FiltersProvider } from '../utils/context/SearchFilterContext';
-import { ModalProvider } from '../utils/context/ModalContext';
 
-const Layout = () => {
+export const Layout = () => {
   return (
-    <AuthProvider>
-      <EventsProvider>
-        <FiltersProvider>
-          <ModalProvider>
-            <div className={styles.wrapper}>
-              <div className={styles.page}>
-                <Header />
-                {<Outlet />}
-                <Footer />
-                <ModalSignIn />
-                <ModalSignUp />
-              </div>
-            </div>
-          </ModalProvider>
-        </FiltersProvider>
-      </EventsProvider>
-    </AuthProvider>
+    <EventsProvider>
+      <FiltersProvider>
+        <div className={styles.page}>
+          <Header />
+          {<Outlet />}
+          <Footer />
+        </div>
+      </FiltersProvider>
+    </EventsProvider>
   );
 };
-
-export { Layout };
