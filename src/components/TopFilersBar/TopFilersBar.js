@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import styles from './TopFilersBar.module.css';
 import Cross from './../../images/Actions/Close_gray.svg';
@@ -19,6 +18,7 @@ const TopFilersBar = ({ style }) => {
 
   const handleClearFilter = () => {
     setValues({
+      query: '',
       status: [],
       city: null,
       date: null,

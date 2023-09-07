@@ -7,20 +7,18 @@ import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import TagButton from '../TagButton/TagButton';
-import { useLocation } from 'react-router-dom';
 import { useEventsContext } from '../../utils/context/EventsContext';
-import SearchField from '../SearchField/SearchField';
+
 
 const LeftFilerBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
-  const [showTopic, setShowTopic] = useState(false);
   const { dataLists } = useInitialFilter();
-  const location = useLocation();
   const { values, setValues, findValues, setFindValues } = useFiltersContext();
-  const { handleSearch, searchQuery } = useEventsContext();
+  const { handleSearch } = useEventsContext();
 
   const {
+    handleQueryChange,
     handleInputChange,
     handleDateChange,
     handleDateBlur,
@@ -33,10 +31,9 @@ const LeftFilerBar = () => {
     setFindValues,
   });
 
-  // console.log(dataLists)
 
   const handleSearchClick = () => {
-    handleSearch(searchQuery);
+    handleSearch(values.query);
   };
 
   const toggleShowAllDates = () => {
@@ -45,10 +42,6 @@ const LeftFilerBar = () => {
 
   const toggleShowAllTopics = () => {
     setShowAllTopics(!showAllTopics);
-  };
-
-  const toggleTopics = () => {
-    setShowTopic(!showTopic);
   };
 
   const renderDateOptions = () => {
@@ -127,7 +120,15 @@ const LeftFilerBar = () => {
       <ul className={styles.filterList}>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Название</h3>
-          <SearchField />
+          <input
+              className={styles.filterInput}
+              placeholder='Разработка'
+              onChange={handleQueryChange}
+              value={values.query || ''}
+              type="text"
+              name='query'
+            />
+          {/* <SearchField /> */}
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Формат</h3>

@@ -1,12 +1,13 @@
 import styles from './SearchField.module.css';
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ReactComponent as SearchIcon } from '../../images/Actions/loupe-purple.svg';
+import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { useEventsContext } from '../../utils/context/EventsContext';
 
-const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
+const SearchField = () => {
   // Устанавливаем значение в поисковую строку из Пропса
   const { handleSearch, searchQuery, setSearchQuery } = useEventsContext();
+  const { values, setValues } = useFiltersContext()
   const location = useLocation();
   const isResultsPage = location.pathname === '/results';
   const placeholder =
@@ -28,6 +29,7 @@ const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
+    setValues(e.target.value)
   };
 
   const handleSubmit = (e) => {
@@ -49,7 +51,7 @@ const SearchField = ({ smallForm, smallFieldset, smallInput, radiusForm }) => {
         onChange={handleChange}
         value={searchQuery || ''}
         type="text"
-        style={smallInput}
+        name='query'
       />
     </>
     // </form>
