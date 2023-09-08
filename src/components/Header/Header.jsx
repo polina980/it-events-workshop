@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { Logo } from '../../UI-kit/Logo/Logo';
 import { ReactComponent as FavoritesIcon } from '../../images/favorites-header-icon.svg';
 
-export const Header = () => {
+ const Header = () => {
   return (
     <header className={styles.header}>
       <Logo />
       <Link className={styles.link} to='/favorites'>
         <FavoritesIcon />
-        <span>Избранное</span>
+        <spa className={styles.linkSpan}>Избранное</spa>
       </Link>
     </header>
   );
 };
+
+export default Header

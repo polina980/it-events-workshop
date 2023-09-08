@@ -27,7 +27,7 @@ export const SearchField = ({ smallInput }) => {
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    setValues(e.target.value)
+    //setValues(e.target.value)
   };
 
   const handleSubmit = (e) => {
@@ -37,13 +37,15 @@ export const SearchField = ({ smallInput }) => {
   };
 
   return (
-    <input
-      className={styles.input}
-      placeholder={placeholder}
-      onChange={handleChange}
-      value={searchQuery || ''}
-      type="text"
-      style={smallInput}
-    />
+    <form onSubmit={handleSubmit}>
+      <input
+        className={styles.formInput}
+        placeholder={placeholder}
+        onChange={handleChange}
+        value={searchQuery || ''}
+        type="text"
+        style={smallInput}
+      />
+    </form>
   );
 };

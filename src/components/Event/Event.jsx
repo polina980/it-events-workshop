@@ -3,6 +3,7 @@ import EventDescription from '../EventDescription/EventDescription';
 import { HorizontalEventList } from '../HorizontalEventList/HorizontalEventList';
 import defaultImage from '../../images/default-image.png';
 import { useEventsContext } from '../../utils/context/EventsContext';
+import PaddingWrapper from '../hoc/PaddingWrapper/PaddingWrapper';
 
 const Event = ({ selectedEvent }) => {
   const { handleCardClick, toggleFavorite, recommendedEvents, favoriteEvents } =
@@ -29,14 +30,14 @@ const Event = ({ selectedEvent }) => {
           />
         </aside>
       </div>
-      <HorizontalEventList
+      {/* <HorizontalEventList
         title="Смотрите также"
         list={recommendedEvents}
         onCardClick={handleCardClick}
         onLikeClick={toggleFavorite}
-      />
+      /> */}
     </div>
   );
 };
 
-export default Event;
+export default PaddingWrapper( Event);
