@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import styles from './styles.module.scss';
-import { Link } from 'react-router-dom';
-import { parsePrice } from '../utils/helperFunctions';
-import { useEventsContext } from '../utils/context/EventsContext';
-import PageTitle from '../UI-kit/PageTitle/PageTitle';
-import { CardList } from '../components/CardList/CardList';
-import { FilterBar } from '../components/FilterBar/FilterBar';
-import Loader from '../UI-kit/Loader/Loader';
+import { useState, useEffect } from "react";
+import styles from "./styles.module.scss";
+import { Link } from "react-router-dom";
+import { parsePrice } from "../utils/helperFunctions";
+import { useEventsContext } from "../utils/context/EventsContext";
+import PageTitle from "../UI-kit/PageTitle/PageTitle";
+import { CardList } from "../components/CardList/CardList";
+import { FilterBar } from "../components/FilterBar/FilterBar";
+import Loader from "../UI-kit/Loader/Loader";
 
 export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -25,22 +25,22 @@ export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
     let sortedList = [...filteredEvents];
 
     switch (option) {
-      case 'name':
+      case "name":
         sortedList.sort((a, b) => {
           const sortOrder = sortByName ? 1 : -1;
           return sortOrder * a.title.localeCompare(b.title);
         });
         setSortByName((prevValue) => !prevValue);
         break;
-      case 'price':
+      case "price":
         sortedList.sort((a, b) => {
           const sortOrder = sortByPrice ? 1 : -1;
           if (a.price === b.price) {
             const dateA = new Date(a.date_start).getTime();
             const dateB = new Date(b.date_start).getTime();
             return (dateA - dateB) * sortOrder;
-          } else if (a.price === 'Бесплатно' || b.price === 'Бесплатно') {
-            return a.price === 'Бесплатно' ? -1 * sortOrder : 1 * sortOrder;
+          } else if (a.price === "Бесплатно" || b.price === "Бесплатно") {
+            return a.price === "Бесплатно" ? -1 * sortOrder : 1 * sortOrder;
           } else {
             const priceA = parsePrice(a.price);
             const priceB = parsePrice(b.price);
@@ -49,7 +49,7 @@ export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
         });
         setSortByPrice((prevValue) => !prevValue);
         break;
-      case 'date':
+      case "date":
         sortedList.sort((a, b) => {
           const sortOrder = sortByDate ? 1 : -1;
           const dateA = new Date(a.date_start).getTime();

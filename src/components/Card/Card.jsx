@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import styles from './styles.module.scss';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import styles from "./styles.module.scss";
+import { Link } from "react-router-dom";
 import {
   parseEventDate,
   formatPrice,
   formatTimeRange,
-} from '../../utils/helperFunctions';
-import DefaultImage from '../../images/default-image.png';
-import { ReactComponent as PlaceImage } from '../../images/EventInfo/place.svg';
-import { ReactComponent as CalendarImage } from '../../images/EventInfo/calendar.svg';
-import { ReactComponent as TimeImage } from '../../images/EventInfo/time.svg';
-import { useEventsContext } from '../../utils/context/EventsContext';
-import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
+} from "../../utils/helperFunctions";
+import DefaultImage from "../../images/default-image.png";
+import { ReactComponent as PlaceImage } from "../../images/EventInfo/place.svg";
+import { ReactComponent as CalendarImage } from "../../images/EventInfo/calendar.svg";
+import { ReactComponent as TimeImage } from "../../images/EventInfo/time.svg";
+import { useEventsContext } from "../../utils/context/EventsContext";
+import useIsMobileResolution from "../../utils/hooks/useIsMobileResolution";
 
-export const Card = ({ event, style }) => {
+export const Card = ({ event, style, cardDirection }) => {
   const [imageError, setImageError] = useState(false);
   const { handleCardClick, toggleFavorite } = useEventsContext();
-  const isMobileResulution = useIsMobileResolution(767)
+  const isMobileResulution = useIsMobileResolution(767);
 
   const handleImageError = () => {
     setImageError(true);
@@ -40,7 +40,7 @@ export const Card = ({ event, style }) => {
     },
     {
       icon: <PlaceImage />,
-      content: event.city !== '' && event.city !== ' ' ? event.city : 'Online',
+      content: event.city !== "" && event.city !== " " ? event.city : "Online",
     },
     {
       content: formatPrice(event.price),
@@ -49,7 +49,11 @@ export const Card = ({ event, style }) => {
   ];
 
   return (
-    <li key={event.id} className={`${styles.card}`}>
+    <li
+      key={event.id}
+      className={`${styles.card}`}
+      style={{ flexDirection: cardDirection === "column" ? "column" : "" }}
+    >
       <div className={styles.imageContainer}>
         <Link to={`/events/${event.id}`} className={styles.cardLink}>
           {imageError ? (
@@ -70,8 +74,9 @@ export const Card = ({ event, style }) => {
           )}
         </Link>
         <button
-          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
-            }`}
+          className={`${
+            event.isLiked ? styles.likeButtonActive : styles.likeButton
+          }`}
           type="button"
           onClick={() => toggleFavorite(event)}
         ></button>
@@ -83,7 +88,6 @@ export const Card = ({ event, style }) => {
           </h3>
         </div>
         <ul className={styles.rowContainer}>
-         
           {cardDetails.map((item, index) => (
             <li key={index} className={styles.rowItem}>
               {item.icon}

@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 export function useFormWithValidation() {
   const [values, setValues] = useState({});
@@ -31,13 +31,13 @@ export function useFormWithValidation() {
   // Функция для очистки значения поля от эмодзи и двойных пробелов
   const sanitizeFieldValue = (value) => {
     // Удалить пробел в начале строки
-    if (value.startsWith(' ')) {
+    if (value.startsWith(" ")) {
       value = value.trimStart();
     }
     // Удалить двойные пробелы подряд
-    value = value.replace(doubleSpaceRegex, ' ');
+    value = value.replace(doubleSpaceRegex, " ");
     // Удалить эмодзи
-    value = value.replace(emojiRegex, '');
+    value = value.replace(emojiRegex, "");
     return value;
   };
 
@@ -49,7 +49,7 @@ export function useFormWithValidation() {
       // Если clipboardData не существует, то вставка не может быть проверена, разрешаем вставку
       return false;
     }
-    const pastedText = clipboardData.getData('text/plain');
+    const pastedText = clipboardData.getData("text/plain");
     // Регулярное выражение для проверки допустимых символов
     const validCharactersRegex =
       /^[a-zA-Zа-яА-Я0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?\S]+$/;
@@ -79,14 +79,14 @@ export function useFormWithValidation() {
         } else {
           setErrors((prevErrors) => ({
             ...prevErrors,
-            [name]: '',
+            [name]: "",
           }));
         }
       } else {
         // Если validationRegex не предоставлен, считаем поле валидным, чтобы не учитывать его в проверке наличия ошибок
         setErrors((prevErrors) => ({
           ...prevErrors,
-          [name]: '',
+          [name]: "",
         }));
       }
       return updatedValues;
@@ -100,7 +100,7 @@ export function useFormWithValidation() {
       name,
       value,
       emailRegex,
-      'Пожалуйста, введите корректный email-адрес (вы ввели данные в неправильном формате)'
+      "Пожалуйста, введите корректный email-адрес (вы ввели данные в неправильном формате)"
     );
   };
 
@@ -120,7 +120,7 @@ export function useFormWithValidation() {
       ...prevErrors,
       [name]: target.validationMessage,
     }));
-    setIsValid(target.closest('form').checkValidity());
+    setIsValid(target.closest("form").checkValidity());
   };
 
   // Обработчик для пароля
@@ -136,7 +136,7 @@ export function useFormWithValidation() {
 
   const handlePriceChange = (event) => {
     const { name, value } = event.target;
-    updateFieldValue(name, value, priceRegex, 'Введите корректное значение');
+    updateFieldValue(name, value, priceRegex, "Введите корректное значение");
   };
 
   const handleUrlChange = (event) => {
@@ -145,13 +145,13 @@ export function useFormWithValidation() {
       name,
       value,
       urlRegex,
-      'Введите корректный URL с полным доменом'
+      "Введите корректный URL с полным доменом"
     );
   };
 
   const handlePartnersChange = (event) => {
     const { name, value } = event.target;
-    updateFieldValue(name, value, null, '');
+    updateFieldValue(name, value, null, "");
   };
 
   // Обработчик для организации
@@ -161,7 +161,7 @@ export function useFormWithValidation() {
       name,
       value,
       organizationRegex,
-      'Введите корректные данные. Допустимая длина поля от 2 до 100 символов.'
+      "Введите корректные данные. Допустимая длина поля от 2 до 100 символов."
     );
   };
 
@@ -172,25 +172,25 @@ export function useFormWithValidation() {
       name,
       value,
       nameRegex,
-      'Введите корректные данные. Допустимая длина поля от 2 до 50 символов.'
+      "Введите корректные данные. Допустимая длина поля от 2 до 50 символов."
     );
   };
 
   const handleDateChange = (date, name) => {
-    let error = '';
+    let error = "";
 
-    if (name === 'date_start' || name === 'date_end') {
+    if (name === "date_start" || name === "date_end") {
       const startDate =
-        name === 'date_start' ? date : new Date(values.date_start);
-      const endDate = name === 'date_end' ? date : new Date(values.date_end);
+        name === "date_start" ? date : new Date(values.date_start);
+      const endDate = name === "date_end" ? date : new Date(values.date_end);
       const currentDate = new Date();
 
       if (startDate && endDate && startDate > endDate) {
-        error = 'Дата окончания должна быть позже даты начала';
+        error = "Дата окончания должна быть позже даты начала";
       }
 
       if (startDate && startDate < currentDate.setHours(0, 0, 0, 0)) {
-        error = 'Выберите дату начала, которая больше или равна текущей дате';
+        error = "Выберите дату начала, которая больше или равна текущей дате";
       }
     }
 
@@ -211,12 +211,12 @@ export function useFormWithValidation() {
     if (values.password !== values.confirmPassword) {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        confirmPassword: 'Пароли не совпадают',
+        confirmPassword: "Пароли не совпадают",
       }));
     } else {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        confirmPassword: '',
+        confirmPassword: "",
       }));
     }
   }, [values.password, values.confirmPassword]);

@@ -1,5 +1,5 @@
-import styles from './styles.module.scss';
-import { speakersData } from './../../utils/constants/tabs';
+import styles from "./styles.module.scss";
+import { speakersData } from "./../../utils/constants/tabs";
 
 export const SpeakersTab = () => {
   return (

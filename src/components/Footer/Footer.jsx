@@ -1,17 +1,17 @@
-import styles from './styles.module.scss';
-import { Logo } from '../../UI-kit/Logo/Logo';
-import { SocialIcons } from '../../images/SocialIcons/socialIcons'
-import useScrollToTop from '../../utils/hooks/useScrollToTop';
+import styles from "./styles.module.scss";
+import { Logo } from "../../UI-kit/Logo/Logo";
+import { SocialIcons } from "../../images/SocialIcons/socialIcons";
+import useScrollToTop from "../../utils/hooks/useScrollToTop";
 
 const logoSize = {
-  fontSize: '20px',
-  color: '#F1F0EB',
+  fontSize: "20px",
+  color: "#F1F0EB",
 };
 
 const footerItems = [
-  { text: 'О нас' },
-  { text: 'Политика конфиденциональности' },
-  { text: 'Cookies' },
+  { text: "О нас" },
+  { text: "Политика конфиденциональности" },
+  { text: "Cookies" },
 ];
 
 export const Footer = () => {
@@ -36,7 +36,7 @@ export const Footer = () => {
           <img src={SocialIcons.VK} alt="VK" />
         </div>
       </div>
-      <span className={styles.year}>© {date} IT-events</span>
+      {/* <span className={styles.year}>© {date} IT-events</span> */}
     </footer>
   );
 };

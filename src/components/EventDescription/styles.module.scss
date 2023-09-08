@@ -2,6 +2,7 @@
   position: relative;
   max-width: 48%;
   margin-bottom: 150px;
+  padding: 0 20px;
   cursor: default;
 
   .eventHeader {
@@ -11,7 +12,7 @@
     position: relative;
 
     .eventName {
-      width: 504px;
+      max-width: 504px;
       margin-top: 0;
       font-weight: 700;
       line-height: 38.4px;
@@ -20,7 +21,7 @@
     }
 
     .eventFigures {
-      position: absolute;
+      // position: absolute;
       display: flex;
       align-items: center;
       gap: 11px;
@@ -63,9 +64,11 @@
   }
 }
 
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 321px) and (max-width: 992px) {
   .eventDescription {
-    width: 100%;
+    max-width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 0 16px;
 
     .eventDates {

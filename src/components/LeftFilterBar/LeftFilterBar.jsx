@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { motion as m } from 'framer-motion';
-import styles from './styles.module.scss';
-import { TagSection } from './../TagSection/TagSection';
-import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
-import { useFilter } from '../../utils/hooks/useFilter';
-import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import TagButton from '../../UI-kit/TagButton/TagButton';
-import { useEventsContext } from '../../utils/context/EventsContext';
-import { SearchField } from '../SearchField/SearchField';
-import { ReactComponent as Menu } from '../../images/menu.svg';
-import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
+import { useState } from "react";
+import { motion as m } from "framer-motion";
+import styles from "./styles.module.scss";
+import { TagSection } from "./../TagSection/TagSection";
+import { useInitialFilter } from "../../utils/hooks/useInitialFilter";
+import { useFilter } from "../../utils/hooks/useFilter";
+import { useFiltersContext } from "../../utils/context/SearchFilterContext";
+import TagButton from "../../UI-kit/TagButton/TagButton";
+import { useEventsContext } from "../../utils/context/EventsContext";
+import { SearchField } from "../SearchField/SearchField";
+import { ReactComponent as Menu } from "../../images/menu.svg";
+import useIsMobileResolution from "../../utils/hooks/useIsMobileResolution";
 
 const LeftFilerBar = ({ isMenuOpen }) => {
   const [showAllDates, setShowAllDates] = useState(false);
@@ -47,17 +47,17 @@ const LeftFilerBar = ({ isMenuOpen }) => {
 
   const renderDateOptions = () => {
     const dateOptions = [
-      { id: 'today', value: 'Today', label: 'Сегодня' },
-      { id: 'tomorrow', value: 'Tomorrow', label: 'Завтра' },
-      { id: 'thisweekend', value: 'This weekend', label: 'В эти выходные' },
-      { id: 'pickdate', value: 'Pick date', label: 'Выбрать дату' },
+      { id: "today", value: "Today", label: "Сегодня" },
+      { id: "tomorrow", value: "Tomorrow", label: "Завтра" },
+      { id: "thisweekend", value: "This weekend", label: "В эти выходные" },
+      { id: "pickdate", value: "Pick date", label: "Выбрать дату" },
     ];
 
     if (showAllDates) {
       dateOptions.push(
-        { id: 'thisweek', value: 'This week', label: 'На этой неделе' },
-        { id: 'thismonth', value: 'This month', label: 'В этом месяце' },
-        { id: 'nextmonth', value: 'Next month', label: 'В следующем месяце' }
+        { id: "thisweek", value: "This week", label: "На этой неделе" },
+        { id: "thismonth", value: "This month", label: "В этом месяце" },
+        { id: "nextmonth", value: "Next month", label: "В следующем месяце" }
       );
     }
 
@@ -66,23 +66,23 @@ const LeftFilerBar = ({ isMenuOpen }) => {
         <input
           onChange={handleInputChange}
           id={option.id}
-          type='radio'
+          type="radio"
           value={option.label}
-          name='date'
+          name="date"
           checked={
             option.label.includes(values.date) ||
-            (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
+            (option.label === "Выбрать дату" && !isNaN(Date.parse(values.date)))
           }
         />
-        <span className={`${option.id === 'pickdate' && styles.radioText}`}>
+        <span className={`${option.id === "pickdate" && styles.radioText}`}>
           {option.label}
         </span>
-        {option.id === 'pickdate' && (
+        {option.id === "pickdate" && (
           <input
             onChange={handleDateChange}
             className={styles.pickdate}
-            name='date'
-            type='date'
+            name="date"
+            type="date"
             onBlur={handleDateBlur}
             min={new Date()}
           ></input>
@@ -99,9 +99,9 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           <input
             onChange={handleInputChange}
             id={item}
-            name='specialities'
+            name="specialities"
             value={item}
-            type='checkbox'
+            type="checkbox"
             className={styles.checkboxButton}
             checked={values.specialities.includes(item)}
           />
@@ -110,9 +110,7 @@ const LeftFilerBar = ({ isMenuOpen }) => {
       ));
   };
 
-
   return (
-
     <m.section
       initial={{ x: -100, opacity: 0 }} // начальное состояние - смещение влево на 100 пикселей
       animate={{ x: 0, opacity: 1 }} // конечное состояние - без смещения
@@ -125,37 +123,37 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           <h3 className={styles.itemTitle}>Название</h3>
           <input
             className={styles.filterInput}
-            placeholder='Разработка'
+            placeholder="Разработка"
             onChange={handleQueryChange}
-            value={values.query || ''}
-            type='text'
-            name='query'
+            value={values.query || ""}
+            type="text"
+            name="query"
           />
           {/* <SearchField /> */}
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Формат</h3>
-          <label htmlFor='online'>
+          <label htmlFor="online">
             <input
               onChange={handleInputChange}
-              id='online'
-              name='status'
-              value='Online'
-              type='checkbox'
+              id="online"
+              name="status"
+              value="Online"
+              type="checkbox"
               className={styles.checkboxButton}
-              checked={values.status.includes('Online')}
+              checked={values.status.includes("Online")}
             />
             <span className={styles.checkboxLabel}>Online</span>
           </label>
-          <label htmlFor='offline'>
+          <label htmlFor="offline">
             <input
               onChange={handleInputChange}
-              id='offline'
-              name='status'
-              value='Offline'
-              type='checkbox'
+              id="offline"
+              name="status"
+              value="Offline"
+              type="checkbox"
               className={styles.checkboxButton}
-              checked={values.status.includes('Offline')}
+              checked={values.status.includes("Offline")}
             />
             <span className={styles.checkboxLabel}>Offline</span>
           </label>
@@ -164,14 +162,14 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           <h3 className={styles.itemTitle}>Город</h3>
           <input
             onChange={handleInputChange}
-            name='city'
-            type='text'
-            value={values.city || ''}
-            placeholder='Поиск города'
+            name="city"
+            type="text"
+            value={values.city || ""}
+            placeholder="Поиск города"
             className={styles.filterInput}
-            autoComplete='off'
+            autoComplete="off"
           />
-          {findValues && findValues.city && findValues.city !== '' && (
+          {findValues && findValues.city && findValues.city !== "" && (
             <div className={styles.serchContainer}>
               {findValues.city.map((item, index) => {
                 return (
@@ -191,7 +189,7 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           <h3 className={styles.itemTitle}>Дата</h3>
           {renderDateOptions()}
           <button onClick={toggleShowAllDates} className={styles.showMore}>
-            {showAllDates ? 'Показать меньше' : 'Показать больше'}
+            {showAllDates ? "Показать меньше" : "Показать больше"}
           </button>
         </li>
         <li className={styles.list}>
@@ -199,31 +197,31 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           {renderSpecialityOptions()}
           {dataLists?.topics?.length > 3 && (
             <button onClick={toggleShowAllTopics} className={styles.showMore}>
-              {showAllTopics ? 'Показать меньше' : 'Показать больше'}
+              {showAllTopics ? "Показать меньше" : "Показать больше"}
             </button>
           )}
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Цена</h3>
-          <label htmlFor='free' className={styles.radioButton}>
+          <label htmlFor="free" className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id='free'
-              type='radio'
-              value='Бесплатно'
-              name='price'
-              checked={values.price === 'Бесплатно'}
+              id="free"
+              type="radio"
+              value="Бесплатно"
+              name="price"
+              checked={values.price === "Бесплатно"}
             />
             <span>Бесплатно</span>
           </label>
-          <label htmlFor='paid' className={styles.radioButton}>
+          <label htmlFor="paid" className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id='paid'
-              type='radio'
-              value='Платно'
-              name='price'
-              checked={values.price === 'Платно'}
+              id="paid"
+              type="radio"
+              value="Платно"
+              name="price"
+              checked={values.price === "Платно"}
             />
             <span>Платно</span>
           </label>
@@ -232,14 +230,14 @@ const LeftFilerBar = ({ isMenuOpen }) => {
           <h3 className={styles.itemTitle}>Теги</h3>
           <input
             onChange={handleInputChange}
-            name='findTags'
-            type='text'
-            value={values.findTags || ''}
-            placeholder='Поиск тега'
+            name="findTags"
+            type="text"
+            value={values.findTags || ""}
+            placeholder="Поиск тега"
             className={styles.filterInput}
-            autoComplete='off'
+            autoComplete="off"
           />
-          {findValues && findValues.findTags && findValues.findTags !== '' && (
+          {findValues && findValues.findTags && findValues.findTags !== "" && (
             <div className={styles.serchContainer}>
               <div className={styles.tagsList}>
                 {findValues.findTags.map((item, index) => {
@@ -262,7 +260,7 @@ const LeftFilerBar = ({ isMenuOpen }) => {
       <button
         onClick={handleSearchClick}
         className={styles.buttonSearch}
-        type='button'
+        type="button"
       >
         Найти
       </button>

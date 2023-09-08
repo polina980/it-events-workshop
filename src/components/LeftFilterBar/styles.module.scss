@@ -39,7 +39,7 @@
   width: 192px;
   height: 34px;
   border-radius: 20px;
-  background: url('./../../images/Actions/loupe.svg') no-repeat;
+  background: url("./../../images/Actions/loupe.svg") no-repeat;
   background-position-x: 12px;
   background-position-y: center;
   margin: -4px 0 9px 1px;
@@ -70,9 +70,11 @@
   flex-direction: column;
   position: relative;
   width: fit-content;
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0) -185%,
-      #ffffff 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) -185%,
+    #ffffff 100%
+  );
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
     0px 0px 1px rgba(36, 63, 97, 0.16);
@@ -83,21 +85,23 @@
 
 .serchContainer::after {
   position: absolute;
-  content: '';
+  content: "";
   width: fit-content;
   height: 20px;
   bottom: 10px;
   left: 5px;
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0) -185%,
-      #ffffff 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) -185%,
+    #ffffff 100%
+  );
   z-index: -1;
 }
 
 .findItem {
   display: flex;
   padding: 10px 20px;
-  font-family: 'IBM Plex Sans';
+  font-family: "IBM Plex Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -121,7 +125,7 @@
   width: 192px;
   height: 34px;
   border-radius: 20px;
-  background: url('./../../images/Actions/loupe.svg') no-repeat;
+  background: url("./../../images/Actions/loupe.svg") no-repeat;
   background-position-x: 12px;
   background-position-y: center;
   margin-bottom: 10px;
@@ -173,7 +177,7 @@
 }
 
 .checkboxLabel:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   width: 16px;
@@ -186,8 +190,8 @@
   border-color: #674eae;
 }
 
-.checkboxButton:checked+.checkboxLabel:before {
-  background: url('./../../images/Actions/Check.svg') no-repeat;
+.checkboxButton:checked + .checkboxLabel:before {
+  background: url("./../../images/Actions/Check.svg") no-repeat;
   background-position: center;
   background-color: #674eae;
   border-color: #674eae;
@@ -199,7 +203,7 @@
   color: #797979;
 }
 
-.radioButton input[type='radio'] {
+.radioButton input[type="radio"] {
   display: none;
 }
 
@@ -212,7 +216,7 @@
 }
 
 .radioButton span:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   width: 16px;
@@ -222,7 +226,7 @@
 }
 
 .radioButton span:after {
-  content: '';
+  content: "";
   position: absolute;
   left: 6px;
   top: 6px;
@@ -233,12 +237,12 @@
   display: none;
 }
 
-.radioButton input[type='radio']:checked+span:before {
+.radioButton input[type="radio"]:checked + span:before {
   background-color: #674eae;
   border-color: #674eae;
 }
 
-.radioButton input[type='radio']:checked+span:after {
+.radioButton input[type="radio"]:checked + span:after {
   display: block;
 }
 
@@ -251,7 +255,7 @@
   height: 34.39px;
 }
 
-.radioButton input[type='radio']:checked~.pickdate {
+.radioButton input[type="radio"]:checked ~ .pickdate {
   display: flex;
   align-items: flex-start;
   margin-left: 10px;
@@ -259,7 +263,7 @@
   color: #797979;
 }
 
-.radioButton input[type='radio']:checked~.radioText {
+.radioButton input[type="radio"]:checked ~ .radioText {
   display: none;
 }
 
@@ -271,7 +275,7 @@
 }
 
 .buttonSearch {
-  background: url('../../images/Arrows/arrow-right_gray.svg') no-repeat;
+  background: url("../../images/Arrows/arrow-right_gray.svg") no-repeat;
   background-position-x: 80px;
   background-position-y: center;
   background-color: transparent;
@@ -289,7 +293,7 @@
 }
 
 .buttonSearch:hover {
-  background: url('../../images/Arrows/arrow-right_violet.svg') no-repeat;
+  background: url("../../images/Arrows/arrow-right_violet.svg") no-repeat;
   background-position-x: 80px;
   background-position-y: center;
   border: 1px solid #674eae;
@@ -297,7 +301,7 @@
 }
 
 .buttonSearch:active {
-  background: url('../../images/Arrows/arrow-right_white.svg') no-repeat;
+  background: url("../../images/Arrows/arrow-right_white.svg") no-repeat;
   background-position-x: 80px;
   background-position-y: center;
   border: 1px solid #674eae;
@@ -306,12 +310,12 @@
 }
 
 .menuButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 38px;
-    height: 38px;
-    margin: 0 0 0 auto;
-    border: 0;
-    background: transparent;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  margin: 0 0 0 auto;
+  border: 0;
+  background: transparent;
+}

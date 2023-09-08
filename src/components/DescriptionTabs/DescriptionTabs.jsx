@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import styles from './styles.module.scss';
-import { tabs } from './../../utils/constants/tabs';
+import { useState } from "react";
+import styles from "./styles.module.scss";
+import { tabs } from "./../../utils/constants/tabs";
 
 export const DescriptionTabs = ({ selectedEvent }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -12,15 +12,15 @@ export const DescriptionTabs = ({ selectedEvent }) => {
   const getContentByTab = () => {
     switch (activeTab) {
       case 0:
-        return selectedEvent?.description || 'Нет данных';
+        return selectedEvent?.description || "Нет данных";
       case 1:
-        return selectedEvent?.program || 'Нет данных';
+        return selectedEvent?.program || "Нет данных";
       case 2:
-        return selectedEvent?.organizer || 'Нет данных';
+        return selectedEvent?.organizer || "Нет данных";
       case 3:
-        return selectedEvent?.partners || 'Нет данных';
+        return selectedEvent?.partners || "Нет данных";
       default:
-        return '';
+        return "";
     }
   };
 
