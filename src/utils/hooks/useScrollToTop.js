@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useScrollToTop = (scrollThreshold) => {
   const [isOnTopVisible, setIsOnTopVisible] = useState(false);
@@ -15,7 +15,7 @@ const useScrollToTop = (scrollThreshold) => {
 
   useEffect(() => {
     const handleResize = () => {
-      const footerElement = document.getElementById('footer');
+      const footerElement = document.getElementById("footer");
       if (footerElement) {
         const height = footerElement.offsetHeight;
         setFooterHeight(height);
@@ -24,17 +24,17 @@ const useScrollToTop = (scrollThreshold) => {
       setWindowHeight(height);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
     handleResize(); // Вызовите функцию измерения высоты при первой загрузке
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return { isOnTopVisible, scrollToTop, footerHeight, windowHeight };

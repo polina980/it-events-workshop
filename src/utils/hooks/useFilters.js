@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const useFilters = () => {
   const initialValues = {
-    query: '',
+    query: "",
     status: [],
     city: null,
     date: null,

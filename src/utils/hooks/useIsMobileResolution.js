@@ -1,7 +1,7 @@
-'use client'
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 
-const useIsMobileResolution = ( mobileResolution ) => {
+const useIsMobileResolution = (mobileResolution) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const checkIsMobile = () => {
@@ -17,11 +17,11 @@ const useIsMobileResolution = ( mobileResolution ) => {
       checkIsMobile();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Убираем обработчик при размонтировании компонента
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [mobileResolution]);
 

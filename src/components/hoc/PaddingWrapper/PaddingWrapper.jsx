@@ -1,4 +1,4 @@
-import styles from './PaddingWrapper.module.scss';
+import styles from "./PaddingWrapper.module.scss";
 
 const PaddingWrapper = (WrappedComponent) => {
   return (props) => (

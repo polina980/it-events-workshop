@@ -1,9 +1,8 @@
-import styles from './styles.module.scss';
-import EventDescription from '../EventDescription/EventDescription';
-import { HorizontalEventList } from '../HorizontalEventList/HorizontalEventList';
-import defaultImage from '../../images/default-image.png';
-import { useEventsContext } from '../../utils/context/EventsContext';
-import PaddingWrapper from '../hoc/PaddingWrapper/PaddingWrapper';
+import styles from "./styles.module.scss";
+import EventDescription from "../EventDescription/EventDescription";
+import defaultImage from "../../images/default-image.png";
+import { useEventsContext } from "../../utils/context/EventsContext";
+import { CardList } from "../CardList/CardList";
 
 const Event = ({ selectedEvent }) => {
   const { handleCardClick, toggleFavorite, recommendedEvents, favoriteEvents } =
@@ -21,23 +20,27 @@ const Event = ({ selectedEvent }) => {
           favoriteEvents={favoriteEvents}
           onLikeClick={toggleFavorite}
         />
-        <aside className={styles.aside}>
-          <img
-            className={styles.eventImage}
-            src={selectedEvent.image}
-            alt={selectedEvent.title}
-            onError={handleImageError}
-          />
-        </aside>
+        {/* <aside className={styles.aside}> */}
+        <img
+          className={styles.eventImage}
+          src={selectedEvent.image}
+          alt={selectedEvent.title}
+          onError={handleImageError}
+        />
+        {/* </aside> */}
       </div>
-      {/* <HorizontalEventList
-        title="Смотрите также"
-        list={recommendedEvents}
-        onCardClick={handleCardClick}
-        onLikeClick={toggleFavorite}
-      /> */}
+      <div className={styles.listWrapper}>
+        <CardList
+          title="Смотрите также"
+          listDirection="row"
+          cardDirection="column"
+          events={recommendedEvents}
+          onCardClick={handleCardClick}
+          onLikeClick={toggleFavorite}
+        />
+      </div>
     </div>
   );
 };
 
-export default PaddingWrapper( Event);
+export default Event;

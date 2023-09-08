@@ -1,7 +1,7 @@
-import styles from './styles.module.scss';
-import { Card } from '../Card/Card';
+import styles from "./styles.module.scss";
+import { Card } from "../Card/Card";
 
-export const CardList = ({ title, events }) => {
+export const CardList = ({ title, events, listDirection, cardDirection }) => {
   return (
     <section className={styles.section}>
       {title && (
@@ -9,9 +9,13 @@ export const CardList = ({ title, events }) => {
           <h2 className={styles.title}>{title}</h2>
         </div>
       )}
-      <ul className={`${styles.list}`}>
+      <ul
+        className={`${styles.list} ${
+          listDirection === "row" ? styles.row : styles.column
+        }`}
+      >
         {events?.map((event) => (
-          <Card key={event.id} event={event} />
+          <Card key={event.id} event={event} cardDirection={cardDirection} />
         ))}
       </ul>
     </section>

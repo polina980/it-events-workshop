@@ -1,4 +1,4 @@
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 export const FilterBar = ({ onFilter }) => {
   const handleFilterClick = (option) => {
@@ -15,7 +15,7 @@ export const FilterBar = ({ onFilter }) => {
             type="button"
             className={styles.filterButton}
             onClick={() => {
-              handleFilterClick('name');
+              handleFilterClick("name");
             }}
           >
             Название
@@ -26,7 +26,7 @@ export const FilterBar = ({ onFilter }) => {
             type="button"
             className={styles.filterButton}
             onClick={() => {
-              handleFilterClick('date');
+              handleFilterClick("date");
             }}
           >
             Дата
@@ -37,7 +37,7 @@ export const FilterBar = ({ onFilter }) => {
             type="button"
             className={styles.filterButton}
             onClick={() => {
-              handleFilterClick('price');
+              handleFilterClick("price");
             }}
           >
             Цена

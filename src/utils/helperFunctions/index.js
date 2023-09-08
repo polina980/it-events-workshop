@@ -1,21 +1,21 @@
 export const parsePrice = (priceString) => {
-  const price = priceString.replace(/\D/g, '');
+  const price = priceString.replace(/\D/g, "");
   return parseInt(price);
 };
 
 export const formatPrice = (price) => {
-  if (price === '0.00') {
-    return 'Бесплатно';
+  if (price === "0.00") {
+    return "Бесплатно";
   } else {
     const formattedPrice = parseFloat(price).toFixed(2);
-    const parts = formattedPrice.split('.');
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    const parts = formattedPrice.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return `${parts[0]} ₽`;
   }
 };
 
 export const parseDate = (dateString) => {
-  const parts = dateString.split(' ');
+  const parts = dateString.split(" ");
   const day = parseInt(parts[0]);
   const month = parseMonth(parts[1]);
   const currentDate = new Date();
@@ -25,36 +25,36 @@ export const parseDate = (dateString) => {
 
 export const parseMonth = (monthString) => {
   const monthNames = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
   ];
   return monthNames.indexOf(monthString);
 };
 
 export const parseEventDate = (dateString) => {
   const months = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
   ];
 
   const date = new Date(dateString);
@@ -66,13 +66,13 @@ export const parseEventDate = (dateString) => {
 };
 
 export const formatDate = (dateString) => {
-  const options = { weekday: 'short', day: 'numeric', month: 'long' };
+  const options = { weekday: "short", day: "numeric", month: "long" };
   const date = new Date(dateString);
-  const formattedDay = date.toLocaleDateString('ru-RU', options).slice(0, 2);
+  const formattedDay = date.toLocaleDateString("ru-RU", options).slice(0, 2);
   const capitalizedDay =
     formattedDay.charAt(0).toUpperCase() + formattedDay.slice(1);
   const formattedDate = date
-    .toLocaleDateString('ru-RU', options)
+    .toLocaleDateString("ru-RU", options)
     .replace(formattedDay, capitalizedDay);
   return formattedDate;
 };
@@ -84,7 +84,7 @@ export const getRandomEvents = (array, count) => {
 };
 
 export const handleCopyLink = (link, setShowNotification) => {
-  if (typeof navigator !== 'undefined' && navigator.clipboard) {
+  if (typeof navigator !== "undefined" && navigator.clipboard) {
     navigator.clipboard
       .writeText(link)
       .then(() => {
@@ -94,22 +94,22 @@ export const handleCopyLink = (link, setShowNotification) => {
         }, 1500);
       })
       .catch((error) => {
-        console.error('Не удалось скопировать ссылку:', error);
+        console.error("Не удалось скопировать ссылку:", error);
       });
   } else {
-    const textArea = document.createElement('textarea');
+    const textArea = document.createElement("textarea");
     textArea.value = link;
     document.body.appendChild(textArea);
     textArea.select();
 
     try {
-      document.execCommand('copy');
+      document.execCommand("copy");
       setShowNotification(true);
       setTimeout(() => {
         setShowNotification(false);
       }, 1500);
     } catch (error) {
-      console.error('Не удалось скопировать ссылку:', error);
+      console.error("Не удалось скопировать ссылку:", error);
     }
     document.body.removeChild(textArea);
   }
@@ -117,8 +117,8 @@ export const handleCopyLink = (link, setShowNotification) => {
 
 const formatTime = (dateString) => {
   const date = new Date(dateString);
-  const hours = date.getUTCHours().toString().padStart(2, '0');
-  const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+  const hours = date.getUTCHours().toString().padStart(2, "0");
+  const minutes = date.getUTCMinutes().toString().padStart(2, "0");
   return `${hours}:${minutes}`;
 };
 

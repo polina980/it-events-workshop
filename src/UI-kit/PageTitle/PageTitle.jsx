@@ -1,4 +1,4 @@
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
 const PageTitle = ({ title, subtitle, size }) => {
   return (

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import ru from 'date-fns/locale/ru';
-import SearchFilterContext from '../../utils/context/SearchFilterContext';
+import React, { useContext } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import ru from "date-fns/locale/ru";
+import SearchFilterContext from "../../utils/context/SearchFilterContext";
 
 const MyDatePicker = () => {
   const { values, setValues } = useContext(SearchFilterContext);

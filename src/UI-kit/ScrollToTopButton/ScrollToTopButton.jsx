@@ -1,5 +1,5 @@
-import styles from './styles.module.scss';
-import useScrollToTop from '../../utils/hooks/useScrollToTop';
+import styles from "./styles.module.scss";
+import useScrollToTop from "../../utils/hooks/useScrollToTop";
 
 const ScrollToTopButton = () => {
   const { isOnTopVisible, scrollToTop } = useScrollToTop(740);
@@ -8,7 +8,7 @@ const ScrollToTopButton = () => {
     <div className={styles.scrollContainer}>
       <button
         type="button"
-        className={`${styles.onTop} ${isOnTopVisible ? styles.visible : ''}`}
+        className={`${styles.onTop} ${isOnTopVisible ? styles.visible : ""}`}
         onClick={scrollToTop}
       ></button>
     </div>
