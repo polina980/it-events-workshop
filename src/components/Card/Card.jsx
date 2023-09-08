@@ -11,10 +11,12 @@ import { ReactComponent as PlaceImage } from '../../images/EventInfo/place.svg';
 import { ReactComponent as CalendarImage } from '../../images/EventInfo/calendar.svg';
 import { ReactComponent as TimeImage } from '../../images/EventInfo/time.svg';
 import { useEventsContext } from '../../utils/context/EventsContext';
+import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 
 export const Card = ({ event, style }) => {
   const [imageError, setImageError] = useState(false);
   const { handleCardClick, toggleFavorite } = useEventsContext();
+  const isMobileResulution = useIsMobileResolution(767)
 
   const handleImageError = () => {
     setImageError(true);
@@ -49,7 +51,7 @@ export const Card = ({ event, style }) => {
   return (
     <li key={event.id} className={`${styles.card}`}>
       <div className={styles.imageContainer}>
-        <Link to={`/events/${event.id}`}>
+        <Link to={`/events/${event.id}`} className={styles.cardLink}>
           {imageError ? (
             <img
               src={DefaultImage}
@@ -81,6 +83,7 @@ export const Card = ({ event, style }) => {
           </h3>
         </div>
         <ul className={styles.rowContainer}>
+         
           {cardDetails.map((item, index) => (
             <li key={index} className={styles.rowItem}>
               {item.icon}

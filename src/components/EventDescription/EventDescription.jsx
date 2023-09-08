@@ -7,7 +7,7 @@ import { ReactComponent as TimeImage } from '../../images/EventInfo/time.svg';
 import { ReactComponent as PlaceImage } from '../../images/EventInfo/place.svg';
 import { ReactComponent as LikeImage } from '../../images/like-button.svg';
 import { ReactComponent as LikeImageActive } from '../../images/like-button_active.svg';
-import { ReactComponent as ShareImage } from '../../images/Actions/share.svg';
+import { ReactComponent as ShareImage } from '../../images/Actions/Share.svg';
 import { PopupLink } from '../PopupLink/PopupLink';
 import {
   formatDate,

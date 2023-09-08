@@ -1,6 +1,6 @@
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import styles from './styles.module.scss';
-import Cross from './../../images/Actions/close_gray.svg';
+import Cross from './../../images/Actions/Close_gray.svg';
 
 export const TopFilterBar = () => {
   const { values, setValues } = useFiltersContext();
@@ -18,6 +18,7 @@ export const TopFilterBar = () => {
 
   const handleClearFilter = () => {
     setValues({
+      query: '',
       status: [],
       city: null,
       date: null,

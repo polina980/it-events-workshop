@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const useFilters = () => {
   const initialValues = {
+    query: '',
     status: [],
     city: null,
     date: null,

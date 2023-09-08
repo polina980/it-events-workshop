@@ -2,10 +2,12 @@ import styles from './styles.module.scss';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useEventsContext } from '../../utils/context/EventsContext';
+import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 
 export const SearchField = ({ smallInput }) => {
   // Устанавливаем значение в поисковую строку из пропса
   const { handleSearch, searchQuery, setSearchQuery } = useEventsContext();
+  const { values, setValues } = useFiltersContext()
   const location = useLocation();
   const isResultsPage = location.pathname === '/results';
   const placeholder =
@@ -25,6 +27,7 @@ export const SearchField = ({ smallInput }) => {
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
+    //setValues(e.target.value)
   };
 
   const handleSubmit = (e) => {
@@ -34,13 +37,15 @@ export const SearchField = ({ smallInput }) => {
   };
 
   return (
-    <input
-      className={styles.input}
-      placeholder={placeholder}
-      onChange={handleChange}
-      value={searchQuery || ''}
-      type="text"
-      style={smallInput}
-    />
+    <form onSubmit={handleSubmit}>
+      <input
+        className={styles.formInput}
+        placeholder={placeholder}
+        onChange={handleChange}
+        value={searchQuery || ''}
+        type="text"
+        style={smallInput}
+      />
+    </form>
   );
 };

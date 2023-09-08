@@ -187,7 +187,7 @@
 }
 
 .checkboxButton:checked+.checkboxLabel:before {
-  background: url('./../../images/Actions/check.svg') no-repeat;
+  background: url('./../../images/Actions/Check.svg') no-repeat;
   background-position: center;
   background-color: #674eae;
   border-color: #674eae;
@@ -304,3 +304,14 @@
   background-color: #674eae;
   color: white;
 }
+
+.menuButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    margin: 0 0 0 auto;
+    border: 0;
+    background: transparent;
+  }
