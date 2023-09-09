@@ -1,22 +1,21 @@
-import { useState, useMemo } from 'react';
-import styles from './SearchResult.module.scss';
-import LeftFilterBar from '../../components/LeftFilterBar/LeftFilterBar';
+import { useState } from 'react';
+import styles from './styles.module.scss';
+import { Loader } from '../../UI-kit/Loader/Loader';
+import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
+import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { CardList } from '../../components/CardList/CardList';
-import PageTitle from '../../UI-kit/PageTitle/PageTitle';
+import { PageTitle } from '../../UI-kit/PageTitle/PageTitle';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
 import { useFilterdList } from '../../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { useEventsContext } from '../../utils/context/EventsContext';
-import PaddingWrapper from '../../components/hoc/PaddingWrapper/PaddingWrapper';
+import { PaddingWrapper } from '../../UI-kit/PaddingWrapper/PaddingWrapper';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
-import MobileSearch from '../../components/MobileSearch/MobileSearch';
-import Loader from '../../UI-kit/Loader/Loader';
 
 const SearchResultPage = () => {
   const { values, isFiltersOpen } = useFiltersContext();
   const { popularEvents, searchResult, isLoading } = useEventsContext();
   const { filteredList } = useFilterdList({ values, searchResult });
-  //const filteredList = useMemo(() => useFilterdList({ values, searchResult }), [values, searchResult]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const isNothingFind = !filteredList || filteredList.length === 0;

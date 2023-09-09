@@ -1,14 +1,14 @@
-import styles from './MainPage.module.scss';
+import styles from './styles.module.scss';
 import { useEffect } from 'react';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { CardList } from '../../components/CardList/CardList';
-import LeftFilerBar from '../../components/LeftFilterBar/LeftFilterBar';
-import MobileSearch from '../../components/MobileSearch/MobileSearch';
+import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
+import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
-import Loader from '../../UI-kit/Loader/Loader';
+import { Loader } from '../../UI-kit/Loader/Loader';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
-import PaddingWrapper from '../../components/hoc/PaddingWrapper/PaddingWrapper';
+import { PaddingWrapper } from '../../UI-kit/PaddingWrapper/PaddingWrapper';
 
 const MainPage = () => {
   const { resetFilters, isFiltersOpen } = useFiltersContext();
@@ -30,16 +30,16 @@ const MainPage = () => {
       <div className={styles.page}>
         {isMobile ? (
           <>
-           <MobileSearch />
+            <MobileSearch />
             {isFiltersOpen ? (
-              <LeftFilerBar />
+              <LeftFilterBar />
             ) : (
               <CardList events={upcomingEvents} />
             )}
           </>
         ) : (
           <>
-            <LeftFilerBar />
+            <LeftFilterBar />
             <div>
               <TopFilterBar />
               <CardList events={upcomingEvents} />

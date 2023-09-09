@@ -1,35 +1,8 @@
+/* Страница: Избранное */
+.favoritesContainer {
+  padding-top: 24px;
 
-
-.menuButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 38px;
-  height: 38px;
-  margin: 0 0 0 auto;
-  border: 0;
-  background: transparent;
-}
-
-/* Страница: Результаты поиска */
-.favoritesPageWrapper {
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  flex-grow: 1;
-  // padding: 64px 104px 0;
-  width: 100%;
-  min-height: calc(100vh - 113px - 152px);
-
-  .favoritesPageListContainer {
-    padding-top: 36px;
-  }
-
-  .noFavoritesContainer {
-    padding-top: 24px;
-  }
-
-  .noFavoritesText {
+  .favoritesText {
     color: #242424;
     font-weight: 500;
     font-size: 24px;
@@ -37,7 +10,7 @@
     padding-bottom: 20px;
   }
 
-  .noFavoritesDesc {
+  .favoritesDesc {
     max-width: 721px;
     color: #797979;
     font-size: 20px;
@@ -46,7 +19,7 @@
     padding-bottom: 12px;
   }
 
-  .noFavoritesLink {
+  .favoritesLink {
     color: #674eae;
     font-weight: 400;
     font-size: 20px;
@@ -59,6 +32,7 @@
   position: relative;
   display: flex;
   width: 100%;
+  max-width: 1440px;
   height: calc(100vh - 113px - 64px);
   padding: 242px 142px 153px;
   background: url("../images/404.svg") no-repeat;
@@ -93,13 +67,7 @@
   line-height: 25px;
 }
 
-
-
-
-  .favoritesPageWrapper {
-    // padding: 64px 16px 0;
-  }
-
+@media screen and (min-width: 321px) and (max-width: 1080px) {
   .notFound {
     height: calc(100vh - 113px - 320px);
     padding: 0;
@@ -109,4 +77,4 @@
   .notInfo {
     left: 200px;
   }
-
+}

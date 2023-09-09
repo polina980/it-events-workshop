@@ -2,14 +2,10 @@ import styles from "./styles.module.scss";
 import { Circles } from "react-loader-spinner";
 import Overlay from "./Overlay/Overlay";
 
-const overlay = {
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
-};
-
-const Loader = () => {
+export const Loader = () => {
   return (
     <>
-      <Overlay style={overlay} />
+      <Overlay />
       <div className={styles.loaderContainer}>
         <Circles
           height="80"
@@ -22,5 +18,3 @@ const Loader = () => {
     </>
   );
 };
-
-export default Loader;

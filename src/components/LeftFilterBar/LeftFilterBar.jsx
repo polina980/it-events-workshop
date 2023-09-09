@@ -1,21 +1,20 @@
 import { useState } from "react";
 import { motion as m } from "framer-motion";
 import styles from "./styles.module.scss";
+import { TagButton } from "../../UI-kit/TagButton/TagButton";
 import { TagSection } from "./../TagSection/TagSection";
-import { useInitialFilter } from "../../utils/hooks/useInitialFilter";
 import { useFilter } from "../../utils/hooks/useFilter";
-import { useFiltersContext } from "../../utils/context/SearchFilterContext";
-import TagButton from "../../UI-kit/TagButton/TagButton";
 import { useEventsContext } from "../../utils/context/EventsContext";
+import { useInitialFilter } from "../../utils/hooks/useInitialFilter";
+import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 
 
-const LeftFilerBar = () => {
+export const LeftFilterBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
-  const { values, setValues, findValues, setFindValues, closeFilters } = useFiltersContext();
   const { handleSearch } = useEventsContext();
-
+  const { values, setValues, findValues, setFindValues, closeFilters } = useFiltersContext();
 
   const {
     handleQueryChange,
@@ -129,7 +128,6 @@ const LeftFilerBar = () => {
             name="query"
             autoComplete="off"
           />
-          {/* <SearchField /> */}
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Формат</h3>
@@ -267,5 +265,3 @@ const LeftFilerBar = () => {
     </m.section>
   );
 };
-
-export default LeftFilerBar;
