@@ -7,8 +7,9 @@ import { TopFilterBar } from '../components/TopFilterBar/TopFilterBar';
 import { useFilterdList } from '../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../utils/context/SearchFilterContext';
 import { useEventsContext } from '../utils/context/EventsContext';
+import PaddingWrapper from '../components/hoc/PaddingWrapper/PaddingWrapper';
 
-export const SearchResultPage = () => {
+const SearchResultPage = () => {
   const { values } = useFiltersContext();
   const { popularEvents, searchResult } = useEventsContext();
   const { filteredList } = useFilterdList({ values, searchResult });
@@ -51,3 +52,5 @@ export const SearchResultPage = () => {
     </section>
   );
 };
+
+export default PaddingWrapper(SearchResultPage)

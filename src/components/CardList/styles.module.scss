@@ -1,5 +1,7 @@
+@import '../../scss/vars.scss';
+
 .section {
-  width: 920px;
+  max-width: 920px;
   display: flex;
   flex-direction: column;
   margin: 0 0 80px;
@@ -15,7 +17,7 @@
       font-weight: 700;
       font-size: 32px;
       line-height: 48px;
-      color: rgba(0, 0, 0, 0.8);
+      color: $mainTitleDarkGreyColor;
     }
   }
 
@@ -28,15 +30,14 @@
   }
 }
 
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 321px) and (max-width: 992px) {
   .section {
     width: 100%;
 
     .list {
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
       gap: 28px 8px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }

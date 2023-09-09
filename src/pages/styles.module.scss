@@ -1,13 +1,14 @@
 /* Страница: Главная */
 .mainPage {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: start;
+  //flex-wrap: wrap;
   align-items: start;
   width: 100%;
   max-width: 1440px;
-  margin: 54px auto;
-  padding: 0 104px;
+  gap: 120px;
+  //margin: 54px auto;
+  // padding: 0 104px;
 }
 
 .menuButton {
@@ -103,12 +104,28 @@
   line-height: 25px;
 }
 
-@media screen and (min-width: 321px) and (max-width: 768px) {
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media screen and (min-width: 993px) and (max-width: 1279px) {
+  .mainPage {
+    //flex-direction: column;
+    margin: 0 auto;
+    //padding: 56px 32px;
+    gap: 38px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 992px) {
   .mainPage {
     flex-direction: column;
-    margin: 0 auto;
-    padding: 28px 16px;
-    gap: 28px;
+    //margin: 0 auto;
+    // padding: 28px 16px;
+    gap: 20px;
   }
 
   .favoritesPageWrapper {

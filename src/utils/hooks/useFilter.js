@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import debounce from '../debounce';
 import { useInitialFilter } from './useInitialFilter';
+import { useEventsContext } from '../context/EventsContext';
 
 export function useFilter({ values, setValues, setFindValues }) {
   const { dataLists } = useInitialFilter();
   const [date, setDate] = useState(null);
+  const { setSearchQuery } = useEventsContext()
 
   const handleFilter = ({ name, value }) => {
     const searchList = dataLists[name]?.map((item) => item?.toLowerCase());
@@ -19,6 +21,12 @@ export function useFilter({ values, setValues, setFindValues }) {
         debouncedSetFindValues({ [name]: findValue });
       } else debouncedSetFindValues(null);
     } else debouncedSetFindValues(null);
+  };
+
+  const handleQueryChange = (event) => {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
+    setSearchQuery(value)
   };
 
   const handleInputChange = (event) => {
@@ -106,6 +114,7 @@ export function useFilter({ values, setValues, setFindValues }) {
   };
 
   return {
+    handleQueryChange,
     handleInputChange,
     handleButtonChange,
     setItemOnClick,

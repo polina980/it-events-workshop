@@ -1,3 +1,5 @@
+@import '../../scss/vars.scss';
+
 .card {
   border-radius: 20px;
   gap: 24px;
@@ -10,12 +12,14 @@
     height: 180px;
     width: 100%;
     cursor: pointer;
+    overflow: hidden;
 
     .image {
       border-radius: 8px;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: left;
       transition: box-shadow 0.3s ease;
 
       &:hover {
@@ -51,57 +55,20 @@
   }
 }
 
-.linkButton {
-  background: url(../../images/like-button.svg) no-repeat center;
-  background-size: 19.5px 19px;
-  width: 19.5px;
-  height: 19px;
-  top: 10px;
-  right: 10px;
-  border: none;
-  cursor: pointer;
-}
-
 .titleContainer {
   display: flex;
   align-items: baseline;
-  gap: 10px;
-  width: 100%;
+  max-width: 100%;
+  max-height: 48px;
+  overflow: hidden;
 }
 
 .title {
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.8);
-  display: -webkit-box;
-  webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: wrap;
+  color: $smallTitleDarkGreyColor;
   font-size: 20px;
   line-height: 1.2;
-  max-height: 56px;
-  max-width: 600px;
-}
-
-.location {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #878787;
-}
-
-.date {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #878787;
-}
-
-.address {
-  max-width: 245px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 550px;
 }
 
 .price {
@@ -109,7 +76,7 @@
   font-size: 20px;
   line-height: 25px;
   margin-top: 8px;
-  color: #674eae;
+  color: $purpleColor;
   width: fit-content;
   border-radius: 8px;
 }
@@ -122,7 +89,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: rgba(0, 0, 0, 0.6);
+  color: $mainTextGreyColor;
   white-space: wrap;
   list-style-type: none;
 
@@ -137,28 +104,43 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  flex-grow: 1;
 }
 
-.eventFigure {
-  display: flex;
-  align-items: center;
-  gap: 10.5px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #797979;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 321px) and (max-width: 992px) {
   .card {
     display: flex;
     flex-direction: column;
-    width: 160px;
+    min-width: 160px;
 
     .imageContainer {
-      height: 130px;
+      max-height: 130px;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+  }
+
+  .rowContainer {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+  }
+
+  .price {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: $lightPurpleColor;
+    color: $lightBeigeColor;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
   }
 }

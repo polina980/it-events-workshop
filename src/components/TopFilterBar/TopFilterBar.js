@@ -18,6 +18,7 @@ export const TopFilterBar = () => {
 
   const handleClearFilter = () => {
     setValues({
+      query: '',
       status: [],
       city: null,
       date: null,

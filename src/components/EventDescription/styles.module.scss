@@ -1,6 +1,8 @@
+@import '../../scss/vars.scss';
+
 .eventDescription {
   position: relative;
-  width: 48%;
+  max-width: 48%;
   margin-bottom: 150px;
   cursor: default;
 
@@ -16,7 +18,7 @@
       font-weight: 700;
       line-height: 38.4px;
       font-size: 32px;
-      color: rgba(0, 0, 0, 0.8);
+      color: $smallTitleDarkGreyColor;
     }
 
     .eventFigures {
@@ -41,7 +43,7 @@
     max-width: 600px;
     gap: 12px;
     padding: 0;
-    color: rgba(0, 0, 0, 0.6);
+    color: $mainTextGreyColor;
     margin: 2px 0 78px;
     font-weight: 500;
     font-size: 16px;
@@ -55,7 +57,7 @@
     }
 
     .eventPrice {
-      color: #674eae;
+      color: #674EAE;
       font-weight: 500;
       line-height: 25px;
       font-size: 20px;

@@ -1,16 +1,17 @@
+@import '../../scss/vars.scss';
+
 .eventTabs {
-  // width: 592px;
   margin: 60px 0 45px;
   display: flex;
   gap: 28px;
   font-weight: 500;
   cursor: pointer;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $lightGrey;
 
   .activeTab {
     position: relative;
-    color: rgba(0, 0, 0, 0.8);
+    color: $darkGrey;
     padding: 2px 2px;
 
     &::after {
@@ -21,27 +22,25 @@
       transform: translateX(-50%);
       width: 102%;
       height: 3px;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: $darkGrey;
     }
   }
 
   .tab {
-    color: rgba(0, 0, 0, 0.4);
+    color: $lightGrey;
     padding: 2px 2px;
   }
 }
 
 .tabContent {
-  // width: 560px;
   font-size: 20px;
   line-height: 125%;
-  color: rgba(0, 0, 0, 0.8);
+  color: $mediumGrey;
 }
 
 @media screen and (min-width: 321px) and (max-width: 768px) {
   .eventTabs {
     flex-direction: column;
-    // width: 100%;
     border-bottom: 0;
 
     .activeTab {
@@ -53,8 +52,4 @@
       }
     }
   }
-
-  // .tabContent {
-  //   width: 100%;
-  // }
 }

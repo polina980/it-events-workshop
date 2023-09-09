@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useEventsContext } from '../context/EventsContext';
 
 export function useFilterdList({ values, searchResult }) {
   const [filteredList, setFilteredList] = useState([]);
+  const { upcomingEvents } = useEventsContext()
 
   useEffect(() => {
     console.log('useFilterdList called'); // Отладочный вывод
@@ -23,8 +25,16 @@ export function useFilterdList({ values, searchResult }) {
   }, [searchResult, values]);
 
   function filterArray(array, filterParams) {
-    let { status, city, date, specialities, price, tags } = filterParams;
+    let { query, status, city, date, specialities, price, tags } = filterParams;
     let filteredArray = array;
+    const lowerCaseWord = query?.toLowerCase().trim();
+    console.log(lowerCaseWord)
+    if (query) {
+      filteredArray = filteredArray.filter((event) =>
+        event.title?.toLowerCase().trim().includes(lowerCaseWord) ||
+        event.description?.toLowerCase().trim().includes(lowerCaseWord)
+      );
+    }
 
     if (status.length === 1) {
       filteredArray = filteredArray.filter(
@@ -149,6 +159,9 @@ export function useFilterdList({ values, searchResult }) {
 
           return eventDate.toDateString() === searchDate.toDateString();
         });
+      }
+      if(!filterParams) {
+        filteredArray = upcomingEvents
       }
     }
 

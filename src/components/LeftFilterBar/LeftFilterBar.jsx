@@ -8,16 +8,19 @@ import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import TagButton from '../../UI-kit/TagButton/TagButton';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { SearchField } from '../SearchField/SearchField';
+import { ReactComponent as Menu } from '../../images/menu.svg';
+import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 
-const LeftFilerBar = () => {
+const LeftFilerBar = ({ isMenuOpen }) => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
-  const [showTopic, setShowTopic] = useState(false);
   const { dataLists } = useInitialFilter();
   const { values, setValues, findValues, setFindValues } = useFiltersContext();
-  const { handleSearch, searchQuery } = useEventsContext();
+  const { handleSearch } = useEventsContext();
+  const isMobileResolution = useIsMobileResolution(992);
 
   const {
+    handleQueryChange,
     handleInputChange,
     handleDateChange,
     handleDateBlur,
@@ -31,7 +34,7 @@ const LeftFilerBar = () => {
   });
 
   const handleSearchClick = () => {
-    handleSearch(searchQuery);
+    handleSearch(values.query);
   };
 
   const toggleShowAllDates = () => {
@@ -40,10 +43,6 @@ const LeftFilerBar = () => {
 
   const toggleShowAllTopics = () => {
     setShowAllTopics(!showAllTopics);
-  };
-
-  const toggleTopics = () => {
-    setShowTopic(!showTopic);
   };
 
   const renderDateOptions = () => {
@@ -67,9 +66,9 @@ const LeftFilerBar = () => {
         <input
           onChange={handleInputChange}
           id={option.id}
-          type="radio"
+          type='radio'
           value={option.label}
-          name="date"
+          name='date'
           checked={
             option.label.includes(values.date) ||
             (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
@@ -82,8 +81,8 @@ const LeftFilerBar = () => {
           <input
             onChange={handleDateChange}
             className={styles.pickdate}
-            name="date"
-            type="date"
+            name='date'
+            type='date'
             onBlur={handleDateBlur}
             min={new Date()}
           ></input>
@@ -100,9 +99,9 @@ const LeftFilerBar = () => {
           <input
             onChange={handleInputChange}
             id={item}
-            name="specialities"
+            name='specialities'
             value={item}
-            type="checkbox"
+            type='checkbox'
             className={styles.checkboxButton}
             checked={values.specialities.includes(item)}
           />
@@ -111,7 +110,9 @@ const LeftFilerBar = () => {
       ));
   };
 
+
   return (
+
     <m.section
       initial={{ x: -100, opacity: 0 }} // начальное состояние - смещение влево на 100 пикселей
       animate={{ x: 0, opacity: 1 }} // конечное состояние - без смещения
@@ -122,29 +123,37 @@ const LeftFilerBar = () => {
       <ul className={styles.filterList}>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Название</h3>
-          <SearchField />
+          <input
+            className={styles.filterInput}
+            placeholder='Разработка'
+            onChange={handleQueryChange}
+            value={values.query || ''}
+            type='text'
+            name='query'
+          />
+          {/* <SearchField /> */}
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Формат</h3>
-          <label htmlFor="online">
+          <label htmlFor='online'>
             <input
               onChange={handleInputChange}
-              id="online"
-              name="status"
-              value="Online"
-              type="checkbox"
+              id='online'
+              name='status'
+              value='Online'
+              type='checkbox'
               className={styles.checkboxButton}
               checked={values.status.includes('Online')}
             />
             <span className={styles.checkboxLabel}>Online</span>
           </label>
-          <label htmlFor="offline">
+          <label htmlFor='offline'>
             <input
               onChange={handleInputChange}
-              id="offline"
-              name="status"
-              value="Offline"
-              type="checkbox"
+              id='offline'
+              name='status'
+              value='Offline'
+              type='checkbox'
               className={styles.checkboxButton}
               checked={values.status.includes('Offline')}
             />
@@ -155,12 +164,12 @@ const LeftFilerBar = () => {
           <h3 className={styles.itemTitle}>Город</h3>
           <input
             onChange={handleInputChange}
-            name="city"
-            type="text"
+            name='city'
+            type='text'
             value={values.city || ''}
-            placeholder="Поиск города"
+            placeholder='Поиск города'
             className={styles.filterInput}
-            autoComplete="off"
+            autoComplete='off'
           />
           {findValues && findValues.city && findValues.city !== '' && (
             <div className={styles.serchContainer}>
@@ -196,24 +205,24 @@ const LeftFilerBar = () => {
         </li>
         <li className={styles.list}>
           <h3 className={styles.itemTitle}>Цена</h3>
-          <label htmlFor="free" className={styles.radioButton}>
+          <label htmlFor='free' className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id="free"
-              type="radio"
-              value="Бесплатно"
-              name="price"
+              id='free'
+              type='radio'
+              value='Бесплатно'
+              name='price'
               checked={values.price === 'Бесплатно'}
             />
             <span>Бесплатно</span>
           </label>
-          <label htmlFor="paid" className={styles.radioButton}>
+          <label htmlFor='paid' className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id="paid"
-              type="radio"
-              value="Платно"
-              name="price"
+              id='paid'
+              type='radio'
+              value='Платно'
+              name='price'
               checked={values.price === 'Платно'}
             />
             <span>Платно</span>
@@ -223,12 +232,12 @@ const LeftFilerBar = () => {
           <h3 className={styles.itemTitle}>Теги</h3>
           <input
             onChange={handleInputChange}
-            name="findTags"
-            type="text"
+            name='findTags'
+            type='text'
             value={values.findTags || ''}
-            placeholder="Поиск тега"
+            placeholder='Поиск тега'
             className={styles.filterInput}
-            autoComplete="off"
+            autoComplete='off'
           />
           {findValues && findValues.findTags && findValues.findTags !== '' && (
             <div className={styles.serchContainer}>
@@ -253,7 +262,7 @@ const LeftFilerBar = () => {
       <button
         onClick={handleSearchClick}
         className={styles.buttonSearch}
-        type="button"
+        type='button'
       >
         Найти
       </button>
