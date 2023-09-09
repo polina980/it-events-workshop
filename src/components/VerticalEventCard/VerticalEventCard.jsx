@@ -1,16 +1,21 @@
-import styles from './styles.module.scss';
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import styles from "./styles.module.scss";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   formatDate,
   formatPrice,
   handleCopyLink,
-} from '../../utils/helperFunctions';
-import { motion as m } from 'framer-motion';
-import { PopupLink } from '../PopupLink/PopupLink';
-import defaultImage from '../../images/default-image.png';
+} from "../../utils/helperFunctions";
+import { motion as m } from "framer-motion";
+import { PopupLink } from "../PopupLink/PopupLink";
+import defaultImage from "../../images/default-image.png";
 
-export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) => {
+export const VerticalEventCard = ({
+  event,
+  index,
+  onCardClick,
+  onLikeClick,
+}) => {
   const [showNotification, setShowNotification] = useState(false);
   const location = useLocation();
 
@@ -28,7 +33,7 @@ export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) =>
 
   const handleCopyButtonClick = () => {
     const link = `${window.location.origin}/events/${event.id}/`;
-    console.log('Ссылка скопирована в MainPage', link);
+    console.log("Ссылка скопирована в MainPage", link);
     handleCopyLink(link, setShowNotification);
   };
 
@@ -42,15 +47,15 @@ export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) =>
       <div className={styles.imageContainer}>
         <span className={styles.price}>{formatPrice(event.price)}</span>
         <Link
-          to={!location.pathname.includes('/edit') && `/events/${event.id}`}
+          to={!location.pathname.includes("/edit") && `/events/${event.id}`}
         >
           <img
             src={
               event.image_small
                 ? event.image_small
                 : event.image
-                  ? event.image
-                  : defaultImage
+                ? event.image
+                : defaultImage
             }
             alt="event_picture"
             className={styles.image}
@@ -59,8 +64,9 @@ export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) =>
           />
         </Link>
         <button
-          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
-            }`}
+          className={`${
+            event.isLiked ? styles.likeButtonActive : styles.likeButton
+          }`}
           type="button"
           onClick={handleLikeClick}
         ></button>
@@ -79,7 +85,7 @@ export const VerticalEventCard = ({ event, index, onCardClick, onLikeClick }) =>
         <time>{formatDate(event.date_start)}</time>
         <span>&bull;</span>
         <p className={styles.city}>
-          {event.city !== '' && event.city !== ' ' ? event.city : 'Online'}
+          {event.city !== "" && event.city !== " " ? event.city : "Online"}
         </p>
       </div>
     </m.li>

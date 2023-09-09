@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import styles from './styles.module.scss';
-import LeftFilterBar from './../components/LeftFilterBar/LeftFilterBar';
-import { CardList } from '../components/CardList/CardList';
-import PageTitle from '../UI-kit/PageTitle/PageTitle';
-import { TopFilterBar } from '../components/TopFilterBar/TopFilterBar';
-import { useFilterdList } from '../utils/hooks/useFilteredList';
-import { useFiltersContext } from '../utils/context/SearchFilterContext';
-import { useEventsContext } from '../utils/context/EventsContext';
-import PaddingWrapper from '../components/hoc/PaddingWrapper/PaddingWrapper';
+import { useState } from "react";
+import styles from "./styles.module.scss";
+import LeftFilterBar from "./../components/LeftFilterBar/LeftFilterBar";
+import { CardList } from "../components/CardList/CardList";
+import PageTitle from "../UI-kit/PageTitle/PageTitle";
+import { TopFilterBar } from "../components/TopFilterBar/TopFilterBar";
+import { useFilterdList } from "../utils/hooks/useFilteredList";
+import { useFiltersContext } from "../utils/context/SearchFilterContext";
+import { useEventsContext } from "../utils/context/EventsContext";
+import PaddingWrapper from "../components/hoc/PaddingWrapper/PaddingWrapper";
 
 const SearchResultPage = () => {
   const { values } = useFiltersContext();
@@ -18,7 +18,7 @@ const SearchResultPage = () => {
   const isNothingFind = !filteredList || filteredList.length === 0;
 
   const getPageItems = () => {
-    console.log(filteredList, 'filteredList');
+    console.log(filteredList, "filteredList");
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return filteredList.slice(startIndex, endIndex);
@@ -53,4 +53,4 @@ const SearchResultPage = () => {
   );
 };
 
-export default PaddingWrapper(SearchResultPage)
+export default PaddingWrapper(SearchResultPage);

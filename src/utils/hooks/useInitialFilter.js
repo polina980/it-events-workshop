@@ -1,75 +1,5 @@
-import { useEffect, useState } from 'react';
-import { apiEvents } from '../../utils/api';
-
-const initialData = {
-  topics: [
-    'Backend',
-    'Frontend',
-    'QA',
-    'UX/UI дизайн',
-    'Web-разработка',
-    'Data Science',
-  ],
-  city: [
-    'владивосток',
-    'смоленск',
-    'москва',
-    'екатеринбург',
-    'санкт-Петербург',
-    'дулепово',
-    'сочи',
-    'бердск',
-  ],
-  findTags: [
-    'Architecture and patterns',
-    'C++',
-    'AI',
-    'HR',
-    'UX/UI',
-    'Docker',
-    'Kubernetes',
-    'Python',
-    'React',
-    'Redis',
-    'Cybersecurity',
-    'Data Management',
-    'Data Processing',
-    'DataOps',
-    'Product',
-    'architecture of IT solutions',
-    'Fintech',
-    'Project Management',
-    'C#',
-    'Interface design',
-    'Java',
-    'JavaScript',
-    'Rust',
-    'Go',
-    'Linux',
-    'MeeGo',
-    'MySQL',
-    'NGINX',
-    'PHP',
-    'PostgreSQL',
-    'SQL',
-    'game-industry',
-    '1C',
-    'EDO',
-    'XML',
-    'VPN',
-    'GPT',
-    'ML',
-    'b2c',
-    'b2b',
-    'ит в транспорте',
-    'FrontOps',
-    'FastAPI',
-    'спутниковая связь',
-    'animation',
-    'game-design',
-    'game-mechanics',
-  ],
-};
+import { useEffect, useState } from "react";
+import { apiEvents } from "../../utils/api";
 
 export function useInitialFilter() {
   const [dataLists, setDataLists] = useState([]);
@@ -83,7 +13,7 @@ export function useInitialFilter() {
           topics: response.map((item) => item.name),
         }));
       } catch (error) {
-        console.log('Error fetching topics:', error);
+        console.log("Error fetching topics:", error);
       }
     };
 
@@ -95,7 +25,7 @@ export function useInitialFilter() {
           findTags: response.map((item) => item.name),
         }));
       } catch (error) {
-        console.log('Error fetching tags:', error);
+        console.log("Error fetching tags:", error);
       }
     };
 
@@ -107,7 +37,7 @@ export function useInitialFilter() {
           city: response.map((item) => item.name),
         }));
       } catch (error) {
-        console.log('Error fetching sities:', error);
+        console.log("Error fetching sities:", error);
       }
     };
 

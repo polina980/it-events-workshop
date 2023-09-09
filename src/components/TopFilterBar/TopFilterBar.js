@@ -1,13 +1,13 @@
-import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import styles from './styles.module.scss';
-import Cross from './../../images/Actions/close_gray.svg';
+import { useFiltersContext } from "../../utils/context/SearchFilterContext";
+import styles from "./styles.module.scss";
+import Cross from "./../../images/Actions/close_gray.svg";
 
 export const TopFilterBar = () => {
   const { values, setValues } = useFiltersContext();
   const arr = Object.entries(values);
 
   const deleteValue = (item, tag) => {
-    if (item === 'status' || item === 'tags' || item === 'specialities') {
+    if (item === "status" || item === "tags" || item === "specialities") {
       const updatedValues = { ...values };
       updatedValues[item] = values[item].filter((value) => value !== tag);
       setValues(updatedValues);
@@ -18,7 +18,7 @@ export const TopFilterBar = () => {
 
   const handleClearFilter = () => {
     setValues({
-      query: '',
+      query: "",
       status: [],
       city: null,
       date: null,
@@ -31,8 +31,8 @@ export const TopFilterBar = () => {
 
   // Создание отдельного массива тегов
   const tags = arr.reduce((acc, [name, value]) => {
-    if (name !== 'findTags' && value && value.length !== 0) {
-      const tagArr = Array.isArray(value) ? value : value.split(', ');
+    if (name !== "findTags" && value && value.length !== 0) {
+      const tagArr = Array.isArray(value) ? value : value.split(", ");
       return acc.concat(tagArr);
     }
     return acc;
@@ -51,10 +51,10 @@ export const TopFilterBar = () => {
         const name = item[0];
         const value = item[1];
 
-        if (name === 'findTags') {
+        if (name === "findTags") {
           return null;
         } else if (value && value.length !== 0) {
-          const tags = Array.isArray(value) ? value : value.split(', ');
+          const tags = Array.isArray(value) ? value : value.split(", ");
 
           return tags.map((tag, tagIndex) => (
             <button className={styles.button} key={tagIndex} type="button">

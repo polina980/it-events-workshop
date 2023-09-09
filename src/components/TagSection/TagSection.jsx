@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import styles from './styles.module.scss';
-import TagButton from '../../UI-kit/TagButton/TagButton';
-import { apiEvents } from '../../utils/api';
+import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
+import TagButton from "../../UI-kit/TagButton/TagButton";
+import { apiEvents } from "../../utils/api";
 
 export const TagSection = ({ handleChange }) => {
   const [tags, setTags] = useState([]);
@@ -13,7 +13,7 @@ export const TagSection = ({ handleChange }) => {
         const response = await apiEvents.getTags();
         setTags(response);
       } catch (error) {
-        console.log('Error fetching tags:', error);
+        console.log("Error fetching tags:", error);
       }
     };
     fetchTags();
@@ -44,7 +44,7 @@ export const TagSection = ({ handleChange }) => {
       </div>
       {tags.length > 10 && (
         <button onClick={toggleShowAllTags} className={styles.showMore}>
-          {showAllTags ? 'Свернуть все' : 'Показать больше'}
+          {showAllTags ? "Свернуть все" : "Показать больше"}
         </button>
       )}
     </>

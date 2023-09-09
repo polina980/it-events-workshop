@@ -8,8 +8,8 @@ export const apiConfig = {
   userEvents: `/users-events/`,
   search: `/events/?q=`,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
+    Accept: "application/json",
+    "Content-Type": "application/json",
   },
 };
 
@@ -42,7 +42,7 @@ class Api {
 
   _handleResponse(res) {
     if (!res.ok) {
-      throw new Response('', {
+      throw new Response("", {
         status: res.status,
         statusText: res.statusText,
       });
@@ -51,7 +51,7 @@ class Api {
   }
 
   _getHeaders() {
-    const token = localStorage.getItem('jwt');
+    const token = localStorage.getItem("jwt");
     return {
       ...this._headers,
       Authorization: `Token ${token}`,
@@ -60,7 +60,7 @@ class Api {
 
   getEvents() {
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: this._headers,
     };
     return fetch(this._makeUrl(this._eventsEndpoint), options).then(
@@ -70,7 +70,7 @@ class Api {
 
   getSelectedEvent(id) {
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: this._headers,
     };
     return fetch(this._makeUrl(this._eventsEndpoint) + `${id}/`, options).then(
@@ -80,7 +80,7 @@ class Api {
 
   getUserEvents() {
     const options = {
-      method: 'GET',
+      method: "GET",
       headers: this._getHeaders(),
     };
     return fetch(this._makeUrl(this._userEvents), options).then(
@@ -90,7 +90,7 @@ class Api {
 
   postNewEvent(data) {
     const options = {
-      method: 'POST',
+      method: "POST",
       headers: this._getHeaders(),
       body: JSON.stringify(data),
     };
@@ -101,7 +101,7 @@ class Api {
 
   editEvent(id, data) {
     const options = {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._getHeaders(),
       body: JSON.stringify(data),
     };
@@ -113,7 +113,7 @@ class Api {
 
   deleteEvent(data) {
     const options = {
-      method: 'DELETE',
+      method: "DELETE",
       headers: this._getHeaders(),
       body: JSON.stringify(data),
     };
@@ -125,7 +125,7 @@ class Api {
 
   getTopics() {
     const options = {
-      method: 'GET',
+      method: "GET",
     };
     return fetch(this._makeUrl(this._topicsEndpoint), options).then(
       this._handleResponse
@@ -134,7 +134,7 @@ class Api {
 
   getTags() {
     const options = {
-      method: 'GET',
+      method: "GET",
     };
     return fetch(this._makeUrl(this._tagsEndpoint), options).then(
       this._handleResponse
@@ -143,7 +143,7 @@ class Api {
 
   getSities() {
     const options = {
-      method: 'GET',
+      method: "GET",
     };
     return fetch(this._makeUrl(this._sitiesEndpoint), options).then(
       this._handleResponse
@@ -152,7 +152,7 @@ class Api {
 
   searchRequest(request) {
     const options = {
-      method: 'GET',
+      method: "GET",
     };
     return fetch(
       this._makeUrl(this._searchEndpoint) + `${request}`,

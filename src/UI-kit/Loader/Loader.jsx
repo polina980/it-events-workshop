@@ -1,9 +1,9 @@
-import styles from './styles.module.scss';
-import { Circles } from 'react-loader-spinner';
-import Overlay from './Overlay/Overlay';
+import styles from "./styles.module.scss";
+import { Circles } from "react-loader-spinner";
+import Overlay from "./Overlay/Overlay";
 
 const overlay = {
-  backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  backgroundColor: "rgba(0, 0, 0, 0.2)",
 };
 
 const Loader = () => {

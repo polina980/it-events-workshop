@@ -2,9 +2,9 @@ import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
-} from 'react-router-dom';
-import { Layout } from './Layout/Layout';
-import * as page from './pages';
+} from "react-router-dom";
+import { Layout } from "./Layout/Layout";
+import * as page from "./pages";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
         loader={page.eventLoader}
         errorElement={<page.NotFoundPage />}
       />
-    
+
       <Route path="favorites" element={<page.FavoritesPage />} />
       <Route path="results" element={<page.SearchResultPage />} />
       <Route path="*" element={<page.NotFoundPage />} />

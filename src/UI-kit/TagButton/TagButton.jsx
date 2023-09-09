@@ -1,6 +1,6 @@
-import styles from './styles.module.scss';
-import Cross from './../../images/Actions/close.svg';
-import { useFiltersContext } from '../../utils/context/SearchFilterContext';
+import styles from "./styles.module.scss";
+import Cross from "./../../images/Actions/close.svg";
+import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 
 const TagButton = ({ value, handleChange, disabled }) => {
   const { values } = useFiltersContext();
@@ -13,7 +13,7 @@ const TagButton = ({ value, handleChange, disabled }) => {
     <button
       onClick={() => handleClick(value)}
       className={`${styles.tagElement} ${
-        values.tags.includes(value) ? styles.clicked : ''
+        values.tags.includes(value) ? styles.clicked : ""
       }`}
       disabled={disabled}
     >

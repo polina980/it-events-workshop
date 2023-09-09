@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getRandomEvents } from '../../utils/helperFunctions';
-import useEventsList from './useEventsList';
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getRandomEvents } from "../../utils/helperFunctions";
+import useEventsList from "./useEventsList";
 
 const useFavorites = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const useFavorites = () => {
   // Загрузка текущего события в локальное хранилище
   useEffect(() => {
     const savedSelectedEvent = JSON.parse(
-      localStorage.getItem('selectedEvent')
+      localStorage.getItem("selectedEvent")
     );
     if (savedSelectedEvent) {
       setSelectedEvent(savedSelectedEvent);
@@ -48,7 +48,7 @@ const useFavorites = () => {
 
   // Cохранение текущего события в локальное хранилище чтобы не терять контекст
   useEffect(() => {
-    localStorage.setItem('selectedEvent', JSON.stringify(selectedEvent));
+    localStorage.setItem("selectedEvent", JSON.stringify(selectedEvent));
   }, [selectedEvent]);
 
   const handleCardClick = (event) => {
@@ -58,7 +58,7 @@ const useFavorites = () => {
 
   // Загрузка избранных событий из локального хранилища
   useEffect(() => {
-    const savedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
     if (savedFavorites) {
       setFavorites(savedFavorites);
     }
@@ -66,7 +66,7 @@ const useFavorites = () => {
 
   // Сохранение избранных событий в локальное хранилище
   useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
   // Функция обновления массива избранных событий

@@ -1,7 +1,12 @@
-import styles from './styles.module.scss';
-import { VerticalEventCard } from '../VerticalEventCard/VerticalEventCard';
+import styles from "./styles.module.scss";
+import { VerticalEventCard } from "../VerticalEventCard/VerticalEventCard";
 
-export const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) => {
+export const HorizontalEventList = ({
+  list,
+  title,
+  onCardClick,
+  onLikeClick,
+}) => {
   return (
     <section className={styles.section}>
       {title && (
@@ -10,7 +15,7 @@ export const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) 
         </div>
       )}
       <ul className={styles.list}>
-        {list.map((event, index) =>
+        {list.map((event, index) => (
           <VerticalEventCard
             key={event.id}
             index={index}
@@ -18,7 +23,7 @@ export const HorizontalEventList = ({ list, title, onCardClick, onLikeClick, }) 
             onCardClick={onCardClick}
             onLikeClick={onLikeClick}
           />
-        )}
+        ))}
       </ul>
     </section>
   );

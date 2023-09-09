@@ -72,7 +72,7 @@
   width: 100%;
   height: calc(100vh - 113px - 64px);
   padding: 242px 142px 153px;
-  background: url('../images/404.svg') no-repeat;
+  background: url("../images/404.svg") no-repeat;
   background-position-x: 104px;
   background-position-y: 113px;
   background-color: #e6e6e6;
@@ -120,7 +120,7 @@
   }
 }
 
-@media screen and (min-width: 321px) and (max-width: 992px) {
+@media screen and (min-width: 321px) and (max-width: 1080px) {
   .mainPage {
     flex-direction: column;
     //margin: 0 auto;

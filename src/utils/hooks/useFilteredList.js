@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useEventsContext } from '../context/EventsContext';
+import { useEffect, useState } from "react";
+import { useEventsContext } from "../context/EventsContext";
 
 export function useFilterdList({ values, searchResult }) {
   const [filteredList, setFilteredList] = useState([]);
-  const { upcomingEvents } = useEventsContext()
+  const { upcomingEvents } = useEventsContext();
 
   useEffect(() => {
-    console.log('useFilterdList called'); // Отладочный вывод
+    console.log("useFilterdList called"); // Отладочный вывод
   }, [values, searchResult]);
 
   //список городов из листа событий
@@ -28,11 +28,12 @@ export function useFilterdList({ values, searchResult }) {
     let { query, status, city, date, specialities, price, tags } = filterParams;
     let filteredArray = array;
     const lowerCaseWord = query?.toLowerCase().trim();
-    console.log(lowerCaseWord)
+    console.log(lowerCaseWord);
     if (query) {
-      filteredArray = filteredArray.filter((event) =>
-        event.title?.toLowerCase().trim().includes(lowerCaseWord) ||
-        event.description?.toLowerCase().trim().includes(lowerCaseWord)
+      filteredArray = filteredArray.filter(
+        (event) =>
+          event.title?.toLowerCase().trim().includes(lowerCaseWord) ||
+          event.description?.toLowerCase().trim().includes(lowerCaseWord)
       );
     }
 
@@ -46,11 +47,11 @@ export function useFilterdList({ values, searchResult }) {
         event.city?.toLowerCase().trim().includes(city?.toLowerCase().trim())
       );
     }
-    if (price && price === 'Бесплатно') {
-      filteredArray = filteredArray.filter((event) => event.price === '0.00');
+    if (price && price === "Бесплатно") {
+      filteredArray = filteredArray.filter((event) => event.price === "0.00");
     }
-    if (price && price === 'Платно') {
-      filteredArray = filteredArray.filter((event) => event.price !== '0.00');
+    if (price && price === "Платно") {
+      filteredArray = filteredArray.filter((event) => event.price !== "0.00");
     }
 
     if (specialities.length > 0) {
@@ -104,7 +105,7 @@ export function useFilterdList({ values, searchResult }) {
         0
       );
 
-      if (date === 'Сегодня') {
+      if (date === "Сегодня") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -112,7 +113,7 @@ export function useFilterdList({ values, searchResult }) {
         });
       }
 
-      if (date === 'Завтра') {
+      if (date === "Завтра") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -120,7 +121,7 @@ export function useFilterdList({ values, searchResult }) {
         });
       }
 
-      if (date === 'В эти выходные') {
+      if (date === "В эти выходные") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -128,7 +129,7 @@ export function useFilterdList({ values, searchResult }) {
         });
       }
 
-      if (date === 'На этой неделе') {
+      if (date === "На этой неделе") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -136,7 +137,7 @@ export function useFilterdList({ values, searchResult }) {
         });
       }
 
-      if (date === 'В этом месяце') {
+      if (date === "В этом месяце") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -144,7 +145,7 @@ export function useFilterdList({ values, searchResult }) {
         });
       }
 
-      if (date === 'В следующем месяце') {
+      if (date === "В следующем месяце") {
         filteredArray = filteredArray.filter((event) => {
           const date = new Date(event.date_start);
 
@@ -160,8 +161,8 @@ export function useFilterdList({ values, searchResult }) {
           return eventDate.toDateString() === searchDate.toDateString();
         });
       }
-      if(!filterParams) {
-        filteredArray = upcomingEvents
+      if (!filterParams) {
+        filteredArray = upcomingEvents;
       }
     }
 
