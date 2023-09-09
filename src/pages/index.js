@@ -1,7 +1,7 @@
-import MainPage from "./MainPage";
+import MainPage from "./MainPage/MainPage";
 import { EventPage, eventLoader } from "./EventPage";
-import SearchResultPage from "./SearchResultPage";
-import { FavoritesPage } from "./FavoritesPage";
+import SearchResultPage from "./SearchResultPage/SearchResultPage";
+import FavoritesPage from "./FavoritesPage";
 import { NotFoundPage } from "./NotFoundPage";
 
 export {

@@ -1,15 +1,4 @@
-/* Страница: Главная */
-.mainPage {
-  display: flex;
-  justify-content: start;
-  //flex-wrap: wrap;
-  align-items: start;
-  width: 100%;
-  max-width: 1440px;
-  gap: 120px;
-  //margin: 54px auto;
-  // padding: 0 104px;
-}
+
 
 .menuButton {
   display: flex;
@@ -28,7 +17,7 @@
   flex-direction: column;
   align-self: start;
   flex-grow: 1;
-  padding: 64px 104px 0;
+  // padding: 64px 104px 0;
   width: 100%;
   min-height: calc(100vh - 113px - 152px);
 
@@ -104,32 +93,11 @@
   line-height: 25px;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
 
-@media screen and (min-width: 993px) and (max-width: 1279px) {
-  .mainPage {
-    //flex-direction: column;
-    margin: 0 auto;
-    //padding: 56px 32px;
-    gap: 38px;
-  }
-}
 
-@media screen and (min-width: 321px) and (max-width: 1080px) {
-  .mainPage {
-    flex-direction: column;
-    //margin: 0 auto;
-    // padding: 28px 16px;
-    gap: 20px;
-  }
 
   .favoritesPageWrapper {
-    padding: 64px 16px 0;
+    // padding: 64px 16px 0;
   }
 
   .notFound {
@@ -141,4 +109,4 @@
   .notInfo {
     left: 200px;
   }
-}
+

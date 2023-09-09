@@ -52,7 +52,7 @@ export const Card = ({ event, style, cardDirection }) => {
     <li
       key={event.id}
       className={`${styles.card}`}
-      style={{ flexDirection: cardDirection === "column" ? "column" : "" }}
+      style={{ flexDirection: cardDirection === "column" ? "column" : "",  }}
     >
       <div className={styles.imageContainer}>
         <Link to={`/events/${event.id}`} className={styles.cardLink}>

@@ -5,10 +5,6 @@ export function useFilterdList({ values, searchResult }) {
   const [filteredList, setFilteredList] = useState([]);
   const { upcomingEvents } = useEventsContext();
 
-  useEffect(() => {
-    console.log("useFilterdList called"); // Отладочный вывод
-  }, [values, searchResult]);
-
   //список городов из листа событий
   const cityDB = searchResult.map((item) => item.city).filter((item) => item);
   const filteredCityList = [...new Set(cityDB.map((item) => item.name))];
@@ -28,7 +24,6 @@ export function useFilterdList({ values, searchResult }) {
     let { query, status, city, date, specialities, price, tags } = filterParams;
     let filteredArray = array;
     const lowerCaseWord = query?.toLowerCase().trim();
-    console.log(lowerCaseWord);
     if (query) {
       filteredArray = filteredArray.filter(
         (event) =>
