@@ -8,11 +8,26 @@ const logoSize = {
   color: "#F1F0EB",
 };
 
-const footerItems = [
+const footerMenu = [
   { text: "О нас" },
   { text: "Политика конфиденциональности" },
   { text: "Cookies" },
 ];
+
+const footerIcons = [
+  {
+    src: SocialIcons.GitHub,
+    alt: 'GitHub'
+  },
+  {
+    src: SocialIcons.Messenger,
+    alt: 'Messenger'
+  },
+  {
+    src: SocialIcons.VK,
+    alt: 'VK'
+  },
+]
 
 export const Footer = () => {
   const date = new Date().getFullYear();
@@ -20,9 +35,10 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footer}>
+      <div className={styles.container}>
       <Logo logoSize={logoSize} onClick={scrollToTop} />
       <ul className={styles.list}>
-        {footerItems.map((item, index) => (
+        {footerMenu.map((item, index) => (
           <li className={styles.item} key={index}>
             <span>{item.text}</span>
           </li>
@@ -30,13 +46,16 @@ export const Footer = () => {
       </ul>
       <div className={styles.contacts}>
         <p className={styles.email}>it-connect-event@yandex.ru</p>
-        <div className={styles.images}>
-          <img src={SocialIcons.GitHub} alt="GitHub" />
-          <img src={SocialIcons.Messenger} alt="Messenger" />
-          <img src={SocialIcons.VK} alt="VK" />
-        </div>
+        <ul className={styles.images}>
+         {footerIcons.map((icon) => (
+          <li key={icon.alt}>
+            <img src={icon.src} alt={icon.alt}/>
+          </li>
+         ))}
+        </ul>
       </div>
-      {/* <span className={styles.year}>© {date} IT-events</span> */}
+      </div>
+      <span className={styles.year}>© {date} IT-events</span>
     </footer>
   );
 };

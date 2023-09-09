@@ -23,7 +23,6 @@
     }
 
     .eventFigures {
-      // position: absolute;
       display: flex;
       align-items: center;
       gap: 11px;
@@ -58,7 +57,7 @@
     }
 
     .eventPrice {
-      color: #674EAE;
+      color: $purpleColor;
       font-weight: 500;
       line-height: 25px;
       font-size: 20px;

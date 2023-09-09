@@ -6,11 +6,11 @@ import {
   formatPrice,
   formatTimeRange,
 } from "../../utils/helperFunctions";
+import { useEventsContext } from "../../utils/context/EventsContext";
 import DefaultImage from "../../images/default-image.png";
 import { ReactComponent as PlaceImage } from "../../images/EventInfo/place.svg";
 import { ReactComponent as CalendarImage } from "../../images/EventInfo/calendar.svg";
 import { ReactComponent as TimeImage } from "../../images/EventInfo/time.svg";
-import { useEventsContext } from "../../utils/context/EventsContext";
 
 export const Card = ({ event, style, cardDirection }) => {
   const [imageError, setImageError] = useState(false);
@@ -50,7 +50,7 @@ export const Card = ({ event, style, cardDirection }) => {
     <li
       key={event.id}
       className={`${styles.card}`}
-      style={{ flexDirection: cardDirection === "column" ? "column" : "" }}
+      style={{ flexDirection: cardDirection === "column" ? "column" : "", }}
     >
       <div className={styles.imageContainer}>
         <Link to={`/events/${event.id}`} className={styles.cardLink}>
@@ -72,9 +72,8 @@ export const Card = ({ event, style, cardDirection }) => {
           )}
         </Link>
         <button
-          className={`${
-            event.isLiked ? styles.likeButtonActive : styles.likeButton
-          }`}
+          className={`${event.isLiked ? styles.likeButtonActive : styles.likeButton
+            }`}
           type="button"
           onClick={() => toggleFavorite(event)}
         ></button>

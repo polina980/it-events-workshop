@@ -1,0 +1,11 @@
+.menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 29px;
+    width: 100%;
+
+    .filterMenu {
+        cursor: pointer;
+    }
+}

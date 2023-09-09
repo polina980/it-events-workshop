@@ -1,3 +1,5 @@
+@import '../../scss/vars.scss';
+
 .filterForm {
   width: 215px;
   cursor: default;
@@ -17,7 +19,7 @@
   padding-bottom: 40px;
   font-size: 32px;
   line-height: 38.4px;
-  color: #1e0a3c;
+  color: $mainTitleDarkGreyColor;
 }
 
 .filterList {
@@ -31,7 +33,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  color: #2a2630;
+  color: $smallTitleDarkGreyColor;
   margin-bottom: 25px;
 }
 
@@ -48,21 +50,21 @@
   border: 0;
   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
     0px 0px 1px rgba(36, 63, 97, 0.16);
-  color: #242424;
+  color: $smallTitleDarkGreyColor;
 }
 
 .filterInput:focus {
   box-shadow: 0px 1px 4px rgba(103, 78, 174, 0.3),
     0px 0px 1px rgba(103, 78, 174, 0.3);
   outline: none;
-  color: #000000;
+  color: $mainTitleDarkGreyColor;
 }
 
 .popularTags {
   display: flex;
   margin: 10px 0;
   font-size: 12px;
-  color: #797979;
+  color: $mainTextGreyColor;
 }
 
 .serchContainer {
@@ -70,11 +72,9 @@
   flex-direction: column;
   position: relative;
   width: fit-content;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) -185%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) -185%,
+      #ffffff 100%);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
     0px 0px 1px rgba(36, 63, 97, 0.16);
@@ -90,11 +90,9 @@
   height: 20px;
   bottom: 10px;
   left: 5px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0) -185%,
-    #ffffff 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) -185%,
+      #ffffff 100%);
   z-index: -1;
 }
 
@@ -111,7 +109,7 @@
   background-color: transparent;
   mix-blend-mode: normal;
   z-index: 7;
-  color: #000000;
+  color: $mainTitleDarkGreyColor;
   white-space: nowrap;
 }
 
@@ -133,7 +131,7 @@
   border: 0;
   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
     0px 0px 1px rgba(36, 63, 97, 0.16);
-  color: #797979;
+  color: $mainTextGreyColor;
   cursor: pointer;
 }
 
@@ -147,14 +145,14 @@
   margin-top: 5px;
   font-size: 12px;
   font-weight: 500;
-  color: #674eae;
+  color: $purpleColor;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
 .showMore:hover {
-  color: #443375;
+  color: $darkPurpleColor;
 }
 
 .list {
@@ -172,7 +170,7 @@
   width: fit-content;
   padding-left: 27px;
   padding-bottom: 17px;
-  color: #797979;
+  color: $mainTextGreyColor;
   cursor: pointer;
 }
 
@@ -182,25 +180,25 @@
   left: 0;
   width: 16px;
   height: 16px;
-  border: 2px solid #797979;
+  border: 2px solid $mainTextGreyColor;
   border-radius: 2px;
 }
 
 .checkboxLabel:hover:before {
-  border-color: #674eae;
+  border-color: $purpleColor;
 }
 
-.checkboxButton:checked + .checkboxLabel:before {
+.checkboxButton:checked+.checkboxLabel:before {
   background: url("./../../images/Actions/check.svg") no-repeat;
   background-position: center;
-  background-color: #674eae;
-  border-color: #674eae;
+  background-color: $purpleColor;
+  border-color: $purpleColor;
 }
 
 /* КАСТОМНЫЕ РАДИОКНОПКИ */
 .radioButton {
   display: flex;
-  color: #797979;
+  color: $mainTextGreyColor;
 }
 
 .radioButton input[type="radio"] {
@@ -212,7 +210,7 @@
   padding-left: 28px;
   padding-bottom: 16px;
   cursor: pointer;
-  color: #797979;
+  color: $mainTextGreyColor;
 }
 
 .radioButton span:before {
@@ -221,7 +219,7 @@
   left: 0;
   width: 16px;
   height: 16px;
-  border: 2px solid #797979;
+  border: 2px solid $mainTextGreyColor;
   border-radius: 50%;
 }
 
@@ -237,17 +235,17 @@
   display: none;
 }
 
-.radioButton input[type="radio"]:checked + span:before {
-  background-color: #674eae;
-  border-color: #674eae;
+.radioButton input[type="radio"]:checked+span:before {
+  background-color: $purpleColor;
+  border-color: $purpleColor;
 }
 
-.radioButton input[type="radio"]:checked + span:after {
+.radioButton input[type="radio"]:checked+span:after {
   display: block;
 }
 
 .radioButton:hover span:before {
-  border-color: #674eae;
+  border-color: $purpleColor;
 }
 
 .pickdate {
@@ -255,15 +253,15 @@
   height: 34.39px;
 }
 
-.radioButton input[type="radio"]:checked ~ .pickdate {
+.radioButton input[type="radio"]:checked~.pickdate {
   display: flex;
   align-items: flex-start;
   margin-left: 10px;
   border: none;
-  color: #797979;
+  color: $mainTextGreyColor;
 }
 
-.radioButton input[type="radio"]:checked ~ .radioText {
+.radioButton input[type="radio"]:checked~.radioText {
   display: none;
 }
 
@@ -279,8 +277,8 @@
   background-position-x: 80px;
   background-position-y: center;
   background-color: transparent;
-  color: #797979;
-  border: 1px solid #797979;
+  color: $mainTextGreyColor;
+  border: 1px solid $mainTextGreyColor;
   border-radius: 8px;
   width: 123px;
   min-height: 44px;
@@ -296,17 +294,17 @@
   background: url("../../images/Arrows/arrow-right_violet.svg") no-repeat;
   background-position-x: 80px;
   background-position-y: center;
-  border: 1px solid #674eae;
-  color: #674eae;
+  border: 1px solid $purpleColor;
+  color: $purpleColor;
 }
 
 .buttonSearch:active {
   background: url("../../images/Arrows/arrow-right_white.svg") no-repeat;
   background-position-x: 80px;
   background-position-y: center;
-  border: 1px solid #674eae;
-  background-color: #674eae;
-  color: white;
+  border: 1px solid $purpleColor;
+  background-color: $purpleColor;
+  color: $whiteColor;
 }
 
 .menuButton {

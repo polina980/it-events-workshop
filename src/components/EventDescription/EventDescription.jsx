@@ -1,7 +1,7 @@
-import styles from "./styles.module.scss";
 import { useState } from "react";
+import styles from "./styles.module.scss";
+import { PrimaryButton } from "../../UI-kit/PrimaryButton/PrimaryButton";
 import { DescriptionTabs } from "../DescriptionTabs/DescriptionTabs";
-import PrimaryButton from "../../UI-kit/PrimaryButton/PrimaryButton";
 import { ReactComponent as CalendarImage } from "../../images/EventInfo/calendar.svg";
 import { ReactComponent as TimeImage } from "../../images/EventInfo/time.svg";
 import { ReactComponent as PlaceImage } from "../../images/EventInfo/place.svg";
@@ -16,7 +16,7 @@ import {
   handleCopyLink,
 } from "../../utils/helperFunctions";
 
-const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents }) => {
+export const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents }) => {
   const [showNotification, setShowNotification] = useState(false);
 
   const handleButtonClick = () => {
@@ -80,5 +80,3 @@ const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents }) => {
     </section>
   );
 };
-
-export default EventDescription;
