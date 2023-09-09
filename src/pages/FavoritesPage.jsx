@@ -7,8 +7,9 @@ import PageTitle from "../UI-kit/PageTitle/PageTitle";
 import { CardList } from "../components/CardList/CardList";
 import { FilterBar } from "../components/FilterBar/FilterBar";
 import Loader from "../UI-kit/Loader/Loader";
+import PaddingWrapper from "../components/hoc/PaddingWrapper/PaddingWrapper";
 
-export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
+const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [sortByName, setSortByName] = useState(true);
   const [sortByPrice, setSortByPrice] = useState(true);
@@ -109,3 +110,5 @@ export const FavoritesPage = ({ onCardClick, onLikeClick }) => {
     </section>
   );
 };
+
+export default PaddingWrapper(FavoritesPage)

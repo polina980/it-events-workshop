@@ -9,7 +9,7 @@ export const Layout = () => {
   return (
     <EventsProvider>
       <FiltersProvider>
-        <div className={styles.page}>
+        <div className={styles.app}>
           <Header />
           {<Outlet />}
           <Footer />

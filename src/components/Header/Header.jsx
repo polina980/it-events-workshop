@@ -9,7 +9,7 @@ const Header = () => {
       <Logo />
       <Link className={styles.link} to="/favorites">
         <FavoritesIcon />
-        <spa className={styles.linkSpan}>Избранное</spa>
+        <span className={styles.linkSpan}>Избранное</span>
       </Link>
     </header>
   );

@@ -153,18 +153,19 @@ function useEvents() {
 
   // RESERVE SearchEvents in reserveFuntions.js
 
-  const handleSearch = (request) => {
-    setSearchQuery(request);
-    apiEvents
-      .searchRequest(request)
-      .then((response) => {
-        const filteredResult = updateEvents(response);
-        setSearchResult(filteredResult);
-        navigate("/results");
-      })
-      .catch((error) => {
-        console.error("Ошибка при получении результатов поиска", error);
-      });
+  const handleSearch = async (request) => {
+    try {
+      setIsLoading(true)
+      setSearchQuery(request);
+      const response = await apiEvents.searchRequest(request)
+      const filteredResult = updateEvents(response);
+      setSearchResult(filteredResult);
+      navigate("/results");
+    } catch (error) {
+      console.error("Ошибка при получении результатов поиска", error)
+    } finally {
+      setIsLoading(false)
+    }
   };
 
   const handleFilterSearch = () => {

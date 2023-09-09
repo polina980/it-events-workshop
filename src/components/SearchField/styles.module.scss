@@ -1,5 +1,10 @@
+.form {
+  width: 100%;
+}
+
 .formInput {
-  width: 265px;
+  width: 100%;
+  max-width: 500px;
   height: 34px;
   border-radius: 12px;
   background: url("./../../images/Actions/loupe.svg") no-repeat;

@@ -7,17 +7,15 @@ import { useFilter } from "../../utils/hooks/useFilter";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 import TagButton from "../../UI-kit/TagButton/TagButton";
 import { useEventsContext } from "../../utils/context/EventsContext";
-import { SearchField } from "../SearchField/SearchField";
-import { ReactComponent as Menu } from "../../images/menu.svg";
-import useIsMobileResolution from "../../utils/hooks/useIsMobileResolution";
 
-const LeftFilerBar = ({ isMenuOpen }) => {
+
+const LeftFilerBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
-  const { values, setValues, findValues, setFindValues } = useFiltersContext();
+  const { values, setValues, findValues, setFindValues, closeFilters } = useFiltersContext();
   const { handleSearch } = useEventsContext();
-  const isMobileResolution = useIsMobileResolution(992);
+
 
   const {
     handleQueryChange,
@@ -35,6 +33,7 @@ const LeftFilerBar = ({ isMenuOpen }) => {
 
   const handleSearchClick = () => {
     handleSearch(values.query);
+    closeFilters()
   };
 
   const toggleShowAllDates = () => {
@@ -128,6 +127,7 @@ const LeftFilerBar = ({ isMenuOpen }) => {
             value={values.query || ""}
             type="text"
             name="query"
+            autoComplete="off"
           />
           {/* <SearchField /> */}
         </li>

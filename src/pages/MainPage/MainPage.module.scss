@@ -1,0 +1,30 @@
+/* Страница: Главная */
+.page {
+  display: flex;
+  justify-content: start;
+  //flex-wrap: wrap;
+  align-items: start;
+  width: 100%;
+  max-width: 1440px;
+  gap: 120px;
+  //margin: 54px auto;
+  // padding: 0 104px;
+}
+
+@media screen and (min-width: 993px) and (max-width: 1279px) {
+  .page {
+    //flex-direction: column;
+    margin: 0 auto;
+    //padding: 56px 32px;
+    gap: 38px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 1080px) {
+  .page {
+    flex-direction: column;
+    //margin: 0 auto;
+    // padding: 28px 16px;
+    gap: 20px;
+  }
+}
