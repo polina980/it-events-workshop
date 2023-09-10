@@ -1,20 +1,22 @@
-import { useState } from "react";
-import { motion as m } from "framer-motion";
-import styles from "./styles.module.scss";
-import { TagButton } from "../../UI-kit/TagButton/TagButton";
-import { TagSection } from "./../TagSection/TagSection";
-import { useFilter } from "../../utils/hooks/useFilter";
-import { useEventsContext } from "../../utils/context/EventsContext";
-import { useInitialFilter } from "../../utils/hooks/useInitialFilter";
-import { useFiltersContext } from "../../utils/context/SearchFilterContext";
-
+import { useState } from 'react';
+import { motion as m } from 'framer-motion';
+import styles from './styles.module.scss';
+import { TagButton } from '../../UI-kit/TagButton/TagButton';
+import { TagSection } from './../TagSection/TagSection';
+import { useFilter } from '../../utils/hooks/useFilter';
+import { useEventsContext } from '../../utils/context/EventsContext';
+import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
+import { useFiltersContext } from '../../utils/context/SearchFilterContext';
+import Input from '../../UI-kit/Input: TextSearch/Input';
+import InputCheckbox from '../../UI-kit/Input: Checkbox/InputCheckbox';
 
 export const LeftFilterBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
   const { handleSearch } = useEventsContext();
-  const { values, setValues, findValues, setFindValues, closeFilters } = useFiltersContext();
+  const { values, setValues, findValues, setFindValues, closeFilters } =
+    useFiltersContext();
 
   const {
     handleQueryChange,
@@ -32,7 +34,7 @@ export const LeftFilterBar = () => {
 
   const handleSearchClick = () => {
     handleSearch(values.query);
-    closeFilters()
+    closeFilters();
   };
 
   const toggleShowAllDates = () => {
@@ -45,17 +47,17 @@ export const LeftFilterBar = () => {
 
   const renderDateOptions = () => {
     const dateOptions = [
-      { id: "today", value: "Today", label: "Сегодня" },
-      { id: "tomorrow", value: "Tomorrow", label: "Завтра" },
-      { id: "thisweekend", value: "This weekend", label: "В эти выходные" },
-      { id: "pickdate", value: "Pick date", label: "Выбрать дату" },
+      { id: 'today', value: 'Today', label: 'Сегодня' },
+      { id: 'tomorrow', value: 'Tomorrow', label: 'Завтра' },
+      { id: 'thisweekend', value: 'This weekend', label: 'В эти выходные' },
+      { id: 'pickdate', value: 'Pick date', label: 'Выбрать дату' },
     ];
 
     if (showAllDates) {
       dateOptions.push(
-        { id: "thisweek", value: "This week", label: "На этой неделе" },
-        { id: "thismonth", value: "This month", label: "В этом месяце" },
-        { id: "nextmonth", value: "Next month", label: "В следующем месяце" }
+        { id: 'thisweek', value: 'This week', label: 'На этой неделе' },
+        { id: 'thismonth', value: 'This month', label: 'В этом месяце' },
+        { id: 'nextmonth', value: 'Next month', label: 'В следующем месяце' }
       );
     }
 
@@ -64,23 +66,23 @@ export const LeftFilterBar = () => {
         <input
           onChange={handleInputChange}
           id={option.id}
-          type="radio"
+          type='radio'
           value={option.label}
-          name="date"
+          name='date'
           checked={
             option.label.includes(values.date) ||
-            (option.label === "Выбрать дату" && !isNaN(Date.parse(values.date)))
+            (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
           }
         />
-        <span className={`${option.id === "pickdate" && styles.radioText}`}>
+        <span className={`${option.id === 'pickdate' && styles.radioText}`}>
           {option.label}
         </span>
-        {option.id === "pickdate" && (
+        {option.id === 'pickdate' && (
           <input
             onChange={handleDateChange}
             className={styles.pickdate}
-            name="date"
-            type="date"
+            name='date'
+            type='date'
             onBlur={handleDateBlur}
             min={new Date()}
           ></input>
@@ -89,22 +91,18 @@ export const LeftFilterBar = () => {
     ));
   };
 
-  const renderSpecialityOptions = () => {
+  const renderSpecialityList = () => {
     return dataLists?.topics
       ?.slice(0, showAllTopics ? dataLists.topics.length : 4)
-      .map((item, index) => (
-        <label htmlFor={item.id} key={index}>
-          <input
-            onChange={handleInputChange}
-            id={item}
-            name="specialities"
-            value={item}
-            type="checkbox"
-            className={styles.checkboxButton}
-            checked={values.specialities.includes(item)}
-          />
-          <span className={styles.checkboxLabel}>{item}</span>
-        </label>
+      .map((item) => (
+        <InputCheckbox
+          key={item.id}
+          label={item.id}
+          name='specialities'
+          value={item}
+          checked={values.specialities.includes(item)}
+          onChange={handleInputChange}
+        />
       ));
   };
 
@@ -117,64 +115,48 @@ export const LeftFilterBar = () => {
     >
       <h2 className={styles.filterTitle}>Фильтры</h2>
       <ul className={styles.filterList}>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Название</h3>
-          <input
-            className={styles.filterInput}
-            placeholder="Разработка"
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Название</p>
+          <Input
+            placeholder='Разработка'
+            name='query'
+            value={values.query}
             onChange={handleQueryChange}
-            value={values.query || ""}
-            type="text"
-            name="query"
-            autoComplete="off"
           />
         </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Формат</h3>
-          <label htmlFor="online">
-            <input
-              onChange={handleInputChange}
-              id="online"
-              name="status"
-              value="Online"
-              type="checkbox"
-              className={styles.checkboxButton}
-              checked={values.status.includes("Online")}
-            />
-            <span className={styles.checkboxLabel}>Online</span>
-          </label>
-          <label htmlFor="offline">
-            <input
-              onChange={handleInputChange}
-              id="offline"
-              name="status"
-              value="Offline"
-              type="checkbox"
-              className={styles.checkboxButton}
-              checked={values.status.includes("Offline")}
-            />
-            <span className={styles.checkboxLabel}>Offline</span>
-          </label>
-        </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Город</h3>
-          <input
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Формат</p>
+          <InputCheckbox
+            label='online'
+            value='Online'
+            name='status'
+            checked={values.status.includes('Online')}
             onChange={handleInputChange}
-            name="city"
-            type="text"
-            value={values.city || ""}
-            placeholder="Поиск города"
-            className={styles.filterInput}
-            autoComplete="off"
           />
-          {findValues && findValues.city && findValues.city !== "" && (
+          <InputCheckbox
+            label='offline'
+            value='Offline'
+            name='status'
+            checked={values.status.includes('Offline')}
+            onChange={handleInputChange}
+          />
+        </li>
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Город</p>
+          <Input
+            placeholder='Поиск города'
+            name='city'
+            value={values.city}
+            onChange={handleInputChange}
+          />
+          {findValues && findValues.city && findValues.city !== '' && (
             <div className={styles.serchContainer}>
               {findValues.city.map((item, index) => {
                 return (
                   <button
+                    key={index}
                     onClick={() => setItemOnClick({ city: item })}
                     className={styles.findItem}
-                    key={index}
                   >
                     {item}
                   </button>
@@ -183,59 +165,56 @@ export const LeftFilterBar = () => {
             </div>
           )}
         </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Дата</h3>
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Дата</p>
           {renderDateOptions()}
           <button onClick={toggleShowAllDates} className={styles.showMore}>
-            {showAllDates ? "Показать меньше" : "Показать больше"}
+            {showAllDates ? 'Показать меньше' : 'Показать больше'}
           </button>
         </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Направление</h3>
-          {renderSpecialityOptions()}
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Направление</p>
+          {renderSpecialityList()}
           {dataLists?.topics?.length > 3 && (
             <button onClick={toggleShowAllTopics} className={styles.showMore}>
-              {showAllTopics ? "Показать меньше" : "Показать больше"}
+              {showAllTopics ? 'Показать меньше' : 'Показать больше'}
             </button>
           )}
         </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Цена</h3>
-          <label htmlFor="free" className={styles.radioButton}>
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Цена</p>
+          <label htmlFor='free' className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id="free"
-              type="radio"
-              value="Бесплатно"
-              name="price"
-              checked={values.price === "Бесплатно"}
+              id='free'
+              type='radio'
+              value='Бесплатно'
+              name='price'
+              checked={values.price === 'Бесплатно'}
             />
             <span>Бесплатно</span>
           </label>
-          <label htmlFor="paid" className={styles.radioButton}>
+          <label htmlFor='paid' className={styles.radioButton}>
             <input
               onChange={handleInputChange}
-              id="paid"
-              type="radio"
-              value="Платно"
-              name="price"
-              checked={values.price === "Платно"}
+              id='paid'
+              type='radio'
+              value='Платно'
+              name='price'
+              checked={values.price === 'Платно'}
             />
             <span>Платно</span>
           </label>
         </li>
-        <li className={styles.list}>
-          <h3 className={styles.itemTitle}>Теги</h3>
-          <input
+        <li className={styles.listItem}>
+          <p className={styles.itemTitle}>Теги</p>
+          <Input
+            placeholder='Поиск тега'
+            name='findTags'
+            value={values.findTags}
             onChange={handleInputChange}
-            name="findTags"
-            type="text"
-            value={values.findTags || ""}
-            placeholder="Поиск тега"
-            className={styles.filterInput}
-            autoComplete="off"
           />
-          {findValues && findValues.findTags && findValues.findTags !== "" && (
+          {findValues && findValues.findTags && findValues.findTags !== '' && (
             <div className={styles.serchContainer}>
               <div className={styles.tagsList}>
                 {findValues.findTags.map((item, index) => {
@@ -258,7 +237,7 @@ export const LeftFilterBar = () => {
       <button
         onClick={handleSearchClick}
         className={styles.buttonSearch}
-        type="button"
+        type='button'
       >
         Найти
       </button>

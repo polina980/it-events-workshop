@@ -8,6 +8,7 @@ export const MobileSearch = () => {
   return (
     <div className={styles.menuContainer}>
       {!isFiltersOpen && <SearchField />}
+      <div></div>
       <Menu onClick={toggleFilters} className={styles.filterMenu} />
     </div>
   );
