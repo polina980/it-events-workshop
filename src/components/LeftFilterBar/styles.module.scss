@@ -37,28 +37,28 @@
   margin-bottom: 25px;
 }
 
-.filterInput {
-  width: 192px;
-  height: 34px;
-  border-radius: 20px;
-  background: url("./../../images/Actions/loupe.svg") no-repeat;
-  background-position-x: 12px;
-  background-position-y: center;
-  margin: -4px 0 9px 1px;
-  padding-left: 40px;
-  padding-right: 20px;
-  border: 0;
-  box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
-    0px 0px 1px rgba(36, 63, 97, 0.16);
-  color: $smallTitleDarkGreyColor;
-}
+// .filterInput {
+//   width: 192px;
+//   height: 34px;
+//   border-radius: 20px;
+//   background: url("./../../images/Actions/loupe.svg") no-repeat;
+//   background-position-x: 12px;
+//   background-position-y: center;
+//   margin: -4px 0 9px 1px;
+//   padding-left: 40px;
+//   padding-right: 20px;
+//   border: 0;
+//   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
+//     0px 0px 1px rgba(36, 63, 97, 0.16);
+//   color: $smallTitleDarkGreyColor;
+// }
 
-.filterInput:focus {
-  box-shadow: 0px 1px 4px rgba(103, 78, 174, 0.3),
-    0px 0px 1px rgba(103, 78, 174, 0.3);
-  outline: none;
-  color: $mainTitleDarkGreyColor;
-}
+// .filterInput:focus {
+//   box-shadow: 0px 1px 4px rgba(103, 78, 174, 0.3),
+//     0px 0px 1px rgba(103, 78, 174, 0.3);
+//   outline: none;
+//   color: $mainTitleDarkGreyColor;
+// }
 
 .popularTags {
   display: flex;
@@ -155,45 +155,45 @@
   color: $darkPurpleColor;
 }
 
-.list {
+.listItem {
   margin-bottom: -7px;
 }
 
-/* КАСТОМНЫЙ ЧЕКБОКС */
-.checkboxButton {
-  display: none;
-}
+// /* КАСТОМНЫЙ ЧЕКБОКС */
+// .checkboxButton {
+//   display: none;
+// }
 
-.checkboxLabel {
-  position: relative;
-  display: flex;
-  width: fit-content;
-  padding-left: 27px;
-  padding-bottom: 17px;
-  color: $mainTextGreyColor;
-  cursor: pointer;
-}
+// .checkboxLabel {
+//   position: relative;
+//   display: flex;
+//   width: fit-content;
+//   padding-left: 27px;
+//   padding-bottom: 17px;
+//   color: $mainTextGreyColor;
+//   cursor: pointer;
+// }
 
-.checkboxLabel:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border: 2px solid $mainTextGreyColor;
-  border-radius: 2px;
-}
+// .checkboxLabel:before {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   width: 16px;
+//   height: 16px;
+//   border: 2px solid $mainTextGreyColor;
+//   border-radius: 2px;
+// }
 
-.checkboxLabel:hover:before {
-  border-color: $purpleColor;
-}
+// .checkboxLabel:hover:before {
+//   border-color: $purpleColor;
+// }
 
-.checkboxButton:checked+.checkboxLabel:before {
-  background: url("./../../images/Actions/check.svg") no-repeat;
-  background-position: center;
-  background-color: $purpleColor;
-  border-color: $purpleColor;
-}
+// .checkboxButton:checked+.checkboxLabel:before {
+//   background: url("./../../images/Actions/check.svg") no-repeat;
+//   background-position: center;
+//   background-color: $purpleColor;
+//   border-color: $purpleColor;
+// }
 
 /* КАСТОМНЫЕ РАДИОКНОПКИ */
 .radioButton {
