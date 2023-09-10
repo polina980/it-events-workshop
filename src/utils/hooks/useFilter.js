@@ -103,12 +103,12 @@ export function useFilter({ values, setValues, setFindValues }) {
     } else if (selectedDate > currentDate) {
       // Выбранная дата позже текущей даты
       // Выполняем соответствующие действия
-      console.log("Выбранная дата позже текущей даты:", selectedDate);
+      //console.log("Выбранная дата позже текущей даты:", selectedDate);
       setValues({ ...values, open: false });
     } else {
       // Выбранная дата до или равна текущей дате
       // Выполняем соответствующие действия
-      console.log("Выбранная дата до или равна текущей дате:", selectedDate);
+      //console.log("Выбранная дата до или равна текущей дате:", selectedDate);
       setValues({ ...values, open: false });
     }
   };

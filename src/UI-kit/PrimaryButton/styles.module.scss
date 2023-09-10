@@ -12,6 +12,7 @@
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
+  position: relative;
 
   &:hover {
     background-color: #443375;
@@ -21,4 +22,5 @@
   &:active {
     background-color: #291b51;
   }
+ 
 }
