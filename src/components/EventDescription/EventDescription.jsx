@@ -72,9 +72,9 @@ export const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents })
         </li>
       </ul>
       <PrimaryButton
+        variant='link'
         title="Сайт мероприятия"
         to={selectedEvent?.url}
-        target="_blank"
       />
       <DescriptionTabs selectedEvent={selectedEvent} />
     </section>

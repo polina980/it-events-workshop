@@ -37,29 +37,6 @@
   margin-bottom: 25px;
 }
 
-// .filterInput {
-//   width: 192px;
-//   height: 34px;
-//   border-radius: 20px;
-//   background: url("./../../images/Actions/loupe.svg") no-repeat;
-//   background-position-x: 12px;
-//   background-position-y: center;
-//   margin: -4px 0 9px 1px;
-//   padding-left: 40px;
-//   padding-right: 20px;
-//   border: 0;
-//   box-shadow: 0px 1px 4px rgba(36, 63, 97, 0.1),
-//     0px 0px 1px rgba(36, 63, 97, 0.16);
-//   color: $smallTitleDarkGreyColor;
-// }
-
-// .filterInput:focus {
-//   box-shadow: 0px 1px 4px rgba(103, 78, 174, 0.3),
-//     0px 0px 1px rgba(103, 78, 174, 0.3);
-//   outline: none;
-//   color: $mainTitleDarkGreyColor;
-// }
-
 .popularTags {
   display: flex;
   margin: 10px 0;
@@ -159,111 +136,75 @@
   margin-bottom: -7px;
 }
 
-// /* КАСТОМНЫЙ ЧЕКБОКС */
-// .checkboxButton {
+// /* КАСТОМНЫЕ РАДИОКНОПКИ */
+// .radioButton {
+//   display: flex;
+//   color: $mainTextGreyColor;
+// }
+
+// .radioButton input[type="radio"] {
 //   display: none;
 // }
 
-// .checkboxLabel {
+// .radioButton span {
 //   position: relative;
-//   display: flex;
-//   width: fit-content;
-//   padding-left: 27px;
-//   padding-bottom: 17px;
-//   color: $mainTextGreyColor;
+//   padding-left: 28px;
+//   padding-bottom: 16px;
 //   cursor: pointer;
+//   color: $mainTextGreyColor;
 // }
 
-// .checkboxLabel:before {
+// .radioButton span:before {
 //   content: "";
 //   position: absolute;
 //   left: 0;
 //   width: 16px;
 //   height: 16px;
 //   border: 2px solid $mainTextGreyColor;
-//   border-radius: 2px;
+//   border-radius: 50%;
 // }
 
-// .checkboxLabel:hover:before {
-//   border-color: $purpleColor;
+// .radioButton span:after {
+//   content: "";
+//   position: absolute;
+//   left: 6px;
+//   top: 6px;
+//   width: 8px;
+//   height: 8px;
+//   border-radius: 50%;
+//   background-color: #f1f0eb;
+//   display: none;
 // }
 
-// .checkboxButton:checked+.checkboxLabel:before {
-//   background: url("./../../images/Actions/check.svg") no-repeat;
-//   background-position: center;
+// .radioButton input[type="radio"]:checked+span:before {
 //   background-color: $purpleColor;
 //   border-color: $purpleColor;
 // }
 
-/* КАСТОМНЫЕ РАДИОКНОПКИ */
-.radioButton {
-  display: flex;
-  color: $mainTextGreyColor;
-}
+// .radioButton input[type="radio"]:checked+span:after {
+//   display: block;
+// }
 
-.radioButton input[type="radio"] {
-  display: none;
-}
+// .radioButton:hover span:before {
+//   border-color: $purpleColor;
+// }
 
-.radioButton span {
-  position: relative;
-  padding-left: 28px;
-  padding-bottom: 16px;
-  cursor: pointer;
-  color: $mainTextGreyColor;
-}
+// .pickdate {
+//   display: none;
+//   height: 34.39px;
+// }
 
-.radioButton span:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  border: 2px solid $mainTextGreyColor;
-  border-radius: 50%;
-}
+// .radioButton input[type="radio"]:checked~.pickdate {
+//   display: flex;
+//   align-items: flex-start;
+//   margin-left: 10px;
+//   border: none;
+//   color: $mainTextGreyColor;
+// }
 
-.radioButton span:after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #f1f0eb;
-  display: none;
-}
-
-.radioButton input[type="radio"]:checked+span:before {
-  background-color: $purpleColor;
-  border-color: $purpleColor;
-}
-
-.radioButton input[type="radio"]:checked+span:after {
-  display: block;
-}
-
-.radioButton:hover span:before {
-  border-color: $purpleColor;
-}
-
-.pickdate {
-  display: none;
-  height: 34.39px;
-}
-
-.radioButton input[type="radio"]:checked~.pickdate {
-  display: flex;
-  align-items: flex-start;
-  margin-left: 10px;
-  border: none;
-  color: $mainTextGreyColor;
-}
-
-.radioButton input[type="radio"]:checked~.radioText {
-  display: none;
-}
+// .radioButton input[type="radio"]:checked~.radioText {
+//   display: none;
+// }
 
 .tagsList {
   display: flex;

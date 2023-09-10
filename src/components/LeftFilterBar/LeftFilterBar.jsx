@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
 import styles from './styles.module.scss';
 import { TagButton } from '../../UI-kit/TagButton/TagButton';
@@ -7,8 +7,7 @@ import { useFilter } from '../../utils/hooks/useFilter';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import Input from '../../UI-kit/Input: TextSearch/Input';
-import InputCheckbox from '../../UI-kit/Input: Checkbox/InputCheckbox';
+import { Input, InputCheckbox, InputRadio, InputDate } from '../../UI-kit';
 
 export const LeftFilterBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
@@ -62,41 +61,30 @@ export const LeftFilterBar = () => {
     }
 
     return dateOptions.map((option) => (
-      <label htmlFor={option.id} className={styles.radioButton} key={option.id}>
-        <input
-          onChange={handleInputChange}
-          id={option.id}
-          type='radio'
-          value={option.label}
-          name='date'
-          checked={
-            option.label.includes(values.date) ||
-            (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
-          }
-        />
-        <span className={`${option.id === 'pickdate' && styles.radioText}`}>
-          {option.label}
-        </span>
+      <InputRadio
+        key={option.id}
+        label={option.id}
+        value={option.label}
+        name='date'
+        checked={
+          option.label.includes(values.date) ||
+          (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
+        }
+        onChange={handleInputChange}
+      >
         {option.id === 'pickdate' && (
-          <input
-            onChange={handleDateChange}
-            className={styles.pickdate}
-            name='date'
-            type='date'
-            onBlur={handleDateBlur}
-            min={new Date()}
-          ></input>
+          <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
         )}
-      </label>
+      </InputRadio>
     ));
   };
 
   const renderSpecialityList = () => {
     return dataLists?.topics
       ?.slice(0, showAllTopics ? dataLists.topics.length : 4)
-      .map((item) => (
+      .map((item, index) => (
         <InputCheckbox
-          key={item.id}
+          key={index}
           label={item.id}
           name='specialities'
           value={item}
@@ -105,6 +93,16 @@ export const LeftFilterBar = () => {
         />
       ));
   };
+
+  const FiltersListItem = useCallback(
+    ({ title, children }) => (
+      <li className={styles.listItem}>
+        <p className={styles.itemTitle}>{title}</p>
+        {children}
+      </li>
+    ),
+    []
+  );
 
   return (
     <m.section
@@ -115,17 +113,16 @@ export const LeftFilterBar = () => {
     >
       <h2 className={styles.filterTitle}>Фильтры</h2>
       <ul className={styles.filterList}>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Название</p>
+        <FiltersListItem title='Название'>
           <Input
             placeholder='Разработка'
             name='query'
             value={values.query}
             onChange={handleQueryChange}
           />
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Формат</p>
+        </FiltersListItem>
+
+        <FiltersListItem title='Формат'>
           <InputCheckbox
             label='online'
             value='Online'
@@ -140,9 +137,9 @@ export const LeftFilterBar = () => {
             checked={values.status.includes('Offline')}
             onChange={handleInputChange}
           />
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Город</p>
+        </FiltersListItem>
+
+        <FiltersListItem title='Город'>
           <Input
             placeholder='Поиск города'
             name='city'
@@ -164,50 +161,42 @@ export const LeftFilterBar = () => {
               })}
             </div>
           )}
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Дата</p>
+        </FiltersListItem>
+
+        <FiltersListItem title='Дата'>
           {renderDateOptions()}
           <button onClick={toggleShowAllDates} className={styles.showMore}>
             {showAllDates ? 'Показать меньше' : 'Показать больше'}
           </button>
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Направление</p>
+        </FiltersListItem>
+
+        <FiltersListItem title='Направление'>
           {renderSpecialityList()}
           {dataLists?.topics?.length > 3 && (
             <button onClick={toggleShowAllTopics} className={styles.showMore}>
               {showAllTopics ? 'Показать меньше' : 'Показать больше'}
             </button>
           )}
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Цена</p>
-          <label htmlFor='free' className={styles.radioButton}>
-            <input
-              onChange={handleInputChange}
-              id='free'
-              type='radio'
-              value='Бесплатно'
-              name='price'
-              checked={values.price === 'Бесплатно'}
-            />
-            <span>Бесплатно</span>
-          </label>
-          <label htmlFor='paid' className={styles.radioButton}>
-            <input
-              onChange={handleInputChange}
-              id='paid'
-              type='radio'
-              value='Платно'
-              name='price'
-              checked={values.price === 'Платно'}
-            />
-            <span>Платно</span>
-          </label>
-        </li>
-        <li className={styles.listItem}>
-          <p className={styles.itemTitle}>Теги</p>
+        </FiltersListItem>
+
+        <FiltersListItem title='Цена'>
+          <InputRadio
+            label='free'
+            value='Бесплатно'
+            name='price'
+            checked={values.price === 'Бесплатно'}
+            onChange={handleInputChange}
+          />
+          <InputRadio
+            label='paid'
+            value='Платно'
+            name='price'
+            checked={values.price === 'Платно'}
+            onChange={handleInputChange}
+          />
+        </FiltersListItem>
+
+        <FiltersListItem title='Теги'>
           <Input
             placeholder='Поиск тега'
             name='findTags'
@@ -231,7 +220,7 @@ export const LeftFilterBar = () => {
             </div>
           )}
           <span className={styles.popularTags}>Популярные теги</span>
-        </li>
+        </FiltersListItem>
       </ul>
       <TagSection handleChange={handleButtonChange} />
       <button

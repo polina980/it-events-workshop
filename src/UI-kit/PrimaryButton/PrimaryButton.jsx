@@ -1,22 +1,28 @@
-import styles from "./styles.module.scss";
-import { ReactComponent as RightArrow } from "../../images/Arrows/arrow-right.svg";
-import { Link } from "react-router-dom";
+import styles from './styles.module.scss';
+import { ReactComponent as RightArrow } from '../../images/Arrows/arrow-right.svg';
+import { Link } from 'react-router-dom';
 
-export const PrimaryButton = ({ title, to, target, disabled, style, onClick }) => {
-  return (
+export const PrimaryButton = ({ title, to, variant, disabled, onClick }) => {
+
+  return variant === 'link' ? (
     <Link
+      to={variant === 'link' ? to : ''}
+      target={'_blank'}
       className={styles.primaryButton}
-      to={to}
-      target={target || ""}
-      disabled={disabled}
-      style={style}
-      onClick={onClick}
     >
       {title}
       <RightArrow />
-      {/* <figure className={styles.figure}>
-        <img src={RightArrow} alt="Arrow" />
-      </figure> */}
     </Link>
+  ) : (
+    <button
+      onClick={onClick}
+      type='button'
+      className={styles.primaryButton}
+      disabled={disabled}
+    >
+      {' '}
+      {title}
+      <RightArrow />
+    </button>
   );
 };
