@@ -1,9 +1,3 @@
-// import { createContext } from 'react';
-
-// const SearchFilterContext = createContext(null);
-
-// export default SearchFilterContext;
-
 import React, { createContext, useContext } from "react";
 import useFilters from "../hooks/useFilters";
 

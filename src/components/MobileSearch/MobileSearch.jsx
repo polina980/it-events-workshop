@@ -1,9 +1,9 @@
-import styles from './MobileSearch.module.scss';
+import styles from './styles.module.scss';
 import { SearchField } from '../SearchField/SearchField';
 import { ReactComponent as Menu } from '../../images/menu.svg';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 
-const MobileSearch = () => {
+export const MobileSearch = () => {
   const { isFiltersOpen, toggleFilters } = useFiltersContext();
   return (
     <div className={styles.menuContainer}>
@@ -13,5 +13,3 @@ const MobileSearch = () => {
     </div>
   );
 };
-
-export default MobileSearch;

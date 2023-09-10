@@ -1,3 +1,5 @@
+@import '../../scss/vars.scss';
+
 .list {
   width: 100%;
   display: flex;
@@ -6,42 +8,6 @@
   list-style-type: none;
   padding: 65px 0 25px 0;
 
-  .filterButton {
-    background: #fefefe;
-    border: none;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 25px;
-    color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-  }
-}
-
-.divider {
-  width: 100%;
-  height: 1px;
-  background: #c4c4c4;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.optionsList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  list-style-type: none;
-  background: #c4c4c4;
-  padding: 20px 20px;
-  border-radius: 24px;
-  position: absolute;
-  top: 50px;
-  width: 200px;
-  z-index: 1;
-
-  .select {
-    border: none;
-  }
-
   .item {
     display: flex;
     align-items: center;
@@ -49,17 +15,23 @@
     width: fit-content;
     position: relative;
     cursor: pointer;
-
-    .option {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 18px;
-      letter-spacing: 0.2px;
-
-      &:hover {
-        color: #fefefe;
-        cursor: pointer;
-      }
-    }
   }
+
+  .filterButton {
+    background: transparent;
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: $smallTitleDarkGreyColor;
+    cursor: pointer;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $lightGrey;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

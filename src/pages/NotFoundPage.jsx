@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import PrimaryButton from "../UI-kit/PrimaryButton/PrimaryButton";
+import { PrimaryButton } from "../UI-kit/PrimaryButton/PrimaryButton";
 
 export const NotFoundPage = () => {
   return (

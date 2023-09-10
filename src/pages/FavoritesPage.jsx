@@ -3,11 +3,11 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { parsePrice } from "../utils/helperFunctions";
 import { useEventsContext } from "../utils/context/EventsContext";
-import PageTitle from "../UI-kit/PageTitle/PageTitle";
+import { PageTitle } from "../UI-kit/PageTitle/PageTitle";
 import { CardList } from "../components/CardList/CardList";
 import { FilterBar } from "../components/FilterBar/FilterBar";
-import Loader from "../UI-kit/Loader/Loader";
-import PaddingWrapper from "../components/hoc/PaddingWrapper/PaddingWrapper";
+import { Loader } from "../UI-kit/Loader/Loader";
+import { PaddingWrapper } from "../UI-kit/PaddingWrapper/PaddingWrapper";
 
 const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   const [filteredEvents, setFilteredEvents] = useState([]);
@@ -73,7 +73,7 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   }, []);
 
   return (
-    <section className={styles.favoritesPageWrapper}>
+    <section>
       {isLoading ? (
         <Loader />
       ) : (
@@ -85,26 +85,25 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
           />
           <FilterBar onFilter={handleFilter} />
           {noEvents && (
-            <div className={styles.noFavoritesContainer}>
-              <h3 className={styles.noFavoritesText}>Список пуст</h3>
-              <p className={styles.noFavoritesDesc}>
+            <div className={styles.favoritesContainer}>
+              <h3 className={styles.favoritesText}>Список пуст</h3>
+              <p className={styles.favoritesDesc}>
                 Вы пока ничего не сохранили в избранное, но вы можете начать
                 пополнять свой список избранного прямо сейчас. Для этого
                 воспользуйтесь поиском на нашем сайте и найдите интересующие вас
                 события.
               </p>
-              <Link className={styles.noFavoritesLink} to="/">
+              <Link className={styles.favoritesLink} to="/">
                 Начать поиск
               </Link>
             </div>
           )}
-          <div className={styles.favoritesPageListContainer}>
-            <CardList
-              events={filteredEvents}
-              onCardClick={onCardClick}
-              onLikeClick={onLikeClick}
-            />
-          </div>
+          <CardList
+            events={filteredEvents}
+            onCardClick={onCardClick}
+            onLikeClick={onLikeClick}
+            style={{ display: 'flex' }}
+          />
         </>
       )}
     </section>

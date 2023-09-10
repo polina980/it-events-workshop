@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
-import EventDescription from "../EventDescription/EventDescription";
-import defaultImage from "../../images/default-image.png";
-import { useEventsContext } from "../../utils/context/EventsContext";
 import { CardList } from "../CardList/CardList";
+import { EventDescription } from "../EventDescription/EventDescription";
+import { useEventsContext } from "../../utils/context/EventsContext";
+import defaultImage from "../../images/default-image.png";
 
 const Event = ({ selectedEvent }) => {
   const { handleCardClick, toggleFavorite, recommendedEvents, favoriteEvents } =
@@ -20,14 +20,12 @@ const Event = ({ selectedEvent }) => {
           favoriteEvents={favoriteEvents}
           onLikeClick={toggleFavorite}
         />
-        {/* <aside className={styles.aside}> */}
         <img
           className={styles.eventImage}
           src={selectedEvent.image}
           alt={selectedEvent.title}
           onError={handleImageError}
         />
-        {/* </aside> */}
       </div>
       <div className={styles.listWrapper}>
         <CardList

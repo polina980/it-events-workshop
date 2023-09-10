@@ -1,3 +1,5 @@
+@import '../../scss/vars.scss';
+
 .tagsList {
   display: flex;
   flex-wrap: wrap;
@@ -11,12 +13,12 @@
   font-size: 12px;
   font-weight: 500;
   margin-top: 17px;
-  color: #674eae;
+  color: $purpleColor;
   border: none;
   background-color: transparent;
   cursor: pointer;
 
   &:hover {
-    color: #443375;
+    color: $darkPurpleColor;
   }
 }
