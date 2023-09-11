@@ -4,7 +4,7 @@ import { EventDescription } from "../EventDescription/EventDescription";
 import { useEventsContext } from "../../utils/context/EventsContext";
 import defaultImage from "../../images/default-image.png";
 
-const Event = ({ selectedEvent }) => {
+export const Event = ({ selectedEvent }) => {
   const { handleCardClick, toggleFavorite, recommendedEvents, favoriteEvents } =
     useEventsContext();
 
@@ -40,5 +40,3 @@ const Event = ({ selectedEvent }) => {
     </div>
   );
 };
-
-export default Event;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Logo } from "../../UI-kit/Logo/Logo";
 import { ReactComponent as FavoritesIcon } from "../../images/favorites-header-icon.svg";
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <Logo />
@@ -14,5 +14,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
