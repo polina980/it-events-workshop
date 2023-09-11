@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { PrimaryButton } from "../UI-kit/PrimaryButton/PrimaryButton";
+import { PrimaryButton } from "../../UI-kit";
 
 export const NotFoundPage = () => {
   return (
@@ -10,7 +10,7 @@ export const NotFoundPage = () => {
           <p className={styles.notText}>
             С этой страницей что-то случилось или не верно указан адрес
           </p>
-          <PrimaryButton title="На главную" to="/" />
+          <PrimaryButton variant='link' title="На главную" to="/" />
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
-import { Event } from "../components/Event/Event";
-import { Loader } from "../UI-kit/Loader/Loader";
-import { apiEvents } from "../utils/api";
 import { useLoaderData, Await, useAsyncValue } from "react-router-dom";
+import { Event } from "../components/Event/Event";
+import { Loader } from "../UI-kit";
+import { apiEvents } from "../utils/api";
 
 const EventFromApi = () => {
   const event = useAsyncValue();

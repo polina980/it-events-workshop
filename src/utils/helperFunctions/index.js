@@ -78,9 +78,9 @@ export const formatDate = (dateString) => {
 };
 
 // Функция для получения случайных элементов из массива
-export const getRandomEvents = (array, count) => {
+export const getRandomEvents = (array) => {
   const shuffled = array.sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+  return shuffled;
 };
 
 export const handleCopyLink = (link, setShowNotification) => {

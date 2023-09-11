@@ -6,8 +6,7 @@ import { CardList } from '../../components/CardList/CardList';
 import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
-import { Loader } from '../../UI-kit/Loader/Loader';
-import { PaddingWrapper } from '../../UI-kit/PaddingWrapper/PaddingWrapper';
+import { Loader, PaddingWrapper } from '../../UI-kit';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 
 const MainPage = () => {

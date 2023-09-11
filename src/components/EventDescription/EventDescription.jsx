@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
-import { PrimaryButton } from "../../UI-kit/PrimaryButton/PrimaryButton";
+import { PrimaryButton, PopupLink } from "../../UI-kit";
 import { DescriptionTabs } from "../DescriptionTabs/DescriptionTabs";
 import { ReactComponent as CalendarImage } from "../../images/EventInfo/calendar.svg";
 import { ReactComponent as TimeImage } from "../../images/EventInfo/time.svg";
@@ -8,7 +8,6 @@ import { ReactComponent as PlaceImage } from "../../images/EventInfo/place.svg";
 import { ReactComponent as LikeImage } from "../../images/like-button.svg";
 import { ReactComponent as LikeImageActive } from "../../images/like-button_active.svg";
 import { ReactComponent as ShareImage } from "../../images/Actions/share.svg";
-import { PopupLink } from "../../UI-kit/PopupLink/PopupLink";
 import {
   formatDate,
   formatPrice,
@@ -40,7 +39,7 @@ export const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents })
 
   return (
     <section className={styles.eventDescription}>
-      <header className={styles.eventHeader}>
+      <div className={styles.eventHeader}>
         {showNotification && <PopupLink top="55px" right="0" />}
         <h1 className={styles.eventName}>{selectedEvent.title}</h1>
         <div className={styles.eventFigures}>
@@ -51,7 +50,7 @@ export const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents })
             <ShareImage />
           </figure>
         </div>
-      </header>
+      </div>
       <ul className={styles.eventDates}>
         <li className={styles.eventDate}>
           <CalendarImage />
@@ -73,6 +72,7 @@ export const EventDescription = ({ selectedEvent, onLikeClick, favoriteEvents })
       </ul>
       <PrimaryButton
         variant='link'
+        target='_blank'
         title="Сайт мероприятия"
         to={selectedEvent?.url}
       />
