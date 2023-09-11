@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { SearchField } from '../SearchField/SearchField';
+import { SearchField } from '../../UI-kit/SearchField/SearchField';
 import { ReactComponent as Menu } from '../../images/menu.svg';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 
