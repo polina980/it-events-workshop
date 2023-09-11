@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react";
-import styles from "./styles.module.scss";
-import { Link } from "react-router-dom";
-import { parsePrice } from "../utils/helperFunctions";
-import { useEventsContext } from "../utils/context/EventsContext";
-import { PageTitle } from "../UI-kit/PageTitle/PageTitle";
-import { CardList } from "../components/CardList/CardList";
-import { FilterBar } from "../components/FilterBar/FilterBar";
-import { Loader } from "../UI-kit/Loader/Loader";
-import { PaddingWrapper } from "../UI-kit/PaddingWrapper/PaddingWrapper";
+import styles from './styles.module.scss';
+import { useState, useEffect } from 'react';
+import { parsePrice } from '../../utils/helperFunctions';
+import { useEventsContext } from '../../utils/context/EventsContext';
+import { CardList } from '../../components/CardList/CardList';
+import { FilterBar } from '../../components/FilterBar/FilterBar';
+import { Loader, PrimaryButton, PaddingWrapper, PageTitle } from '../../UI-kit';
 
-const FavoritesPage = ({ onCardClick, onLikeClick }) => {
+const FavoritesPage = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [sortByName, setSortByName] = useState(true);
   const [sortByPrice, setSortByPrice] = useState(true);
@@ -26,22 +23,22 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
     let sortedList = [...filteredEvents];
 
     switch (option) {
-      case "name":
+      case 'name':
         sortedList.sort((a, b) => {
           const sortOrder = sortByName ? 1 : -1;
           return sortOrder * a.title.localeCompare(b.title);
         });
         setSortByName((prevValue) => !prevValue);
         break;
-      case "price":
+      case 'price':
         sortedList.sort((a, b) => {
           const sortOrder = sortByPrice ? 1 : -1;
           if (a.price === b.price) {
             const dateA = new Date(a.date_start).getTime();
             const dateB = new Date(b.date_start).getTime();
             return (dateA - dateB) * sortOrder;
-          } else if (a.price === "Бесплатно" || b.price === "Бесплатно") {
-            return a.price === "Бесплатно" ? -1 * sortOrder : 1 * sortOrder;
+          } else if (a.price === 'Бесплатно' || b.price === 'Бесплатно') {
+            return a.price === 'Бесплатно' ? -1 * sortOrder : 1 * sortOrder;
           } else {
             const priceA = parsePrice(a.price);
             const priceB = parsePrice(b.price);
@@ -50,7 +47,7 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
         });
         setSortByPrice((prevValue) => !prevValue);
         break;
-      case "date":
+      case 'date':
         sortedList.sort((a, b) => {
           const sortOrder = sortByDate ? 1 : -1;
           const dateA = new Date(a.date_start).getTime();
@@ -73,15 +70,15 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
   }, []);
 
   return (
-    <section>
+    <div className={styles.page}>
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <PageTitle
-            title="Избранное"
-            subtitle="Сохраненные мероприятия"
-            size="48px"
+            title='Избранное'
+            subtitle='Сохраненные мероприятия'
+            size='48px'
           />
           <FilterBar onFilter={handleFilter} />
           {noEvents && (
@@ -93,21 +90,14 @@ const FavoritesPage = ({ onCardClick, onLikeClick }) => {
                 воспользуйтесь поиском на нашем сайте и найдите интересующие вас
                 события.
               </p>
-              <Link className={styles.favoritesLink} to="/">
-                Начать поиск
-              </Link>
+              <PrimaryButton variant='link' to='/' title='Начать поиск' />
             </div>
           )}
-          <CardList
-            events={filteredEvents}
-            onCardClick={onCardClick}
-            onLikeClick={onLikeClick}
-            style={{ display: 'flex' }}
-          />
+          <CardList events={filteredEvents} />
         </>
       )}
-    </section>
+    </div>
   );
 };
 
-export default PaddingWrapper(FavoritesPage)
+export default PaddingWrapper(FavoritesPage);

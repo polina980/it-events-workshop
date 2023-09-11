@@ -11,7 +11,9 @@ export const Layout = () => {
       <FiltersProvider>
         <div className={styles.app}>
           <Header />
+          <main className={styles.main}>
           {<Outlet />}
+          </main>
           <Footer />
         </div>
       </FiltersProvider>
