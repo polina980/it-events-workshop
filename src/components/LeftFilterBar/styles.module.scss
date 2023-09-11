@@ -142,38 +142,3 @@
   margin: 10px;
   gap: 20px 8px;
 }
-
-.buttonSearch {
-  background: url("../../images/Arrows/arrow-right_gray.svg") no-repeat;
-  background-position-x: 80px;
-  background-position-y: center;
-  background-color: transparent;
-  color: $mainTextGreyColor;
-  border: 1px solid $mainTextGreyColor;
-  border-radius: 8px;
-  width: 123px;
-  min-height: 44px;
-  font-size: 16px;
-  text-align: left;
-  padding-left: 24px;
-  cursor: pointer;
-  margin-top: 47px;
-  margin-left: auto;
-}
-
-.buttonSearch:hover {
-  background: url("../../images/Arrows/arrow-right_violet.svg") no-repeat;
-  background-position-x: 80px;
-  background-position-y: center;
-  border: 1px solid $purpleColor;
-  color: $purpleColor;
-}
-
-.buttonSearch:active {
-  background: url("../../images/Arrows/arrow-right_white.svg") no-repeat;
-  background-position-x: 80px;
-  background-position-y: center;
-  border: 1px solid $purpleColor;
-  background-color: $purpleColor;
-  color: $whiteColor;
-}
