@@ -8,7 +8,7 @@ export const PrimaryButton = ({ title, to, variant, disabled, onClick }) => {
     <Link
       to={variant === 'link' ? to : ''}
       target={'_blank'}
-      className={styles.primaryButton}
+      className={styles.primaryLink}
     >
       {title}
       <RightArrow />
@@ -22,7 +22,7 @@ export const PrimaryButton = ({ title, to, variant, disabled, onClick }) => {
     >
       {' '}
       {title}
-      <RightArrow />
+      {/* <RightArrow /> */}
     </button>
   );
 };
