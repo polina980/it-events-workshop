@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
+import { filtersVariants } from '../../utils/motion';
 import styles from './styles.module.scss';
 import { TagButton } from '../../UI-kit/TagButton/TagButton';
 import { TagSection } from './../TagSection/TagSection';
@@ -7,7 +8,13 @@ import { useFilter } from '../../utils/hooks/useFilter';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
-import { Input, InputCheckbox, InputRadio, InputDate } from '../../UI-kit';
+import {
+  Input,
+  InputCheckbox,
+  InputRadio,
+  InputDate,
+  PrimaryButton,
+} from '../../UI-kit';
 
 export const LeftFilterBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
@@ -106,9 +113,9 @@ export const LeftFilterBar = () => {
 
   return (
     <m.section
-      initial={{ x: -100, opacity: 0 }} // начальное состояние - смещение влево на 100 пикселей
-      animate={{ x: 0, opacity: 1 }} // конечное состояние - без смещения
-      transition={{ duration: 0.7 }} // длительность анимации
+      variants={filtersVariants}
+      initial='hidden'
+      animate='visible'
       className={styles.filterForm}
     >
       <h2 className={styles.filterTitle}>Фильтры</h2>
@@ -223,13 +230,7 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
       </ul>
       <TagSection handleChange={handleButtonChange} />
-      <button
-        onClick={handleSearchClick}
-        className={styles.buttonSearch}
-        type='button'
-      >
-        Найти
-      </button>
+      <PrimaryButton onClick={handleSearchClick} title='Найти' />
     </m.section>
   );
 };
