@@ -9,10 +9,10 @@ import { useEventsContext } from '../../utils/context/EventsContext';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import {
-  Input,
-  InputCheckbox,
-  InputRadio,
-  InputDate,
+  SearchInput,
+  Checkbox,
+  RadioButton,
+  DateField,
   PrimaryButton,
 } from '../../UI-kit';
 
@@ -68,7 +68,7 @@ export const LeftFilterBar = () => {
     }
 
     return dateOptions.map((option) => (
-      <InputRadio
+      <RadioButton
         key={option.id}
         label={option.id}
         value={option.label}
@@ -80,9 +80,9 @@ export const LeftFilterBar = () => {
         onChange={handleInputChange}
       >
         {option.id === 'pickdate' && (
-          <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
+          <DateField onChange={handleDateChange} onBlur={handleDateBlur} />
         )}
-      </InputRadio>
+      </RadioButton>
     ));
   };
 
@@ -90,7 +90,7 @@ export const LeftFilterBar = () => {
     return dataLists?.topics
       ?.slice(0, showAllTopics ? dataLists.topics.length : 4)
       .map((item, index) => (
-        <InputCheckbox
+        <Checkbox
           key={index}
           label={item.id}
           name='specialities'
@@ -121,7 +121,7 @@ export const LeftFilterBar = () => {
       <h2 className={styles.filterTitle}>Фильтры</h2>
       <ul className={styles.filterList}>
         <FiltersListItem title='Название'>
-          <Input
+          <SearchInput
             placeholder='Разработка'
             name='query'
             value={values.query}
@@ -130,14 +130,14 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Формат'>
-          <InputCheckbox
+          <Checkbox
             label='online'
             value='Online'
             name='status'
             checked={values.status.includes('Online')}
             onChange={handleInputChange}
           />
-          <InputCheckbox
+          <Checkbox
             label='offline'
             value='Offline'
             name='status'
@@ -147,7 +147,7 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Город'>
-          <Input
+          <SearchInput
             placeholder='Поиск города'
             name='city'
             value={values.city}
@@ -187,14 +187,14 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Цена'>
-          <InputRadio
+          <RadioButton
             label='free'
             value='Бесплатно'
             name='price'
             checked={values.price === 'Бесплатно'}
             onChange={handleInputChange}
           />
-          <InputRadio
+          <RadioButton
             label='paid'
             value='Платно'
             name='price'
@@ -204,7 +204,7 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Теги'>
-          <Input
+          <SearchInput
             placeholder='Поиск тега'
             name='findTags'
             value={values.findTags}

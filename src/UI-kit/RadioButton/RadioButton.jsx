@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-const InputRadio = ({ label, value, name, checked, onChange, children }) => {
+const RadioButton = ({ label, value, name, checked, onChange, children }) => {
   return (
     <label htmlFor={label} className={styles.radioButton}>
       <input
@@ -17,4 +17,4 @@ const InputRadio = ({ label, value, name, checked, onChange, children }) => {
   );
 };
 
-export default InputRadio;
+export default RadioButton;

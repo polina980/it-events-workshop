@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-const InputCheckbox = ({ label, name, value, checked, onChange }) => {
+const Checkbox = ({ label, name, value, checked, onChange }) => {
   return (
     <label htmlFor={label}>
       <input
@@ -17,4 +17,4 @@ const InputCheckbox = ({ label, name, value, checked, onChange }) => {
   );
 };
 
-export default InputCheckbox;
+export default Checkbox;
