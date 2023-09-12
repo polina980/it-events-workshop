@@ -41,7 +41,7 @@ function useEvents() {
       // ДЕЛИМ НА ПРЕДСТОЯЩИЕ И ПРОШЕДШИЕ
       const upcomingEvents = getCurrentEvents([...updatedEvents]);
       //const pastEvents = getPastEvents([...eventsFromApi]);
-      const recommended = getRandomEvents([...upcomingEvents], 4);
+      const recommended = getRandomEvents([...upcomingEvents]);
       //console.log('Upcoming events:', upcomingEvents);
       setRecommendedEvents(recommended);
       setMostAnticipatedEvents(upcomingEvents);

@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import { Loader } from '../../UI-kit/Loader/Loader';
+
 import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
 import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { CardList } from '../../components/CardList/CardList';
-import { PageTitle } from '../../UI-kit/PageTitle/PageTitle';
+import { PageTitle, Loader, PaddingWrapper } from '../../UI-kit';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
 import { useFilterdList } from '../../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { useEventsContext } from '../../utils/context/EventsContext';
-import { PaddingWrapper } from '../../UI-kit/PaddingWrapper/PaddingWrapper';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 
 const SearchResultPage = () => {

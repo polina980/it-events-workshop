@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-export const PageTitle = ({ title, subtitle, size }) => {
+const PageTitle = ({ title, subtitle, size }) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title} style={{ fontSize: size }}>
@@ -10,3 +10,5 @@ export const PageTitle = ({ title, subtitle, size }) => {
     </div>
   );
 };
+
+export default PageTitle;

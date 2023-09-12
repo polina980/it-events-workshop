@@ -2,11 +2,15 @@ import styles from "./styles.module.scss";
 import { CardList } from "../CardList/CardList";
 import { EventDescription } from "../EventDescription/EventDescription";
 import { useEventsContext } from "../../utils/context/EventsContext";
+import useIsMobileResolution from "../../utils/hooks/useIsMobileResolution";
 import defaultImage from "../../images/default-image.png";
 
 export const Event = ({ selectedEvent }) => {
-  const { handleCardClick, toggleFavorite, recommendedEvents, favoriteEvents } =
+  const { recommendedEvents, favoriteEvents, toggleFavorite } =
     useEventsContext();
+
+    const isNotMobile = useIsMobileResolution(1440)
+    const recommended = !isNotMobile ? recommendedEvents.slice(0, 6) : recommendedEvents.slice(0, 4)
 
   const handleImageError = (e) => {
     e.target.src = defaultImage;
@@ -32,9 +36,8 @@ export const Event = ({ selectedEvent }) => {
           title="Смотрите также"
           listDirection="row"
           cardDirection="column"
-          events={recommendedEvents}
-          onCardClick={handleCardClick}
-          onLikeClick={toggleFavorite}
+          style={{gap: '22px'}}
+          events={recommended}
         />
       </div>
     </div>
