@@ -1,4 +1,4 @@
-import styles from '../Input:Radio/styles.module.scss';
+import styles from '../InputRadio/styles.module.scss';
 
 const InputDate = ({ onChange, onBlur }) => {
   return (

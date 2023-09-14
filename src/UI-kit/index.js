@@ -1,11 +1,12 @@
-import Input from "./Input:TextSearch/Input";
-import InputCheckbox from "./Input:Checkbox/InputCheckbox";
-import InputRadio from "./Input:Radio/InputRadio";
-import InputDate from "./Input:Date/InputDate";
+import Input from "./InputTextSearch/Input";
+import InputCheckbox from "./InputCheckbox/InputCheckbox";
+import InputRadio from "./InputRadio/InputRadio";
+import InputDate from "./InputDate/InputDate";
 import PrimaryButton from "./PrimaryButton/PrimaryButton";
 import PopupLink from "./PopupLink/PopupLink";
 import PageTitle from "./PageTitle/PageTitle";
 import Loader  from "./Loader/Loader";
+import TagButton from "./TagButton/TagButton";
 import { PaddingWrapper } from "./PaddingWrapper/PaddingWrapper";
 
 export {
@@ -17,5 +18,6 @@ export {
     Loader,
     PageTitle,
     PopupLink,
-    PaddingWrapper
+    PaddingWrapper,
+    TagButton
 }

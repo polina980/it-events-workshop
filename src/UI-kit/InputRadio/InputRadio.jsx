@@ -1,5 +1,7 @@
 import styles from './styles.module.scss';
+import PropTypes from 'prop-types'
 
+/** UI component*/
 const InputRadio = ({ label, value, name, checked, onChange, children }) => {
   return (
     <label htmlFor={label} className={styles.radioButton}>
@@ -15,6 +17,15 @@ const InputRadio = ({ label, value, name, checked, onChange, children }) => {
       {children}
     </label>
   );
+};
+
+InputRadio.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default InputRadio;

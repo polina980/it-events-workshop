@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
 import { filtersVariants } from '../../utils/motion';
 import styles from './styles.module.scss';
-import { TagButton } from '../../UI-kit/TagButton/TagButton';
 import { TagSection } from './../TagSection/TagSection';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useEventsContext } from '../../utils/context/EventsContext';
@@ -14,6 +13,7 @@ import {
   InputRadio,
   InputDate,
   PrimaryButton,
+  TagButton,
 } from '../../UI-kit';
 
 export const LeftFilterBar = () => {
@@ -68,6 +68,7 @@ export const LeftFilterBar = () => {
     }
 
     return dateOptions.map((option) => (
+      <>
       <InputRadio
         key={option.id}
         label={option.id}
@@ -83,6 +84,7 @@ export const LeftFilterBar = () => {
           <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
         )}
       </InputRadio>
+      </>
     ));
   };
 
