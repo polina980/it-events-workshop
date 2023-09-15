@@ -1,6 +1,6 @@
-import styles from '../RadioButton/styles.module.scss';
+import styles from '../InputRadio/styles.module.scss';
 
-const DateField = ({ onChange, onBlur }) => {
+const InputDate = ({ onChange, onBlur }) => {
   return (
     <input
       onChange={onChange}
@@ -13,4 +13,4 @@ const DateField = ({ onChange, onBlur }) => {
   );
 };
 
-export default DateField;
+export default InputDate;

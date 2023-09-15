@@ -1,6 +1,9 @@
 import styles from './styles.module.scss';
+import PropTypes from 'prop-types';
 
-const Checkbox = ({ label, name, value, checked, onChange }) => {
+/** UI component*/
+const InputCheckbox = ({ label, name, value, checked, onChange }) => {
+
   return (
     <label htmlFor={label}>
       <input
@@ -17,4 +20,13 @@ const Checkbox = ({ label, name, value, checked, onChange }) => {
   );
 };
 
-export default Checkbox;
+InputCheckbox.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+};
+
+export default InputCheckbox;
+

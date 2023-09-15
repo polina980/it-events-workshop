@@ -1,9 +1,11 @@
 import styles from "./styles.module.scss";
 import Cross from "./../../images/Actions/close.svg";
-import { useFiltersContext } from "../../utils/context/SearchFilterContext";
+//import { useFiltersContext } from "../../utils/context/SearchFilterContext";
+import PropTypes from 'prop-types'
 
-export const TagButton = ({ value, handleChange, disabled }) => {
-  const { values } = useFiltersContext();
+
+const TagButton = ({ values, value, handleChange, disabled }) => {
+  //const { values } = useFiltersContext();
 
   const handleClick = (value) => {
     handleChange({ tags: value });
@@ -11,13 +13,20 @@ export const TagButton = ({ value, handleChange, disabled }) => {
 
   return (
     <button
-      onClick={() => handleClick(value)}
-      className={`${styles.tagElement} ${values.tags.includes(value) ? styles.clicked : ""
+      onClick={() => handleClick({tags: value})}
+      className={`${styles.tagElement} ${values?.tags?.includes(value) ? styles.clicked : ""
         }`}
-      disabled={disabled}
     >
       {value}
-      {values.tags.includes(value) && <img src={Cross} alt="Cross" />}
+      {values?.tags?.includes(value) && <img src={Cross} alt="Cross" />}
     </button>
   );
 };
+
+TagButton.propTypes = {
+  values: PropTypes.object,
+  value: PropTypes.string,
+  handleChange: PropTypes.func,
+}
+
+export default TagButton

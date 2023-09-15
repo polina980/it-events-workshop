@@ -1,6 +1,9 @@
 import styles from './styles.module.scss';
+import PropTypes from 'prop-types'
 
-const RadioButton = ({ label, value, name, checked, onChange, children }) => {
+/** UI component*/
+const InputRadio = ({ label, value, name, checked, onChange, children }) => {
+
   return (
     <label htmlFor={label} className={styles.radioButton}>
       <input
@@ -17,4 +20,14 @@ const RadioButton = ({ label, value, name, checked, onChange, children }) => {
   );
 };
 
-export default RadioButton;
+InputRadio.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+  children: PropTypes.node
+};
+
+export default InputRadio;
+
