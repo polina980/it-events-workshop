@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import { TagButton } from "../../UI-kit";
+import { TagButton } from '../../UI-kit';
 import { apiEvents } from "../../utils/api";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 
@@ -39,8 +39,8 @@ export const TagSection = ({ handleChange }) => {
           .map((tag, index) => (
             <TagButton
               key={index}
-              value={tag.label}
               values={values}
+              value={tag.label}
               handleChange={handleChange}
             />
           ))}

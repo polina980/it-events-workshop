@@ -1,4 +1,5 @@
 import styles from './styles.module.scss';
+import PropTypes from 'prop-types';
 
 const PopupLink = ({ top, right }) => {
   return (
@@ -7,5 +8,10 @@ const PopupLink = ({ top, right }) => {
     </div>
   );
 };
+
+PopupLink.propTypes = {
+  top: PropTypes.string,
+  right: PropTypes.string,
+}
 
 export default PopupLink;

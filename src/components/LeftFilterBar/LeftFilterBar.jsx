@@ -69,21 +69,21 @@ export const LeftFilterBar = () => {
 
     return dateOptions.map((option) => (
       <>
-      <InputRadio
-        key={option.id}
-        label={option.id}
-        value={option.label}
-        name='date'
-        checked={
-          option.label.includes(values.date) ||
-          (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
-        }
-        onChange={handleInputChange}
-      >
-        {option.id === 'pickdate' && (
-          <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
-        )}
-      </InputRadio>
+        <InputRadio
+          key={option.id}
+          label={option.id}
+          value={option.label}
+          name='date'
+          checked={
+            option.label.includes(values.date) ||
+            (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
+          }
+          onChange={handleInputChange}
+        >
+          {option.id === 'pickdate' && (
+            <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
+          )}
+        </InputRadio>
       </>
     ));
   };
@@ -221,7 +221,7 @@ export const LeftFilterBar = () => {
                       key={index}
                       value={item}
                       handleChange={handleButtonChange}
-                      disabled={false}
+                    // disabled={false}
                     />
                   );
                 })}

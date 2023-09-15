@@ -1,4 +1,5 @@
 import styles from './styles.module.scss';
+import PropTypes from 'prop-types';
 
 const PageTitle = ({ title, subtitle, size }) => {
   return (
@@ -10,5 +11,11 @@ const PageTitle = ({ title, subtitle, size }) => {
     </div>
   );
 };
+
+PageTitle.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  size: PropTypes.string,
+}
 
 export default PageTitle;
