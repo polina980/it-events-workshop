@@ -10,7 +10,7 @@ const EventFromApi = () => {
 };
 
 const EventPage = () => {
-  const { event } = useLoaderData();
+  const event = useLoaderData();
 
   return (
     <Suspense fallback={<Loader />}>
@@ -21,16 +21,11 @@ const EventPage = () => {
   );
 };
 
-async function getEventById(id) {
-  const result = await apiEvents.getSelectedEvent(id);
-  const event = result;
-  console.log("Получено событие с сервера:", event);
-  return event;
-}
-
 const eventLoader = async ({ params }) => {
   const id = params.id;
-  return { event: getEventById(id) };
+  const event = await apiEvents.getSelectedEvent(id) 
+  console.log("Получено событие с сервера:", event);
+  return event
 };
 
 export { EventPage, eventLoader };
