@@ -1,4 +1,4 @@
-import Input from "./InputTextSearch/Input";
+import InputText from "./InputText/InputText";
 import InputCheckbox from "./InputCheckbox/InputCheckbox";
 import InputRadio from "./InputRadio/InputRadio";
 import InputDate from "./InputDate/InputDate";
@@ -10,7 +10,7 @@ import TagButton from "./TagButton/TagButton";
 import { PaddingWrapper } from "./PaddingWrapper/PaddingWrapper";
 
 export {
-    Input,
+    InputText,
     InputCheckbox,
     InputRadio,
     InputDate,

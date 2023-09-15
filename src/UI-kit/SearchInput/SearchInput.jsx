@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-const Input = ({ name, value, placeholder, onChange }) => {
+const SearchInput = ({ name, value, placeholder, onChange }) => {
   return (
     <input
       onChange={onChange}
@@ -14,4 +14,4 @@ const Input = ({ name, value, placeholder, onChange }) => {
   );
 };
 
-export default Input;
+export default SearchInput;

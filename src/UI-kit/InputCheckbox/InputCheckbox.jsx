@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 /** UI component*/
 const InputCheckbox = ({ label, name, value, checked, onChange }) => {
+
   return (
     <label htmlFor={label}>
       <input
@@ -28,3 +29,4 @@ InputCheckbox.propTypes = {
 };
 
 export default InputCheckbox;
+

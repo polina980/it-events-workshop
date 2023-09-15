@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 /** UI component*/
 const InputRadio = ({ label, value, name, checked, onChange, children }) => {
+
   return (
     <label htmlFor={label} className={styles.radioButton}>
       <input
@@ -29,3 +30,4 @@ InputRadio.propTypes = {
 };
 
 export default InputRadio;
+

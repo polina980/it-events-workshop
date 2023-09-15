@@ -8,10 +8,10 @@ import { useEventsContext } from '../../utils/context/EventsContext';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import {
-  Input,
+  InputText,
   InputCheckbox,
-  InputRadio,
   InputDate,
+  InputRadio,
   PrimaryButton,
   TagButton,
 } from '../../UI-kit';
@@ -123,7 +123,7 @@ export const LeftFilterBar = () => {
       <h2 className={styles.filterTitle}>Фильтры</h2>
       <ul className={styles.filterList}>
         <FiltersListItem title='Название'>
-          <Input
+          <InputText
             placeholder='Разработка'
             name='query'
             value={values.query}
@@ -149,7 +149,7 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Город'>
-          <Input
+          <InputText
             placeholder='Поиск города'
             name='city'
             value={values.city}
@@ -206,7 +206,7 @@ export const LeftFilterBar = () => {
         </FiltersListItem>
 
         <FiltersListItem title='Теги'>
-          <Input
+          <InputText
             placeholder='Поиск тега'
             name='findTags'
             value={values.findTags}
