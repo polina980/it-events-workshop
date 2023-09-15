@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
 import { filtersVariants } from '../../utils/motion';
 import styles from './styles.module.scss';
-import { TagButton } from '../../UI-kit/TagButton/TagButton';
+import TagButton from '../../UI-kit/TagButton/TagButton';
 import { TagSection } from './../TagSection/TagSection';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useEventsContext } from '../../utils/context/EventsContext';
@@ -219,7 +219,7 @@ export const LeftFilterBar = () => {
                       key={index}
                       value={item}
                       handleChange={handleButtonChange}
-                      disabled={false}
+                    // disabled={false}
                     />
                   );
                 })}
