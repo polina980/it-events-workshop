@@ -4,7 +4,8 @@ export default {
     title: 'Components/DescriptionTabs',
     component: DescriptionTabs,
     parameters: {
-        componentSubtitle: 'Components > DescriptionTabs'
+        componentSubtitle: 'Components > DescriptionTabs',
+        layout: 'centered',
       },
     args: {
         selectedEvent: {

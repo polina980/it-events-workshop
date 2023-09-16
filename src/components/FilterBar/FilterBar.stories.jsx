@@ -4,7 +4,8 @@ export default {
     title: 'Components/FilterBar',
     component: FilterBar,
     parameters: {
-        componentSubtitle: 'Components > FilterBar'
+        componentSubtitle: 'Components > FilterBar',
+        layout: 'centered',
       },
     args: {
         onFilter: () => {}
