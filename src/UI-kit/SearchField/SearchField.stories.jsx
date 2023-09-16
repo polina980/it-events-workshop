@@ -1,38 +1,54 @@
 import styles from './styles.module.scss';
 import { ReactComponent as Menu } from '../../images/menu.svg';
+
 export default {
   title: 'Components/SearchFieldGroup',
   parameters: {
-    componentSubtitle: 'Components > SearchField and MobileSearch'
-  }
+    componentSubtitle: 'Components > SearchField and MobileSearch',
+  },
 };
 
-/** Применимость: Pages > MobileResolution*/
+const StoryWrapper = ({ children }) => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      maxWidth: '650px',
+      border: '2px dashed black',
+      padding: '2em',
+    }}
+  >
+    {children}
+  </div>
+);
+
+const SearchField = () => (
+  <form className={styles.form}>
+    <input
+      className={styles.formInput}
+      placeholder='Разработка'
+      type='text'
+      autoComplete='off'
+    />
+  </form>
+);
+
+/** Применимость: Pages > DesctopResolution */
+export const DesctopSearch = () => {
+  return (
+    <StoryWrapper>
+      <SearchField />
+    </StoryWrapper>
+  );
+};
+
+/** Применимость: Pages > MobileResolution */
 export const MobileSearch = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}
-    >
+    <StoryWrapper>
       <SearchField />
       <Menu />
-    </div>
+    </StoryWrapper>
   );
 };
-/** Применимость: Pages > DesctopResolution */
-export const SearchField = () => {
-  return (
-    <form className={styles.form}>
-      <input
-        className={styles.formInput}
-        placeholder='Разработка'
-        type='text'
-        autoComplete='off'
-      />
-    </form>
-  );
-};
-
