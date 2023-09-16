@@ -2,6 +2,7 @@ import InputText from "./InputText/InputText";
 import InputCheckbox from "./InputCheckbox/InputCheckbox";
 import InputRadio from "./InputRadio/InputRadio";
 import InputDate from "./InputDate/InputDate";
+import SearchInput from "./SearchInput/SearchInput";
 import PrimaryButton from "./PrimaryButton/PrimaryButton";
 import PopupLink from "./PopupLink/PopupLink";
 import PageTitle from "./PageTitle/PageTitle";
@@ -14,6 +15,7 @@ export {
     InputCheckbox,
     InputRadio,
     InputDate,
+    SearchInput,
     PrimaryButton,
     Loader,
     PageTitle,

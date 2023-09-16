@@ -4,10 +4,6 @@ import './styles.module.scss';
 export default {
   title: 'UI-Kit/Input/SearchInput',
   component: SearchInput,
-};
-
-/** This is how it looks by default */
-export const Basic = {
   args: {
     name: '',
     value: 'Saint-Petersburg',
@@ -15,3 +11,11 @@ export const Basic = {
     onChange: () => {},
   },
 };
+
+/** This is how it looks */
+export const Basic = (args) => (
+  <div style={{ padding: '2em', border: '2px dashed black' }}>
+   <h2>Применимость: Components / LeftFilterBar</h2>
+    <SearchInput {...args} />
+  </div>
+);

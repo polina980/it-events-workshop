@@ -1,6 +1,12 @@
 import styles from "./styles.module.scss";
+import PropTypes from 'prop-types'
 
 export const FilterBar = ({ onFilter }) => {
+
+  FilterBar.propTypes = {
+    onFilter: PropTypes.func
+  }
+  
   const handleFilterClick = (option) => {
     if (onFilter) {
       onFilter(option);
