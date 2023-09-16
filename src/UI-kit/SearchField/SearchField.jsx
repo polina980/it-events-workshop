@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useEventsContext } from "../../utils/context/EventsContext";
 
-export const SearchField = ({ smallInput }) => {
+export const SearchField = () => {
   // Устанавливаем значение в поисковую строку из пропса
   const { handleSearch, searchQuery, setSearchQuery } = useEventsContext();
 
@@ -40,7 +40,6 @@ export const SearchField = ({ smallInput }) => {
         value={searchQuery || ""}
         type="text"
         autoComplete="off"
-        style={smallInput}
       />
     </form>
   );

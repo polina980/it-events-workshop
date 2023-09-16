@@ -156,6 +156,7 @@ function useEvents() {
   const handleSearch = async (request) => {
     try {
       setIsLoading(true)
+      console.log(request)
       setSearchQuery(request);
       const response = await apiEvents.searchRequest(request)
       const filteredResult = updateEvents(response);
