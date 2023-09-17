@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { TagButton } from '../../UI-kit';
-import { apiEvents } from "../../utils/api";
+//import { apiEvents } from "../../utils/api";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 import PropTypes from 'prop-types'
 
-export const TagSection = ({ handleChange }) => {
-  const [tags, setTags] = useState([]);
+export const TagSection = ({ handleChange, tags }) => {
+  //const [tags, setTags] = useState([]);
   const [showAllTags, setShowAllTags] = useState(false);
   const { values } = useFiltersContext()
 
   TagSection.propTypes = {
-    handleChange: PropTypes.func
+    handleChange: PropTypes.func,
+    tags: PropTypes.array
   }
 
-  useEffect(() => {
-    const fetchTags = async () => {
-      try {
-        const response = await apiEvents.getTags();
-        setTags(response);
-      } catch (error) {
-        console.log("Error fetching tags:", error);
-      }
-    };
-    fetchTags();
-  }, []);
+  // useEffect(() => {
+  //   fetchTags().then(setTags);
+  // }, [fetchTags]);
 
-  const tagOptions = tags.map((tag) => ({
+  const tagOptions = tags?.map((tag) => ({
     value: tag.id,
     label: tag.name,
     slug: tag.slug,
@@ -37,6 +30,7 @@ export const TagSection = ({ handleChange }) => {
   };
 
   return (
+    tags &&
     <>
       <div className={styles.tagsList}>
         {tagOptions
@@ -44,9 +38,9 @@ export const TagSection = ({ handleChange }) => {
           .map((tag, index) => (
             <TagButton
               key={index}
-              values={values}
+              isEnabled={values.tags.includes(tag.label)}
               value={tag.label}
-              handleChange={handleChange}
+              onChange={handleChange(tag.label)}
             />
           ))}
       </div>
@@ -58,3 +52,13 @@ export const TagSection = ({ handleChange }) => {
     </>
   );
 };
+
+// TagSection.propTypes = {
+//   handleChange: PropTypes.func,
+//   fetchTags: PropTypes.func
+// };
+
+// TagSection.defaultProps = {
+//   // @todo: убрать отсюда и передать где надо
+//   fetchTags: apiEvents.getTags
+// };

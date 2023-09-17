@@ -1,29 +1,31 @@
+import clsx from "clsx";
+import _ from "lodash";
 import styles from "./styles.module.scss";
 import Cross from "./../../images/Actions/close.svg";
 import PropTypes from 'prop-types';
 
-const TagButton = ({ values, value, handleChange }) => {
-  
-  const handleClick = (value) => {
-    handleChange({ tags: value });
-  };
-
+const TagButton = ({ value, onChange, isEnabled }) => {
   return (
     <button
-      onClick={() => handleClick(value)}
-      className={`${styles.tagElement} ${values?.tags?.includes(value) ? styles.clicked : ""
-        }`}
+      onClick={() => onChange(!isEnabled)}
+      className={clsx(styles.tagElement, {
+        [styles.clicked]: isEnabled
+      })}
     >
       {value}
-      {values?.tags?.includes(value) && <img src={Cross} alt="Cross" />}
+      {isEnabled && <img src={Cross} alt="Cross" />}
     </button>
   );
 };
 
 TagButton.propTypes = {
-  values: PropTypes.object,
   value: PropTypes.string,
-  handleChange: PropTypes.func,
+  onChange: PropTypes.func,
+  isEnabled: PropTypes.bool
 }
+
+TagButton.defaultProps = {
+  isEnabled: false
+};
 
 export default TagButton;

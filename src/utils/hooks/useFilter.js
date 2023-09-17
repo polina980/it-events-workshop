@@ -67,16 +67,14 @@ export function useFilter({ values, setValues, setFindValues }) {
     }
   };
 
-  const handleButtonChange = (data) => {
-    const includes = values.tags.includes(data.tags);
-
-    if (includes) {
+  const handleButtonChange = (tag) => (isEnabled) => {
+    if (!isEnabled) {
       setValues({
         ...values,
-        tags: values.tags.filter((el) => el !== data.tags),
+        tags: values.tags.filter((el) => el !== tag),
       });
     } else {
-      setValues({ ...values, tags: [...values.tags, data.tags] });
+      setValues({ ...values, tags: [...values.tags, tag] });
     }
   };
 
