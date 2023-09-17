@@ -4,9 +4,17 @@ import './styles.module.scss';
 export default {
   title: 'UI-kit/PageTitle',
   component: PageTitle,
-  // argTypes: {
-
-  // }
+  argTypes: {
+    title: {
+      description: 'Page title',
+    },
+    subtitle: {
+      description: 'Page text',
+    },
+    size: {
+      description: 'Title font size',
+    },
+  }
 }
 
 export const Basic = {

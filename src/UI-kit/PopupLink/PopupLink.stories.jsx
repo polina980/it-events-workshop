@@ -4,9 +4,14 @@ import './styles.module.scss';
 export default {
   title: 'UI-kit/PopupLink',
   component: PopupLink,
-  // argTypes: {
-
-  // }
+  argTypes: {
+    top: {
+      description: 'Top position',
+    },
+    right: {
+      description: 'Right position',
+    },
+  }
 }
 
 export const Basic = {
