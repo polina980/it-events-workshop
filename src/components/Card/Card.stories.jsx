@@ -8,7 +8,9 @@ import { Card as card } from './Card';
 export default {
   title: 'Components/Card',
   component: card,
-  parameters: {},
+  parameters: {
+    componentSubtitle: 'Components > Card'
+  },
   args: { event: defaultEvent() },
   argTypes: {
     event: {
@@ -59,7 +61,8 @@ const cardDetails = [
   },
 ];
 
-const Card = ({ event, cardDirection }) => {
+/** Применимость: CardList */
+export const Card = ({ event, cardDirection }) => {
   return (
     <li
       key={event.id}
@@ -98,8 +101,8 @@ const Card = ({ event, cardDirection }) => {
   );
 };
 
-export const Default = (args) => <Card {...args} />;
-
+//export const Default = (args) => <Card {...args} />;
+/** Применимость: CardList */
 export const IsLiked = () => {
   const isLikedEvent = {
     ...defaultEvent(),
@@ -108,7 +111,7 @@ export const IsLiked = () => {
   };
   return <Card event={isLikedEvent} />;
 };
-
+/** Применимость: CardList */
 export const DefaultImage = () => {
   const newEvent = {
     ...defaultEvent(),
