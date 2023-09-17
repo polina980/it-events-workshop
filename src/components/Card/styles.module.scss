@@ -4,6 +4,7 @@
   border-radius: 20px;
   gap: 24px;
   display: flex;
+  cursor: default;
 
   .imageContainer {
     position: relative;
@@ -69,6 +70,8 @@
   color: $smallTitleDarkGreyColor;
   font-size: 20px;
   line-height: 1.2;
+  margin: 0;
+  padding: 0;
 }
 
 .price {

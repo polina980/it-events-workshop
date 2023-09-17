@@ -3,11 +3,16 @@ import styles from "./styles.module.scss";
 import { TagButton } from '../../UI-kit';
 import { apiEvents } from "../../utils/api";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
+import PropTypes from 'prop-types'
 
 export const TagSection = ({ handleChange }) => {
   const [tags, setTags] = useState([]);
   const [showAllTags, setShowAllTags] = useState(false);
   const { values } = useFiltersContext()
+
+  TagSection.propTypes = {
+    handleChange: PropTypes.func
+  }
 
   useEffect(() => {
     const fetchTags = async () => {

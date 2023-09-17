@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import { useState } from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import {
   parseEventDate,
@@ -12,10 +13,18 @@ import { ReactComponent as PlaceImage } from "../../images/EventInfo/place.svg";
 import { ReactComponent as CalendarImage } from "../../images/EventInfo/calendar.svg";
 import { ReactComponent as TimeImage } from "../../images/EventInfo/time.svg";
 
+
+
 export const Card = ({ event, style, cardDirection }) => {
   const [imageError, setImageError] = useState(false);
   const { handleCardClick, toggleFavorite } = useEventsContext();
-
+  
+  Card.propTypes = {
+    event: PropTypes.object,
+    style:PropTypes.string,
+    cardDirection: PropTypes.string
+  }
+  
   const handleImageError = () => {
     setImageError(true);
   };

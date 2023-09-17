@@ -3,6 +3,7 @@ import Cross from "./../../images/Actions/close.svg";
 import PropTypes from 'prop-types';
 
 const TagButton = ({ values, value, handleChange }) => {
+  
   const handleClick = (value) => {
     handleChange({ tags: value });
   };
