@@ -23,6 +23,7 @@ export function useInitialFilter() {
         setDataLists((prevDataLists) => ({
           ...prevDataLists,
           findTags: response.map((item) => item.name),
+          allTags: response,
         }));
       } catch (error) {
         console.log("Error fetching tags:", error);
