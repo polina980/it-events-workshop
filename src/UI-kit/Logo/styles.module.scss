@@ -1,0 +1,12 @@
+@import '../../scss/vars.scss';
+
+.logoLink {
+  font-weight: 700;
+  font-size: 32px;
+  text-decoration: none;
+  color: $blackColor;
+
+  span {
+    color: $purpleColor;
+  }
+}

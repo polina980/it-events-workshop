@@ -1,0 +1,161 @@
+@import '../../scss/vars.scss';
+
+.card {
+  border-radius: 20px;
+  gap: 24px;
+  display: flex;
+  cursor: default;
+
+  .imageContainer {
+    position: relative;
+    border-radius: 8px;
+    height: 180px;
+    min-width: 296px;
+    max-width: 296px;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.6);
+      -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.6);
+      box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.6);
+    }
+
+    .image {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
+    }
+  }
+
+  .likeButton {
+    background: url(../../images/like-button.svg) no-repeat center;
+    background-size: 19.5px 19px;
+    width: 19.5px;
+    height: 19px;
+    top: 10px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  .likeButtonActive {
+    background: url(../../images/like-button_active.svg) no-repeat center;
+    background-size: 21.01px 20.25px;
+    width: 21.01px;
+    height: 20.25px;
+    top: 10px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  align-items: baseline;
+  max-width: 100%;
+  max-height: 48px;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: 500;
+  color: $smallTitleDarkGreyColor;
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  margin-top: 8px;
+  color: $purpleColor;
+  width: fit-content;
+  border-radius: 8px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: left;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $mainTextGreyColor;
+  white-space: wrap;
+  list-style-type: none;
+
+  .rowItem {
+    display: flex;
+    align-items: start;
+    gap: 4px;
+  }
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 296px;
+}
+
+.eventFigure {
+  display: flex;
+  align-items: center;
+  gap: 10.5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $mainTextGreyColor;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 321px) and (max-width: 1080px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+
+    .imageContainer {
+      min-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+  }
+
+  .rowContainer {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+  }
+
+  .price {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: $lightPurpleColor;
+    color: $lightBeigeColor;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+  }
+}

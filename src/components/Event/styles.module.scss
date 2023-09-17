@@ -1,0 +1,36 @@
+.eventContainer {
+  width: 100%;
+  padding: 64px 0 0;
+
+  .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .eventImage {
+    width: 100%;
+    max-width: 608px;
+    max-height: 390px;
+    object-fit: cover;
+    border-radius: 11px;
+    margin-right: 20px;
+  }
+}
+
+.listWrapper {
+  padding: 0 16px;
+}
+
+@media screen and (min-width: 321px) and (max-width: 992px) {
+  .main {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .eventImage {
+      border-radius: 0;
+      margin: 0;
+      min-height: 203px;
+      min-width: 100%;
+    }
+  }
+}

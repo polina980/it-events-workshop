@@ -1,0 +1,79 @@
+@import '../../scss/vars.scss';
+
+.eventDescription {
+  position: relative;
+  max-width: 48%;
+  margin-bottom: 150px;
+  padding: 0 20px;
+  cursor: default;
+
+  .eventHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: relative;
+
+    .eventName {
+      max-width: 504px;
+      margin-top: 0;
+      font-weight: 700;
+      line-height: 38.4px;
+      font-size: 32px;
+      color: $smallTitleDarkGreyColor;
+    }
+
+    .eventFigures {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      top: 8px;
+      right: -4px;
+
+      .eventFigure {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .eventDates {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 12px;
+    padding: 0;
+    color: $mainTextGreyColor;
+    margin: 2px 0 78px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    list-style-type: none;
+
+    .eventDate {
+      display: grid;
+      grid-template-columns: 24px auto;
+      gap: 5px;
+    }
+
+    .eventPrice {
+      color: $purpleColor;
+      font-weight: 500;
+      line-height: 25px;
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 992px) {
+  .eventDescription {
+    max-width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 0 16px;
+
+    .eventDates {
+      margin: 0 0 20px;
+    }
+  }
+}

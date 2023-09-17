@@ -1,0 +1,62 @@
+@import '../../scss/vars.scss';
+
+.primaryLink {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background-color: #674eae;
+  color: #f1f0eb;
+  border: 0;
+  border-radius: 8px;
+  width: fit-content;
+  height: 44px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    background-color: #443375;
+    transition: 0.3s ease-in-out;
+  }
+
+  &:active {
+    background-color: #291b51;
+  }
+}
+
+.primaryButton {
+  background: url('../../images/Arrows/arrow-right_gray.svg') no-repeat;
+  background-position-x: 80px;
+  background-position-y: center;
+  background-color: transparent;
+  color: $mainTextGreyColor;
+  border: 1px solid $mainTextGreyColor;
+  border-radius: 8px;
+  width: 123px;
+  min-height: 44px;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 24px;
+  cursor: pointer;
+  margin-top: 47px;
+  margin-left: auto;
+  
+  &:hover {
+    background: url('../../images/Arrows/arrow-right_violet.svg') no-repeat;
+    background-position-x: 80px;
+    background-position-y: center;
+    border: 1px solid $purpleColor;
+    color: $purpleColor;
+  }
+
+  &:active {
+    background: url('../../images/Arrows/arrow-right_white.svg') no-repeat;
+    background-position-x: 80px;
+    background-position-y: center;
+    border: 1px solid $purpleColor;
+    background-color: $purpleColor;
+    color: $whiteColor;
+  }
+}

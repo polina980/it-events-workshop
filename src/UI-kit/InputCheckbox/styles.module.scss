@@ -1,0 +1,36 @@
+@import '../../scss/vars.scss';
+
+.checkbox {
+  display: none;
+}
+
+.checkboxLabel {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  padding-left: 27px;
+  padding-bottom: 17px;
+  color: $mainTextGreyColor;
+  cursor: pointer;
+}
+
+.checkboxLabel:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid $mainTextGreyColor;
+  border-radius: 2px;
+}
+
+.checkboxLabel:hover:before {
+  border-color: $purpleColor;
+}
+
+.checkbox:checked+.checkboxLabel:before {
+  background: url("./../../images/Actions/check.svg") no-repeat;
+  background-position: center;
+  background-color: $purpleColor;
+  border-color: $purpleColor;
+}

@@ -1,0 +1,70 @@
+@import '../../scss/vars.scss';
+
+.radioButton {
+  display: flex;
+  color: $mainTextGreyColor;
+}
+
+.radioButton input[type="radio"] {
+  display: none;
+}
+
+.radioButton span {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 16px;
+  cursor: pointer;
+  color: $mainTextGreyColor;
+}
+
+.radioButton span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid $mainTextGreyColor;
+  border-radius: 50%;
+}
+
+.radioButton span:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f1f0eb;
+  display: none;
+}
+
+.radioButton input[type="radio"]:checked+span:before {
+  background-color: $purpleColor;
+  border-color: $purpleColor;
+}
+
+.radioButton input[type="radio"]:checked+span:after {
+  display: block;
+}
+
+.radioButton:hover span:before {
+  border-color: $purpleColor;
+}
+
+.pickdate {
+  display: none;
+  height: 34.39px;
+}
+
+.radioButton input[type="radio"]:checked~.pickdate {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 10px;
+  border: none;
+  color: $mainTextGreyColor;
+}
+
+.radioButton input[type="radio"]:checked~.radioText {
+  display: none;
+}
