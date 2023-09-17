@@ -7,7 +7,6 @@ import { FiltersProvider } from "./utils/context/SearchFilterContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <FiltersProvider>
-
-<App />
+        <App />
     </FiltersProvider>
 );

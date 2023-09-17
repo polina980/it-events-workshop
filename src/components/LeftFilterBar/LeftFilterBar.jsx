@@ -220,7 +220,7 @@ export const LeftFilterBar = () => {
                     <TagButton
                       key={index}
                       value={item}
-                      handleChange={handleButtonChange}
+                      onChange={handleButtonChange(item)}
                     // disabled={false}
                     />
                   );
