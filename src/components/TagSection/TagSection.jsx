@@ -5,7 +5,7 @@ import { apiEvents } from "../../utils/api";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 import PropTypes from 'prop-types'
 
-export const TagSection = ({ handleChange }) => {
+export const TagSection = ({ handleChange, fetchTags }) => {
   const [tags, setTags] = useState([]);
   const [showAllTags, setShowAllTags] = useState(false);
   const { values } = useFiltersContext()
@@ -15,16 +15,8 @@ export const TagSection = ({ handleChange }) => {
   }
 
   useEffect(() => {
-    const fetchTags = async () => {
-      try {
-        const response = await apiEvents.getTags();
-        setTags(response);
-      } catch (error) {
-        console.log("Error fetching tags:", error);
-      }
-    };
-    fetchTags();
-  }, []);
+    fetchTags().then(setTags);
+  }, [fetchTags]);
 
   const tagOptions = tags.map((tag) => ({
     value: tag.id,
@@ -44,9 +36,9 @@ export const TagSection = ({ handleChange }) => {
           .map((tag, index) => (
             <TagButton
               key={index}
-              values={values}
+              isEnabled={values.tags.includes(tag.label)}
               value={tag.label}
-              handleChange={handleChange}
+              onChange={handleChange(tag.label)}
             />
           ))}
       </div>
@@ -57,4 +49,14 @@ export const TagSection = ({ handleChange }) => {
       )}
     </>
   );
+};
+
+TagSection.propTypes = {
+  handleChange: PropTypes.func,
+  fetchTags: PropTypes.func
+};
+
+TagSection.defaultProps = {
+  // @todo: убрать отсюда и передать где надо
+  fetchTags: apiEvents.getTags
 };
