@@ -9,10 +9,7 @@ function useEvents() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
-  const [mostAnticipatedEvents, setMostAnticipatedEvents] = useState([]);
   const [popularEvents, setPopularEvents] = useState([]);
-  const [soonEvents, setSoonEvents] = useState([]);
-  const [interestingEvents, setInterestingEvents] = useState([]);
   const [favoriteEvents, setFavoriteEvents] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [recommendedEvents, setRecommendedEvents] = useState([]);
@@ -44,10 +41,7 @@ function useEvents() {
       const recommended = getRandomEvents([...upcomingEvents]);
       //console.log('Upcoming events:', upcomingEvents);
       setRecommendedEvents(recommended);
-      setMostAnticipatedEvents(upcomingEvents);
       setPopularEvents(upcomingEvents.slice(9, 24));
-      setInterestingEvents(upcomingEvents.slice(10, upcomingEvents.length - 1));
-      setSoonEvents(upcomingEvents.slice(0, 6));
       setSearchResult(upcomingEvents);
       setUpcomingEvents(upcomingEvents);
       localStorage.setItem("eventsData", JSON.stringify(upcomingEvents));
@@ -70,12 +64,12 @@ function useEvents() {
       }
     };
     fetchData();
-    // ОБНОВЛЕНИЕ СОБЫТИЙ С СЕРВЕРА КАЖДЫЕ 7 МИНУТ
+    // ОБНОВЛЕНИЕ СОБЫТИЙ С СЕРВЕРА КАЖДЫЕ 10 МИНУТ
     const interval = setInterval(() => {
       localStorage.removeItem("eventsData");
       console.log("Обновились данные");
       fetchData();
-    }, 600000);
+    }, 1000000);
     return () => {
       clearInterval(interval);
     };
@@ -133,10 +127,7 @@ function useEvents() {
 
   // Функция обновления массивов событий при изменении избранных
   useEffect(() => {
-    setMostAnticipatedEvents((prevEvents) => updateEvents(prevEvents));
     setPopularEvents((prevEvents) => updateEvents(prevEvents));
-    setSoonEvents((prevEvents) => updateEvents(prevEvents));
-    setInterestingEvents((prevEvents) => updateEvents(prevEvents));
     setSearchResult((prevEvents) => updateEvents(prevEvents));
     setRecommendedEvents((prevEvents) => updateEvents(prevEvents));
     //setEventsFromApi((prevEvents) => updateEvents(prevEvents));
@@ -204,11 +195,8 @@ function useEvents() {
   return {
     isLoading,
     recommendedEvents,
-    mostAnticipatedEvents,
     popularEvents,
-    interestingEvents,
     upcomingEvents,
-    soonEvents,
     searchResult,
     selectedEvent,
     setSelectedEvent,
