@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import { ReactComponent as ArrowUp } from '../../images/Arrows/arrow-up.svg';
@@ -24,15 +24,15 @@ export const FilterBar = ({ onFilter }) => {
     }
   };
 
-  useEffect(() => {
-    onFilter(activeFilter);
-  }, []);
-
   const filterOptions = [
     { label: 'Дата', value: 'date' },
     { label: 'Цена', value: 'price' },
     { label: 'Название', value: 'name' },
   ];
+
+  useEffect(() => {
+    onFilter(activeFilter);
+  }, []);
 
   return (
     <>
