@@ -28,7 +28,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "homepage": "./it-events-workshop/",
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",
