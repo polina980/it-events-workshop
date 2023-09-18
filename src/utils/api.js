@@ -1,5 +1,5 @@
 export const apiConfig = {
-  baseUrl: `http://80.87.107.15/api/v1`,
+  baseUrl: `https://it.acceleratorpracticum.ru/api/v1`,
   events: `/events/`,
   edit: `/users-events/`,
   topics: `/topics/`,
