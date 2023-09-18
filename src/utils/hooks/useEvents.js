@@ -4,9 +4,9 @@ import { apiEvents } from "../api";
 import { getCurrentEvents, getRandomEvents } from "../helperFunctions";
 
 function useEvents() {
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
   const [mostAnticipatedEvents, setMostAnticipatedEvents] = useState([]);
