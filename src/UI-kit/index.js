@@ -8,6 +8,7 @@ import PopupLink from "./PopupLink/PopupLink";
 import PageTitle from "./PageTitle/PageTitle";
 import Loader  from "./Loader/Loader";
 import TagButton from "./TagButton/TagButton";
+import { SearchField } from "./SearchField/SearchField";
 import { PaddingWrapper } from "./PaddingWrapper/PaddingWrapper";
 
 export {
@@ -15,6 +16,7 @@ export {
     InputRadio,
     InputDate,
     SearchInput,
+    SearchField,
     PrimaryButton,
     Loader,
     PageTitle,
