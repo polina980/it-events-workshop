@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
 
-import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
 import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { CardList } from '../../components/CardList/CardList';
-import { PageTitle, Loader, PaddingWrapper } from '../../UI-kit';
+import { PageTitle, Loader, SearchField, PaddingWrapper } from '../../UI-kit';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
 //import { useFilterdList } from '../../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
@@ -41,7 +40,7 @@ const SearchResultPage = () => {
     <div className={styles.page}>
       {isMobile ? (
         <>
-          <MobileSearch />
+          <SearchField />
           {isFiltersOpen ? (
             <LeftFilterBar />
           ) : (

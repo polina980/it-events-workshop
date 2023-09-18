@@ -4,9 +4,8 @@ import { useEventsContext } from '../../utils/context/EventsContext';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { CardList } from '../../components/CardList/CardList';
 import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
-import { MobileSearch } from '../../components/MobileSearch/MobileSearch';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
-import { Loader, PaddingWrapper } from '../../UI-kit';
+import { Loader, SearchField, PaddingWrapper } from '../../UI-kit';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 
 const MainPage = () => {
@@ -29,7 +28,7 @@ const MainPage = () => {
       <div className={styles.page}>
         {isMobile ? (
           <>
-            <MobileSearch />
+             <SearchField />
             {isFiltersOpen ? (
               <LeftFilterBar />
             ) : (
