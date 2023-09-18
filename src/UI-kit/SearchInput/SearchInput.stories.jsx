@@ -4,18 +4,31 @@ import './styles.module.scss';
 export default {
   title: 'UI-Kit/Input/SearchInput',
   component: SearchInput,
+  parameters: {
+    componentSubtitle: 'Применимость: Components / LeftFilterBar',
+    layout: 'centered'
+  },
   args: {
     name: '',
     value: 'Saint-Petersburg',
     placeholder: 'Find...',
-    onChange: () => {},
+    withForm: false
   },
+  argTypes: {
+    withForm: {
+      description: 'Boolean value for Submit by Enter'
+    },
+    onSubmit: {
+      description: 'Optional Submit handler / Works with withForm prop'
+    }
+  }
 };
 
 /** This is how it looks */
 export const Basic = (args) => (
-  <div style={{ padding: '2em', border: '2px dashed black' }}>
-   <h2>Применимость: Components / LeftFilterBar</h2>
-    <SearchInput {...args} />
-  </div>
+    <SearchInput {...args}/>
 );
+
+export const WithForm = (args) => (
+  <Basic {...args} withForm/>
+)

@@ -128,6 +128,7 @@ export const LeftFilterBar = () => {
             name='query'
             value={values.query}
             onChange={handleQueryChange}
+            onSubmit={(e) => e.preventDefault()}
           />
         </FiltersListItem>
 
@@ -154,6 +155,7 @@ export const LeftFilterBar = () => {
             name='city'
             value={values.city}
             onChange={handleInputChange}
+            onSubmit={(e) => e.preventDefault()}
           />
           {findValues && findValues.city && findValues.city !== '' && (
             <div className={styles.serchContainer}>
@@ -211,6 +213,7 @@ export const LeftFilterBar = () => {
             name='findTags'
             value={values.findTags}
             onChange={handleInputChange}
+            onSubmit={(e) => e.preventDefault()}
           />
           {findValues && findValues.findTags && findValues.findTags !== '' && (
             <div className={styles.serchContainer}>
