@@ -151,16 +151,26 @@ function useEvents() {
     });
   }
 
-  // RESERVE SearchEvents in reserveFuntions.js
+  // Фильтруем результаты по уникальным идентификаторам (id)
+  const filterUniqueEvents = (events, searchResults) => {
+    return events.filter((event) => {
+      return !searchResults.some((existEvent) => existEvent.id === event.id)
+    })
+  }
 
-  const handleSearch = async (request) => {
+  const handleSearch = async (requests) => {
     try {
       setIsLoading(true)
-      console.log(request)
-      setSearchQuery(request);
-      const response = await apiEvents.searchRequest(request)
-      const filteredResult = updateEvents(response);
-      setSearchResult(filteredResult);
+      const searchResults = []
+
+      for( const request of requests) {
+        setSearchQuery(request)
+        const response = await apiEvents.searchRequest(request)
+        const filteredResult = getCurrentEvents(response);
+        const uniqueResults = filterUniqueEvents(filteredResult, searchResults)
+        searchResults.push(...uniqueResults)
+      }
+      setSearchResult(searchResults);
       navigate("/results");
     } catch (error) {
       console.error("Ошибка при получении результатов поиска", error)
@@ -168,6 +178,22 @@ function useEvents() {
       setIsLoading(false)
     }
   };
+
+
+  // const handleSearch = async (request) => {
+  //   try {
+  //     setIsLoading(true)
+  //     const response = await apiEvents.searchRequest(request)
+  //     console.log(request)
+  //     const filteredResult = getCurrentEvents(response);
+  //     setSearchResult(filteredResult)
+  //     navigate("/results");
+  //   } catch (error) {
+  //     console.error("Ошибка при получении результатов поиска", error)
+  //   } finally {
+  //     setIsLoading(false)
+  //   }
+  // };
 
   const handleFilterSearch = () => {
     //setSearchQuery(query)

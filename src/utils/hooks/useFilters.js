@@ -28,6 +28,20 @@ const useFilters = () => {
     setValues(initialValues);
   };
 
+  const getValuesArray = () => {
+    const valuesArray = Object.values(values);
+    const stringValuesArray = valuesArray.reduce((acc, value) => {
+      if (typeof value === "string") {
+        acc.push(value);
+      } else if (Array.isArray(value)) {
+        const stringItems = value.filter((item) => typeof item === "string");
+        acc = acc.concat(stringItems);
+      }
+      return acc;
+    }, []);
+    return stringValuesArray;
+  };
+
   return {
     findValues,
     setFindValues,
@@ -36,7 +50,8 @@ const useFilters = () => {
     resetFilters,
     isFiltersOpen,
     toggleFilters,
-    closeFilters
+    closeFilters,
+    getValuesArray
   };
 };
 

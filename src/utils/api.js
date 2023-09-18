@@ -1,5 +1,5 @@
 export const apiConfig = {
-  baseUrl: `http://80.87.107.15/api/v1`,
+  baseUrl: `https://it.acceleratorpracticum.ru/api/v1`,
   events: `/events/`,
   edit: `/users-events/`,
   topics: `/topics/`,
@@ -78,50 +78,50 @@ class Api {
     );
   }
 
-  getUserEvents() {
-    const options = {
-      method: "GET",
-      headers: this._getHeaders(),
-    };
-    return fetch(this._makeUrl(this._userEvents), options).then(
-      this._handleResponse
-    );
-  }
+  // getUserEvents() {
+  //   const options = {
+  //     method: "GET",
+  //     headers: this._getHeaders(),
+  //   };
+  //   return fetch(this._makeUrl(this._userEvents), options).then(
+  //     this._handleResponse
+  //   );
+  // }
 
-  postNewEvent(data) {
-    const options = {
-      method: "POST",
-      headers: this._getHeaders(),
-      body: JSON.stringify(data),
-    };
-    return fetch(this._makeUrl(this._eventsEndpoint), options).then(
-      this._handleResponse
-    );
-  }
+  // postNewEvent(data) {
+  //   const options = {
+  //     method: "POST",
+  //     headers: this._getHeaders(),
+  //     body: JSON.stringify(data),
+  //   };
+  //   return fetch(this._makeUrl(this._eventsEndpoint), options).then(
+  //     this._handleResponse
+  //   );
+  // }
 
-  editEvent(id, data) {
-    const options = {
-      method: "PATCH",
-      headers: this._getHeaders(),
-      body: JSON.stringify(data),
-    };
-    return fetch(
-      this._makeUrl(this._editEventsEndpoint) + `${id}/`,
-      options
-    ).then(this._handleResponse);
-  }
+  // editEvent(id, data) {
+  //   const options = {
+  //     method: "PATCH",
+  //     headers: this._getHeaders(),
+  //     body: JSON.stringify(data),
+  //   };
+  //   return fetch(
+  //     this._makeUrl(this._editEventsEndpoint) + `${id}/`,
+  //     options
+  //   ).then(this._handleResponse);
+  // }
 
-  deleteEvent(data) {
-    const options = {
-      method: "DELETE",
-      headers: this._getHeaders(),
-      body: JSON.stringify(data),
-    };
-    return fetch(
-      this._makeUrl(this._userEvents) + `batch_delete/`,
-      options
-    ).then(this._handleResponse);
-  }
+  // deleteEvent(data) {
+  //   const options = {
+  //     method: "DELETE",
+  //     headers: this._getHeaders(),
+  //     body: JSON.stringify(data),
+  //   };
+  //   return fetch(
+  //     this._makeUrl(this._userEvents) + `batch_delete/`,
+  //     options
+  //   ).then(this._handleResponse);
+  // }
 
   getTopics() {
     const options = {
