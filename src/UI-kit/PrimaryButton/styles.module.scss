@@ -12,9 +12,9 @@
   height: 44px;
   padding: 10px 24px;
   font-size: 16px;
-  cursor: pointer;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     background-color: #443375;
@@ -27,34 +27,24 @@
 }
 
 .primaryButton {
-  background: url('../../images/Arrows/arrow-right_gray.svg') no-repeat;
-  background-position-x: 80px;
-  background-position-y: center;
   background-color: transparent;
   color: $mainTextGreyColor;
   border: 1px solid $mainTextGreyColor;
   border-radius: 8px;
-  width: 123px;
   min-height: 44px;
   font-size: 16px;
   text-align: left;
-  padding-left: 24px;
-  cursor: pointer;
+  padding: 0 34px;
   margin-top: 47px;
   margin-left: auto;
-  
+  cursor: pointer;
+
   &:hover {
-    background: url('../../images/Arrows/arrow-right_violet.svg') no-repeat;
-    background-position-x: 80px;
-    background-position-y: center;
     border: 1px solid $purpleColor;
     color: $purpleColor;
   }
 
   &:active {
-    background: url('../../images/Arrows/arrow-right_white.svg') no-repeat;
-    background-position-x: 80px;
-    background-position-y: center;
     border: 1px solid $purpleColor;
     background-color: $purpleColor;
     color: $whiteColor;
