@@ -2,17 +2,14 @@
 
 .container {
   display: flex;
-  width: 920px;
-  gap: 20px;
+  align-items: center;
+  max-width: 920px;
+  gap: 10px;
   flex-wrap: wrap;
   margin: 0 0 50px;
-}
-
-.countContainer {
   font-weight: 500;
   font-size: 20px;
   line-height: 125%;
-  align-self: center;
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -36,7 +33,7 @@
   }
 }
 
-.clearData {
+.resetButton {
   font-weight: 500;
   font-size: 12px;
   display: flex;
@@ -45,6 +42,8 @@
   color: $purpleColor;
   margin-left: 8px;
   cursor: pointer;
+  border: none;
+  background: none;
 
   &:hover {
     color: $darkPurpleColor;

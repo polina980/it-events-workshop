@@ -68,9 +68,8 @@ export const LeftFilterBar = () => {
     }
 
     return dateOptions.map((option) => (
-      <>
+      <div key={option.id}>
         <InputRadio
-          key={option.id}
           label={option.id}
           value={option.label}
           name='date'
@@ -84,7 +83,7 @@ export const LeftFilterBar = () => {
             <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
           )}
         </InputRadio>
-      </>
+      </div>
     ));
   };
 
@@ -220,8 +219,9 @@ export const LeftFilterBar = () => {
                     <TagButton
                       key={index}
                       value={item}
+                      //isEnabled={values.tags.includes(item.label)}
+                      //isEnabled={findValues.findTags.includes(item)}
                       onChange={handleButtonChange(item)}
-                    // disabled={false}
                     />
                   );
                 })}
@@ -231,7 +231,7 @@ export const LeftFilterBar = () => {
           <span className={styles.popularTags}>Популярные теги</span>
         </FiltersListItem>
       </ul>
-      <TagSection handleChange={handleButtonChange} />
+      <TagSection handleChange={handleButtonChange} tags={dataLists.allTags}/>
       <PrimaryButton onClick={handleSearchClick} title='Найти' />
     </m.section>
   );
