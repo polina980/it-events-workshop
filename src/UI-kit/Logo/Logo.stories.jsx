@@ -4,14 +4,22 @@ import './styles.module.scss';
 export default {
   title: 'UI-kit/Logo',
   component: Logo,
-  // argTypes: {
-
-  // }
+  argTypes: {
+    fontSize: {
+      description: 'Logo font size',
+    },
+    color: {
+      description: 'Logo color',
+    },
+    onClick: {
+      description: 'Logo click',
+    },
+  }
 }
 
 export const Basic = {
   args: {
-    onClick: () => { },
+
   }
 }
 
