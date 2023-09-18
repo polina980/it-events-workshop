@@ -5,13 +5,16 @@ import './styles.module.scss';
 export default {
   title: 'UI-kit/Overlay',
   component: Overlay,
-  // argTypes: {
-
-  // }
+  argTypes: {
+    onClose: {
+      type: 'function',
+      description: 'Close handler',
+    },
+  }
 }
 
 export const Basic = {
   args: {
-
+    onClose: () => { }
   }
 }

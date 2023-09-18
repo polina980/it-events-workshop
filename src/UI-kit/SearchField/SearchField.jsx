@@ -33,7 +33,7 @@ export const SearchField = () => {
           onSubmit={handleSubmit}
         />
       )}
-      <Menu onClick={toggleFilters} style={{cursor: 'pointer'}}/>
+      <Menu onClick={toggleFilters} style={{ cursor: 'pointer' }} />
     </div>
   );
 };

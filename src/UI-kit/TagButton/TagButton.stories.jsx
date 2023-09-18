@@ -1,24 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import TagButton from './TagButton';
 
 export default {
   title: 'UI-kit/TagButton',
   component: TagButton,
-  // argTypes: {
-
-  // },
   args: {
     value: 'TagButton'
   }
 }
-
-/*export const Basic = {
-  args: {
-    // values: '',
-    value: 'TagButton',
-    handleChange: () => { },
-  }
-}*/
 
 export const Basic = (props) => {
   const [state, setState] = useState(false);
