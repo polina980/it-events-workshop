@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const SearchInput = ({ withForm, name, value, placeholder, onChange, onSubmit }) => {
   return (
     <form onSubmit={onSubmit} style={{width: '100%'}}>
-
       <input
         onChange={onChange}
         name={name}
@@ -24,6 +23,8 @@ SearchInput.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  withForm: PropTypes.bool
 };
 
 export default SearchInput;
