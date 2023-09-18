@@ -153,14 +153,35 @@ function useEvents() {
 
   // RESERVE SearchEvents in reserveFuntions.js
 
+  // const handleSearch = async (requests) => {
+  //   try {
+  //     setIsLoading(true)
+  //     const searchResults = []
+
+  //     for( const request of requests) {
+  //       console.log(request)
+  //       setSearchQuery(request)
+  //       const response = await apiEvents.searchRequest(request)
+  //       const filteredResult = updateEvents(response);
+  //       searchResult.push(filteredResult)
+  //     }
+  //     setSearchResult(searchResults.flat());
+  //     navigate("/results");
+  //   } catch (error) {
+  //     console.error("Ошибка при получении результатов поиска", error)
+  //   } finally {
+  //     setIsLoading(false)
+  //   }
+  // };
+
+
   const handleSearch = async (request) => {
     try {
       setIsLoading(true)
-      console.log(request)
-      setSearchQuery(request);
       const response = await apiEvents.searchRequest(request)
+      console.log(request)
       const filteredResult = updateEvents(response);
-      setSearchResult(filteredResult);
+      setSearchResult(filteredResult)
       navigate("/results");
     } catch (error) {
       console.error("Ошибка при получении результатов поиска", error)

@@ -21,7 +21,7 @@ export const LeftFilterBar = () => {
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
   const { handleSearch } = useEventsContext();
-  const { values, setValues, findValues, setFindValues, closeFilters } =
+  const { values, setValues, findValues, setFindValues, closeFilters, getValuesArray } =
     useFiltersContext();
 
   const {
@@ -38,8 +38,11 @@ export const LeftFilterBar = () => {
     setFindValues,
   });
 
+  //console.log( values)
   const handleSearchClick = () => {
-    handleSearch(values.query);
+   
+    console.log(getValuesArray())
+    handleSearch(getValuesArray());
     closeFilters();
   };
 
