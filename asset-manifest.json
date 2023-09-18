@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.9aed0e7b.css",
-    "main.js": "./static/js/main.b2bfdce7.js",
+    "main.css": "./static/css/main.f1184055.css",
+    "main.js": "./static/js/main.91a001b2.js",
     "static/media/404.svg": "./static/media/404.10c3bba88182de9fddb1.svg",
     "static/media/github.svg": "./static/media/github.dfedf78257688ed330d4cb52c7c0442b.svg",
     "static/media/like-button.svg": "./static/media/like-button.54eaf9a0876753af1c8e51950d9e4ae7.svg",
@@ -17,18 +17,17 @@
     "index.html": "./index.html",
     "static/media/messenger.svg": "./static/media/messenger.22ee49b6eacbf7228a5f7a2e4a5143a1.svg",
     "static/media/copy-link.svg": "./static/media/copy-link.9f553005e9b8a0b0a340.svg",
+    "static/media/arrow-up.svg": "./static/media/arrow-up.acb651e81a841f4ec18162977bf5b506.svg",
+    "static/media/arrow-down.svg": "./static/media/arrow-down.d6ba924785bdc8b5d1638b261b9f9f12.svg",
     "static/media/calendar.svg": "./static/media/calendar.6965619dfa0b884ba3f9754324ec7ae2.svg",
     "static/media/email.svg": "./static/media/email.632d2279b5cdcd6ca4bb.svg",
     "static/media/check.svg": "./static/media/check.f3d021e1cd4d42c83d73.svg",
     "static/media/arrow-right.svg": "./static/media/arrow-right.f00d623f399cf74ac05610f07cbe4b7f.svg",
-    "static/media/arrow-right_gray.svg": "./static/media/arrow-right_gray.c26071d3c56a1bbd7283.svg",
-    "static/media/arrow-right_violet.svg": "./static/media/arrow-right_violet.0fb481249801d1dfeaa4.svg",
-    "static/media/arrow-right_white.svg": "./static/media/arrow-right_white.e929a059eb4ac7245416.svg",
-    "main.9aed0e7b.css.map": "./static/css/main.9aed0e7b.css.map",
-    "main.b2bfdce7.js.map": "./static/js/main.b2bfdce7.js.map"
+    "main.f1184055.css.map": "./static/css/main.f1184055.css.map",
+    "main.91a001b2.js.map": "./static/js/main.91a001b2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9aed0e7b.css",
-    "static/js/main.b2bfdce7.js"
+    "static/css/main.f1184055.css",
+    "static/js/main.91a001b2.js"
   ]
 }
