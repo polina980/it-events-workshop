@@ -40,8 +40,6 @@ export const LeftFilterBar = () => {
 
   //console.log( values)
   const handleSearchClick = () => {
-   
-    console.log(getValuesArray())
     handleSearch(getValuesArray());
     closeFilters();
   };

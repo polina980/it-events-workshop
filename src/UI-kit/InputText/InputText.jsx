@@ -1,16 +1,18 @@
 import styles from './styles.module.scss';
 
-const InputText = ({ name, value, placeholder, onChange }) => {
+const InputText = ({ withForm, name, value, placeholder, onChange, onSubmit }) => {
   return (
-    <input
-      onChange={onChange}
-      name={name}
-      type='text'
-      value={value || ''}
-      placeholder={placeholder}
-      className={styles.input}
-      autoComplete='off'
-    />
+    <form onSubmit={onSubmit} style={{width: '100%'}}>
+      <input
+        onChange={onChange}
+        name={name}
+        type='text'
+        value={value || ''}
+        placeholder={placeholder}
+        className={`${withForm ? styles.inputWithForm : styles.input}`}
+        autoComplete='off'
+      />
+    </form>
   );
 };
 
