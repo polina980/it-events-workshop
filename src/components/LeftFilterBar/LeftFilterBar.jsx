@@ -61,35 +61,47 @@ export const LeftFilterBar = () => {
 
   const renderDateOptions = () => {
     const dateOptions = [
-      { id: 'today', value: 'Today', label: 'Сегодня', filterFields: {
+      {
+        id: 'today', value: 'Today', label: 'Сегодня', filterFields: {
           date__gte: dayjs().format('YYYY-MM-DD'),
           date__lte: dayjs().format('YYYY-MM-DD')
-      }},
-      { id: 'tomorrow', value: 'Tomorrow', label: 'Завтра', filterFields: {
+        }
+      },
+      {
+        id: 'tomorrow', value: 'Tomorrow', label: 'Завтра', filterFields: {
           date__gte: dayjs().add(1, 'd').format('YYYY-MM-DD'),
           date__lte: dayjs().add(1, 'd').format('YYYY-MM-DD')
-      }},
-      { id: 'thisweekend', value: 'This weekend', label: 'В эти выходные', filterFields: {
+        }
+      },
+      {
+        id: 'thisweekend', value: 'This weekend', label: 'В эти выходные', filterFields: {
           date__gte: dayjs().weekday(6).format('YYYY-MM-DD'),
           date__lte: dayjs().weekday(7).format('YYYY-MM-DD')
-      }},
+        }
+      },
       { id: 'pickdate', value: 'Pick date', label: 'Выбрать дату' },
     ];
 
     if (showAllDates) {
       dateOptions.push(
-        { id: 'thisweek', value: 'This week', label: 'На этой неделе', filterFields: {
+        {
+          id: 'thisweek', value: 'This week', label: 'На этой неделе', filterFields: {
             date__gte: dayjs().format('YYYY-MM-DD'),
             date__lte: dayjs().weekday(7).format('YYYY-MM-DD')
-          }},
-        { id: 'thismonth', value: 'This month', label: 'В этом месяце', filterFields: {
+          }
+        },
+        {
+          id: 'thismonth', value: 'This month', label: 'В этом месяце', filterFields: {
             date__gte: dayjs().format('YYYY-MM-DD'),
             date__lte: dayjs().add(1, 'M').date(0).format('YYYY-MM-DD')
-          }},
-        { id: 'nextmonth', value: 'Next month', label: 'В следующем месяце', filterFields: {
+          }
+        },
+        {
+          id: 'nextmonth', value: 'Next month', label: 'В следующем месяце', filterFields: {
             date__gte: dayjs().add(2, 'M').date(1).format('YYYY-MM-DD'),
             date__lte: dayjs().add(2, 'M').date(0).format('YYYY-MM-DD')
-          } }
+          }
+        }
       );
     }
 
@@ -105,7 +117,7 @@ export const LeftFilterBar = () => {
           }
           onChange={(event) => {
             handleInputChange(event);
-            setFilters({ ...filters, ...option.filterFields});
+            setFilters({ ...filters, ...option.filterFields });
           }}
         >
           {option.id === 'pickdate' && (
@@ -293,7 +305,7 @@ export const LeftFilterBar = () => {
           <span className={styles.popularTags}>Популярные теги</span>
         </FiltersListItem>
       </ul>
-      <TagSection handleChange={handleButtonChange} tags={dataLists.allTags}/>
+      <TagSection handleChange={handleButtonChange} tags={dataLists.allTags} />
       <PrimaryButton onClick={handleSearchClick} title='Найти' />
     </m.section>
   );
