@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from './styles.module.scss';
-
 import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { CardList } from '../../components/CardList/CardList';
 import { PageTitle, Loader, SearchField, PaddingWrapper } from '../../UI-kit';

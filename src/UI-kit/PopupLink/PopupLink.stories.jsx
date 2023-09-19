@@ -16,7 +16,7 @@ export default {
 
 export const Basic = {
   args: {
-    top: "",
-    right: "",
+    top: '0',
+    right: '',
   }
 }

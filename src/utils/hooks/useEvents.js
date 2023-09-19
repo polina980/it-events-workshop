@@ -146,7 +146,7 @@ function useEvents() {
     return events.filter((event) => {
       return !searchResults.some((existEvent) => existEvent.id === event.id)
     })
-  }
+  };
 
   const handleSearch = async (filters) => {
     try {
@@ -167,7 +167,6 @@ function useEvents() {
       setIsLoading(false)
     }
   };
-
 
   // const handleSearch = async (request) => {
   //   try {

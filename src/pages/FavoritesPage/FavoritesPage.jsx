@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { parsePrice } from '../../utils/helperFunctions';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { CardList } from '../../components/CardList/CardList';
-import { FilterBar } from '../../components/FilterBar/FilterBar';
+import { SortBar } from '../../components/SortBar/SortBar';
 import { Loader, PrimaryButton, PaddingWrapper, PageTitle } from '../../UI-kit';
 
 const FavoritesPage = () => {
@@ -80,7 +80,7 @@ const FavoritesPage = () => {
             subtitle='Сохраненные мероприятия'
             size='48px'
           />
-          <FilterBar onFilter={handleFilter} />
+          <SortBar onSort={handleFilter} />
           {noEvents && (
             <div className={styles.favoritesContainer}>
               <h3 className={styles.favoritesText}>Список пуст</h3>
