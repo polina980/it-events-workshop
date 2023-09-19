@@ -1,12 +1,12 @@
 import {
-  Route,
-  createHashRouter,
-  createRoutesFromElements,
+    Route,
+    createBrowserRouter,
+    createRoutesFromElements,
 } from "react-router-dom";
 import { Layout } from "./Layout/Layout";
 import * as page from "./pages";
 
-const router = createHashRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<page.MainPage />} />

@@ -5,10 +5,6 @@ import { ReactComponent as ArrowUp } from '../../images/Arrows/arrow-up.svg';
 import { ReactComponent as ArrowDown } from '../../images/Arrows/arrow-down.svg';
 
 export const FilterBar = ({ onFilter }) => {
-  FilterBar.propTypes = {
-    onFilter: PropTypes.func,
-  };
-
   const [activeFilter, setActiveFilter] = useState('date');
   const [arrowDirection, setArrowDirection] = useState('up');
 
@@ -60,4 +56,8 @@ export const FilterBar = ({ onFilter }) => {
       <div className={styles.divider}></div>
     </>
   );
+};
+
+FilterBar.propTypes = {
+  onFilter: PropTypes.func,
 };

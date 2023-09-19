@@ -21,8 +21,7 @@ function useEvents() {
       try {
         setIsLoading(true);
         const data = await apiEvents.getEvents();
-        const newData = data;
-        updateEventArrays(newData);
+        updateEventArrays(data);
       } catch (error) {
         console.error("Ошибка при выполнении запроса:", error);
       } finally {
@@ -149,19 +148,17 @@ function useEvents() {
     })
   }
 
-  const handleSearch = async (requests) => {
+  const handleSearch = async (filters) => {
     try {
       setIsLoading(true)
-      const searchResults = []
-
-      for( const request of requests) {
-        setSearchQuery(request)
-        const response = await apiEvents.searchRequest(request)
-        const filteredResult = getCurrentEvents(response);
-        const uniqueResults = filterUniqueEvents(filteredResult, searchResults)
-        searchResults.push(...uniqueResults)
+      const request = new URLSearchParams();
+      for (const filterName in filters) {
+        request.set(filterName, filters[filterName]);
       }
-      setSearchResult(searchResults);
+
+      const response = await apiEvents.searchRequest('?' + request.toString())
+      const filteredResult = getCurrentEvents(response);
+      setSearchResult(filteredResult);
       navigate("/results");
     } catch (error) {
       console.error("Ошибка при получении результатов поиска", error)

@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./styles.module.scss";
 import { TagButton } from '../../UI-kit';
-//import { apiEvents } from "../../utils/api";
 import { useFiltersContext } from "../../utils/context/SearchFilterContext";
 import PropTypes from 'prop-types'
 
 export const TagSection = ({ handleChange, tags }) => {
-  //const [tags, setTags] = useState([]);
   const [showAllTags, setShowAllTags] = useState(false);
   const { values } = useFiltersContext()
 
@@ -15,11 +13,7 @@ export const TagSection = ({ handleChange, tags }) => {
     tags: PropTypes.array
   }
 
-  // useEffect(() => {
-  //   fetchTags().then(setTags);
-  // }, [fetchTags]);
-
-  const tagOptions = tags?.map((tag) => ({
+  const tagOptions = tags.map((tag) => ({
     value: tag.id,
     label: tag.name,
     slug: tag.slug,
@@ -53,12 +47,15 @@ export const TagSection = ({ handleChange, tags }) => {
   );
 };
 
-// TagSection.propTypes = {
-//   handleChange: PropTypes.func,
-//   fetchTags: PropTypes.func
-// };
+TagSection.propTypes = {
+  handleChange: PropTypes.func,
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    slug: PropTypes.string
+  }))
+};
 
-// TagSection.defaultProps = {
-//   // @todo: убрать отсюда и передать где надо
-//   fetchTags: apiEvents.getTags
-// };
+TagSection.defaultProps = {
+  tags: []
+};

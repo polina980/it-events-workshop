@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import { Card } from "../Card/Card";
 
 export const CardList = ({ title, events, listDirection, cardDirection, style }) => {
-
-  CardList.propTypes = {
-    title: PropTypes.string,
-    events: PropTypes.array,
-    listDirection: PropTypes.string,
-    cardDirection: PropTypes.string,
-    style: PropTypes.object
-  }
   return (
     <section className={styles.section}>
       {title && (
@@ -30,3 +22,11 @@ export const CardList = ({ title, events, listDirection, cardDirection, style })
     </section>
   );
 };
+
+CardList.propTypes = {
+    title: PropTypes.string,
+    events: PropTypes.array,
+    listDirection: PropTypes.string,
+    cardDirection: PropTypes.string,
+    style: PropTypes.object
+}

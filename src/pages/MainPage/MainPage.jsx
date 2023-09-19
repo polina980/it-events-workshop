@@ -39,7 +39,6 @@ const MainPage = () => {
           <>
             <LeftFilterBar />
             <div>
-              <TopFilterBar />
               <CardList events={upcomingEvents} />
             </div>
           </>

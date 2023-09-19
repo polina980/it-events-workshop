@@ -1,5 +1,4 @@
-import styles from './styles.module.scss';
-import { ReactComponent as Menu } from '../../images/menu.svg';
+import {SearchField} from "./SearchField";
 
 export default {
   title: 'Components/SearchFieldGroup',
@@ -15,7 +14,6 @@ const StoryWrapper = ({ children }) => (
       alignItems: 'center',
       justifyContent: 'space-between',
       maxWidth: '650px',
-      border: '2px dashed black',
       padding: '2em',
     }}
   >
@@ -23,32 +21,11 @@ const StoryWrapper = ({ children }) => (
   </div>
 );
 
-const SearchField = () => (
-  <form className={styles.form}>
-    <input
-      className={styles.formInput}
-      placeholder='Разработка'
-      type='text'
-      autoComplete='off'
-    />
-  </form>
-);
-
-/** Применимость: Pages > DesctopResolution */
-export const DesctopSearch = () => {
+/** Применимость: Pages > DesktopResolution */
+export const DesktopSearch = () => {
   return (
     <StoryWrapper>
       <SearchField />
-    </StoryWrapper>
-  );
-};
-
-/** Применимость: Pages > MobileResolution */
-export const MobileSearch = () => {
-  return (
-    <StoryWrapper>
-      <SearchField />
-      <Menu />
     </StoryWrapper>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
-import { tabs } from "./../../utils/constants/tabs";
+import { tabs } from "../../utils/constants/tabs";
 import PropTypes from 'prop-types'
 
 export const DescriptionTabs = ({ selectedEvent }) => {

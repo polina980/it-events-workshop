@@ -5,7 +5,6 @@ import { LeftFilterBar } from '../../components/LeftFilterBar/LeftFilterBar';
 import { CardList } from '../../components/CardList/CardList';
 import { PageTitle, Loader, SearchField, PaddingWrapper } from '../../UI-kit';
 import { TopFilterBar } from '../../components/TopFilterBar/TopFilterBar';
-//import { useFilterdList } from '../../utils/hooks/useFilteredList';
 import { useFiltersContext } from '../../utils/context/SearchFilterContext';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
@@ -13,7 +12,7 @@ import useIsMobileResolution from '../../utils/hooks/useIsMobileResolution';
 const SearchResultPage = () => {
   const { values, isFiltersOpen } = useFiltersContext();
   const { popularEvents, searchResult, isLoading } = useEventsContext();
-  //const { filteredList } = useFilterdList({ values, searchResult });
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const isNothingFind = !searchResult || searchResult.length === 0;

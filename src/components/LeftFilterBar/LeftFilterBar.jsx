@@ -1,8 +1,11 @@
 import { useState, useCallback } from 'react';
+import * as dayjs from "dayjs";
+import weekday from 'dayjs/plugin/weekday';
+
 import { motion as m } from 'framer-motion';
 import { filtersVariants } from '../../utils/motion';
 import styles from './styles.module.scss';
-import { TagSection } from './../TagSection/TagSection';
+import { TagSection } from '../TagSection/TagSection';
 import { useFilter } from '../../utils/hooks/useFilter';
 import { useEventsContext } from '../../utils/context/EventsContext';
 import { useInitialFilter } from '../../utils/hooks/useInitialFilter';
@@ -16,12 +19,14 @@ import {
   TagButton,
 } from '../../UI-kit';
 
+dayjs.extend(weekday);
+
 export const LeftFilterBar = () => {
   const [showAllDates, setShowAllDates] = useState(false);
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
   const { handleSearch } = useEventsContext();
-  const { values, setValues, findValues, setFindValues, closeFilters, getValuesArray } =
+  const { values, setValues, findValues, setFindValues, closeFilters, getValuesArray, filters, setFilters, getFilterValues } =
     useFiltersContext();
 
   const {
@@ -40,7 +45,7 @@ export const LeftFilterBar = () => {
 
   //console.log( values)
   const handleSearchClick = () => {
-    handleSearch(getValuesArray());
+    handleSearch(getFilterValues());
     closeFilters();
   };
 
@@ -54,17 +59,35 @@ export const LeftFilterBar = () => {
 
   const renderDateOptions = () => {
     const dateOptions = [
-      { id: 'today', value: 'Today', label: 'Сегодня' },
-      { id: 'tomorrow', value: 'Tomorrow', label: 'Завтра' },
-      { id: 'thisweekend', value: 'This weekend', label: 'В эти выходные' },
+      { id: 'today', value: 'Today', label: 'Сегодня', filterFields: {
+          date__gte: dayjs().format('YYYY-MM-DD'),
+          date__lte: dayjs().format('YYYY-MM-DD')
+      }},
+      { id: 'tomorrow', value: 'Tomorrow', label: 'Завтра', filterFields: {
+          date__gte: dayjs().add(1, 'd').format('YYYY-MM-DD'),
+          date__lte: dayjs().add(1, 'd').format('YYYY-MM-DD')
+      }},
+      { id: 'thisweekend', value: 'This weekend', label: 'В эти выходные', filterFields: {
+          date__gte: dayjs().weekday(6).format('YYYY-MM-DD'),
+          date__lte: dayjs().weekday(7).format('YYYY-MM-DD')
+      }},
       { id: 'pickdate', value: 'Pick date', label: 'Выбрать дату' },
     ];
 
     if (showAllDates) {
       dateOptions.push(
-        { id: 'thisweek', value: 'This week', label: 'На этой неделе' },
-        { id: 'thismonth', value: 'This month', label: 'В этом месяце' },
-        { id: 'nextmonth', value: 'Next month', label: 'В следующем месяце' }
+        { id: 'thisweek', value: 'This week', label: 'На этой неделе', filterFields: {
+            date__gte: dayjs().format('YYYY-MM-DD'),
+            date__lte: dayjs().weekday(7).format('YYYY-MM-DD')
+          }},
+        { id: 'thismonth', value: 'This month', label: 'В этом месяце', filterFields: {
+            date__gte: dayjs().format('YYYY-MM-DD'),
+            date__lte: dayjs().add(1, 'M').date(0).format('YYYY-MM-DD')
+          }},
+        { id: 'nextmonth', value: 'Next month', label: 'В следующем месяце', filterFields: {
+            date__gte: dayjs().add(2, 'M').date(1).format('YYYY-MM-DD'),
+            date__lte: dayjs().add(2, 'M').date(0).format('YYYY-MM-DD')
+          } }
       );
     }
 
@@ -78,10 +101,20 @@ export const LeftFilterBar = () => {
             option.label.includes(values.date) ||
             (option.label === 'Выбрать дату' && !isNaN(Date.parse(values.date)))
           }
-          onChange={handleInputChange}
+          onChange={(event) => {
+            handleInputChange(event);
+            setFilters({ ...filters, ...option.filterFields});
+          }}
         >
           {option.id === 'pickdate' && (
-            <InputDate onChange={handleDateChange} onBlur={handleDateBlur} />
+            <InputDate onChange={(event) => {
+              handleDateChange(event);
+              setFilters({
+                ...filters,
+                date__gte: dayjs(event.currentTarget.value).subtract(1, 'd').format('YYYY-MM-DD'),
+                date__lte: dayjs(event.currentTarget.value).add(1, 'd').format('YYYY-MM-DD')
+              });
+            }} onBlur={handleDateBlur} />
           )}
         </InputRadio>
       </div>
@@ -127,7 +160,10 @@ export const LeftFilterBar = () => {
             placeholder='Разработка'
             name='query'
             value={values.query}
-            onChange={handleQueryChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, q: event.target.value });
+            }}
             onSubmit={(e) => e.preventDefault()}
           />
         </FiltersListItem>
