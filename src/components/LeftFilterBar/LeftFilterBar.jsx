@@ -270,7 +270,11 @@ export const LeftFilterBar = () => {
             placeholder='Поиск тега'
             name='findTags'
             value={values.findTags}
-            onChange={handleInputChange}
+            //onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, tag: event.target.value });
+            }}
             onSubmit={(e) => e.preventDefault()}
           />
           {findValues && findValues.findTags && findValues.findTags !== '' && (
