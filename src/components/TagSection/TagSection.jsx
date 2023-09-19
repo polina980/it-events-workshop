@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 export const TagSection = ({ handleChange, tags }) => {
   const [showAllTags, setShowAllTags] = useState(false);
-  const { values } = useFiltersContext()
+  const { values, filters, setFilters } = useFiltersContext()
 
   TagSection.propTypes = {
     handleChange: PropTypes.func,
@@ -22,6 +22,7 @@ export const TagSection = ({ handleChange, tags }) => {
   const toggleShowAllTags = () => {
     setShowAllTags(!showAllTags);
   };
+  
 
   return (
     tags &&
