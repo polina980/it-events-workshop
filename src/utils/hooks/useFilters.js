@@ -37,9 +37,13 @@ const useFilters = () => {
     setIsFiltersOpen(false)
   }
 
-  const resetFilters = () => {
+  const resetValues = () => {
     setValues(initialValues);
   };
+
+  const resetFilters = () => {
+    setFilters({})
+  }
 
   const getValuesArray = () => {
     return Object.values(values).reduce((acc, value) => {
@@ -62,6 +66,7 @@ const useFilters = () => {
     filters,
     setFilters,
     resetFilters,
+    resetValues,
     isFiltersOpen,
     toggleFilters,
     closeFilters,

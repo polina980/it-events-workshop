@@ -153,11 +153,12 @@ function useEvents() {
       setIsLoading(true)
       const request = new URLSearchParams();
       for (const filterName in filters) {
+        console.log(filters)
         request.set(filterName, filters[filterName]);
       }
 
       const response = await apiEvents.searchRequest('?' + request.toString())
-      const filteredResult = getCurrentEvents(response);
+      const filteredResult = getCurrentEvents(updateEvents(response));
       setSearchResult(filteredResult);
       navigate("/results");
     } catch (error) {

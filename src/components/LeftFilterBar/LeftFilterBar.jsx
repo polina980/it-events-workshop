@@ -26,7 +26,7 @@ export const LeftFilterBar = () => {
   const [showAllTopics, setShowAllTopics] = useState(false);
   const { dataLists } = useInitialFilter();
   const { handleSearch } = useEventsContext();
-  const { values, setValues, findValues, setFindValues, closeFilters, getValuesArray, filters, setFilters, getFilterValues } =
+  const { values, setValues, findValues, setFindValues, closeFilters, getValuesArray, filters, setFilters, getFilterValues, resetValues, resetFilters } =
     useFiltersContext();
 
   const {
@@ -47,6 +47,8 @@ export const LeftFilterBar = () => {
   const handleSearchClick = () => {
     handleSearch(getFilterValues());
     closeFilters();
+    resetValues();
+    resetFilters();
   };
 
   const toggleShowAllDates = () => {
@@ -174,14 +176,22 @@ export const LeftFilterBar = () => {
             value='Online'
             name='status'
             checked={values.status.includes('Online')}
-            onChange={handleInputChange}
+            // onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, formats: event.target.value.toLowerCase() });
+            }}
           />
           <InputCheckbox
             label='offline'
             value='Offline'
             name='status'
             checked={values.status.includes('Offline')}
-            onChange={handleInputChange}
+            //onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, formats: event.target.value.toLowerCase() });
+            }}
           />
         </FiltersListItem>
 
@@ -190,7 +200,11 @@ export const LeftFilterBar = () => {
             placeholder='Поиск города'
             name='city'
             value={values.city}
-            onChange={handleInputChange}
+            //onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, city__name: event.target.value.toLowerCase() });
+            }}
             onSubmit={(e) => e.preventDefault()}
           />
           {findValues && findValues.city && findValues.city !== '' && (
@@ -232,14 +246,22 @@ export const LeftFilterBar = () => {
             value='Бесплатно'
             name='price'
             checked={values.price === 'Бесплатно'}
-            onChange={handleInputChange}
+            //onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, price__lte: 0 });
+            }}
           />
           <InputRadio
             label='paid'
             value='Платно'
             name='price'
             checked={values.price === 'Платно'}
-            onChange={handleInputChange}
+            //onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, price__gte: 1 });
+            }}
           />
         </FiltersListItem>
 
