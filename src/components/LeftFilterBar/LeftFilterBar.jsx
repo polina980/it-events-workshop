@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import * as dayjs from "dayjs";
 import weekday from 'dayjs/plugin/weekday';
-
 import { motion as m } from 'framer-motion';
 import { filtersVariants } from '../../utils/motion';
 import styles from './styles.module.scss';
@@ -188,7 +187,6 @@ export const LeftFilterBar = () => {
             value='Online'
             name='status'
             checked={values.status.includes('Online')}
-            // onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, formats: event.target.value.toLowerCase() });
@@ -199,7 +197,6 @@ export const LeftFilterBar = () => {
             value='Offline'
             name='status'
             checked={values.status.includes('Offline')}
-            //onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, formats: event.target.value.toLowerCase() });
@@ -212,7 +209,6 @@ export const LeftFilterBar = () => {
             placeholder='Поиск города'
             name='city'
             value={values.city}
-            //onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, city__name: event.target.value.toLowerCase() });
@@ -258,7 +254,6 @@ export const LeftFilterBar = () => {
             value='Бесплатно'
             name='price'
             checked={values.price === 'Бесплатно'}
-            //onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, price__lte: 0 });
@@ -269,7 +264,6 @@ export const LeftFilterBar = () => {
             value='Платно'
             name='price'
             checked={values.price === 'Платно'}
-            //onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, price__gte: 1 });
@@ -282,7 +276,10 @@ export const LeftFilterBar = () => {
             placeholder='Поиск тега'
             name='findTags'
             value={values.findTags}
-            onChange={handleInputChange}
+            onChange={(event) => {
+              handleQueryChange(event);
+              setFilters({ ...filters, tag: event.target.value });
+            }}
             onSubmit={(e) => e.preventDefault()}
           />
           {findValues && findValues.findTags && findValues.findTags !== '' && (
