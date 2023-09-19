@@ -210,7 +210,7 @@ export const LeftFilterBar = () => {
             name='city'
             value={values.city}
             onChange={(event) => {
-              handleQueryChange(event);
+              handleInputChange(event);
               setFilters({ ...filters, city__name: event.target.value.toLowerCase() });
             }}
             onSubmit={(e) => e.preventDefault()}
@@ -221,7 +221,7 @@ export const LeftFilterBar = () => {
                 return (
                   <button
                     key={index}
-                    onClick={() => setItemOnClick({ city: item })}
+                    onClick={() => {setItemOnClick({ city: item }); setFilters({ ...filters, city__name: item})}}
                     className={styles.findItem}
                   >
                     {item}
@@ -276,6 +276,7 @@ export const LeftFilterBar = () => {
             placeholder='Поиск тега'
             name='findTags'
             value={values.findTags}
+            //onChange={handleInputChange}
             onChange={(event) => {
               handleQueryChange(event);
               setFilters({ ...filters, tag: event.target.value });
@@ -292,7 +293,7 @@ export const LeftFilterBar = () => {
                       value={item}
                       //isEnabled={values.tags.includes(item.label)}
                       //isEnabled={findValues.findTags.includes(item)}
-                      onChange={handleButtonChange(item)}
+                      onChange={() => {handleButtonChange(item);  setFilters({ ...filters, tag: item });}}
                     />
                   );
                 })}
